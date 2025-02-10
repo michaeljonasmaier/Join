@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "join-8ad31": {
+      "hosting": {
+        "join": [
+          "join-8ad31"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "join-8ad31"
+  }
+}
