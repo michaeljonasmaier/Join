@@ -1,0 +1,10 @@
+<section>
+    @for (contactItem of getList(); track $index) {
+    <div class="contact-item">
+        <span>{{contactItem.name}} {{contactItem.surname}}</span>
+        <span>{{contactItem.email}}</span>
+        <span>{{contactItem.phone}}</span>
+    </div>
+    }
+
+</section>
