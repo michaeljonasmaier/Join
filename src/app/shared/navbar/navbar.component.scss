@@ -1,0 +1,24 @@
+@import '../../../styles.scss';
+
+nav{
+    height: calc(100vh - 128px);
+    position: sticky;
+    width: 200px;
+}
+
+.navbar-content{
+    background-color: $main_grey;
+    @include dFlex(column, space-between, center);
+    height: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.navbar-imprint{
+    @include dFlex(column, flex-start, flex-start);
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
