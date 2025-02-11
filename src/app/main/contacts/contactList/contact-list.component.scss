@@ -1,0 +1,10 @@
+@import '../../../../styles.scss';
+
+section{
+    color: black;
+}
+
+.contact-item{
+    @include dFlex(column, flex-start, flex-start);
+    padding: 20px;
+}
