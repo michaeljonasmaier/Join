@@ -11,17 +11,20 @@ section {
     width: 352px;
     gap: 35px;
     border-radius: 10px;
-    >div{
+
+    >div {
         @include dFlex(column, center, flex-start);
+        gap: 5px;
         >.name {
             font-size: 20px;
         }
-    
+
         >.mail {
             font-size: 16px;
             color: #007CEE;
         }
     }
+
     >.initials {
         @include dFlex(column, center, center);
         border: 1px solid white;
@@ -31,7 +34,7 @@ section {
         color: white;
     }
 
-    &:hover{
+    &:hover {
         background-color: #f1f1f1;
         cursor: pointer;
     }
@@ -45,4 +48,14 @@ section {
     >button {
         width: 100%;
     }
+}
+
+.letter-div {
+    border-bottom: solid 1px rgb(207, 207, 207);
+    font-size: 20px;
+    color: black;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    margin: 20px;
+
 }

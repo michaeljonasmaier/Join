@@ -5,8 +5,11 @@
     <div>
         @for (contactItem of getSortedList(); track $index) {
 
-       
-
+            @if(hasLetterChanged(getFirstLetter(contactItem.name))){
+                <div class="letter-div">
+                    <span>{{ getFirstLetter(contactItem.name) }}</span>
+                </div>     
+            }
             <div class="contact-item">
                 <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
                     <span>

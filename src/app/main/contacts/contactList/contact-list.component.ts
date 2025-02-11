@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class ContactListComponent {
   bgColors = ["#D72638", "#F46036", "#F3A712", "#5B8E7D", "#3A86FF", "#8338EC", "#FF006E", "#2EC4B6", "#EF476F", "#06D6A0"];
   contactList: Contact [] = [];
+  previousLetter: string = '';
 
   constructor(private contactsService: FirebaseContactsService) {
 
@@ -38,6 +39,12 @@ export class ContactListComponent {
 
   getFirstLetter(name: string){
     return name.slice(0, 1);
+  }
+
+  hasLetterChanged(currentLetter: string): boolean {
+    let hasChanged = currentLetter !== this.previousLetter;
+    this.previousLetter = currentLetter; // Update the previous letter
+    return hasChanged;
   }
 
 }
