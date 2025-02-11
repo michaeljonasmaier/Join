@@ -9,7 +9,9 @@ section{
         @include dFlex(column, flex-start, space-between);
         height: 100%;
         >.main-content{
-            overflow-y: scroll;
+            display: flex;
+            flex: 1;
+            overflow: hidden;
         }
     }
 }
