@@ -6,6 +6,10 @@ section{
     height: 100vh;
     >.header-content-wrapper{
         flex: 1;
-        @include dFlex(column, flex-start, space-between);     
+        @include dFlex(column, flex-start, space-between);
+        height: 100%;
+        >.main-content{
+            overflow-y: scroll;
+        }
     }
 }
