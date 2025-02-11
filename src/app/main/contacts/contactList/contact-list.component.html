@@ -1,8 +1,8 @@
 <section>
     <div class="new-contact-btn-div">
-        <button>Add new Contact</button>
+        <app-join-btn title="Add new contact" imgPath="assets/contacts/person_add.png" style="width: 100%;"></app-join-btn>
     </div>
-    <div>
+    <div class="contact-item-list">
         @for (contactItem of getSortedList(); track $index) {
 
             @if(hasLetterChanged(getFirstLetter(contactItem.name))){
