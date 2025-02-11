@@ -1,11 +1,48 @@
 @import '../../../../styles.scss';
 
-section{
+section {
     color: black;
-    width: 200px;
+    padding: 30px 24px 30px 24px;
 }
 
-.contact-item{
-    @include dFlex(column, flex-start, flex-start);
+.contact-item {
+    @include dFlex(row, flex-start, center);
     padding: 20px;
+    width: 352px;
+    gap: 35px;
+    border-radius: 10px;
+    >div{
+        @include dFlex(column, center, flex-start);
+        >.name {
+            font-size: 20px;
+        }
+    
+        >.mail {
+            font-size: 16px;
+            color: #007CEE;
+        }
+    }
+    >.initials {
+        @include dFlex(column, center, center);
+        border: 1px solid white;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        color: white;
+    }
+
+    &:hover{
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+}
+
+.new-contact-btn-div {
+    position: sticky;
+    top: 0;
+    @include dFlex();
+
+    >button {
+        width: 100%;
+    }
 }

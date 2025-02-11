@@ -1,10 +1,25 @@
 <section>
-    @for (contactItem of getList(); track $index) {
-    <div class="contact-item">
-        <span>{{contactItem.name}} {{contactItem.surname}}</span>
-        <span>{{contactItem.email}}</span>
-        <span>{{contactItem.phone}}</span>
+    <div class="new-contact-btn-div">
+        <button>Add new Contact</button>
     </div>
-    }
+    <div>
+        @for (contactItem of getSortedList(); track $index) {
+
+       
+
+            <div class="contact-item">
+                <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
+                    <span>
+                        {{getInitials(contactItem.name, contactItem.surname)}}
+                     </span>
+                </div>
+                <div>
+                    <span class="name">{{contactItem.name}} {{contactItem.surname}}</span>
+                    <span class="mail">{{contactItem.email}}</span>
+                </div>
+            </div>
+            }
+    </div>
+    
 
 </section>
