@@ -6,7 +6,7 @@ section {
 }
 
 .contact-item-list{
-    z-index: -20;
+    z-index: 5;
     position: relative;
 }
 
@@ -48,6 +48,7 @@ section {
 .new-contact-btn-div {
     position: sticky;
     background-color: white;
+    z-index: 8;
     top: 0px;
     width: 100%;
     @include dFlex();
