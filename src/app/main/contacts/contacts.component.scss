@@ -1,4 +1,8 @@
-:host{
-    overflow-y: auto;
+@import '../../../styles.scss';
+
+
+
+section{
+    @include dFlex(row, center, flex-start);
 }
 
