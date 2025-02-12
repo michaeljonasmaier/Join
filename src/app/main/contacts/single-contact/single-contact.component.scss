@@ -8,12 +8,11 @@ $hover-grey: #D1D1D1;
     height: 60%;
     left: 10%;
     position: absolute;
-    border: solid;
-    border-color: black;
     border-radius: 10px;
     transition: transform 0.5s ease-in-out;
     transform: translateX(150%);
     z-index: 10;
+    overflow: hidden;
 
     .folder-info{
         color: white;

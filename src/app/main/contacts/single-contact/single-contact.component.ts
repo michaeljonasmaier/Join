@@ -1,11 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
 import { FormsModule } from '@angular/forms';
+import { GreyBackgroundComponent } from '../../../shared/grey-background/grey-background.component';
 
 @Component({
   selector: 'app-single-contact',
   standalone: true,
-  imports: [JoinBtnComponent, FormsModule],
+  imports: [JoinBtnComponent, FormsModule, GreyBackgroundComponent],
   templateUrl: './single-contact.component.html',
   styleUrl: './single-contact.component.scss'
 })
@@ -21,14 +22,15 @@ export class SingleContactComponent {
   closeInfo(){
     this.isHidden = true;
     this.moveWindow();
+    this.changeBg();
   }
   openInfo(){
     this.isHidden = false;
     this.moveWindow();
+    this.changeBg();
   }
 
   moveWindow(){
-    console.log('moved');
     let window = document.getElementById('add-contact');
     if (!window) return;
     window.style.transform = this.isHidden ? 'translateX(150%)' : 'translateX(0)';
@@ -50,6 +52,13 @@ export class SingleContactComponent {
 
     console.log('New contact:', newContact);
     this.cleanInputs();
+    this.closeInfo();
+  }
+
+  changeBg(){
+    let background = document.getElementById('absolute-background');
+    if (!background) return;
+    background.classList.toggle('d-none');
   }
   
 }

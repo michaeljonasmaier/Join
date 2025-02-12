@@ -1,7 +1,5 @@
 <section>
     <app-single-contact (contactCreated)="addNewContact($event)"></app-single-contact>
-    <div class="new-contact-btn-div">
-    </div>
     <div class="contact-item-list">
         @for (contactItem of getSortedList(); track $index) {
 
