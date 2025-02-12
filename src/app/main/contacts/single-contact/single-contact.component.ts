@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
 import { FormsModule } from '@angular/forms';
 
@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './single-contact.component.scss'
 })
 export class SingleContactComponent {
+  @Output() contactCreated = new EventEmitter<any>(); //send new comment to the list
   contact = {
     name: "",
     email: "",
@@ -37,7 +38,7 @@ export class SingleContactComponent {
   }
 
   createContact(){
-    const [name, surname] = this.contact.name.split(' ');
+    const [name, surname] = this.contact.name.split(' '); //Makes first and second name from one
 
     const newContact = {
       name: name || '',  
@@ -45,8 +46,10 @@ export class SingleContactComponent {
       email: this.contact.email,
       phone: this.contact.phone
     };
+    this.contactCreated.emit(newContact);
 
-    console.log('Создан новый контакт:', newContact);
+    console.log('New contact:', newContact);
     this.cleanInputs();
   }
+  
 }

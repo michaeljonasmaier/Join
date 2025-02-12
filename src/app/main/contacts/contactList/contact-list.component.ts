@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { FirebaseContactsService } from '../../../services/firebase-contacts.service';
 import { Contact } from '../../../interfaces/contact';
 import { CommonModule } from '@angular/common';
-import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
 import { SingleContactComponent } from '../single-contact/single-contact.component';
 
 @Component({
   selector: 'app-contact-list',
   standalone: true,
-  imports: [CommonModule, JoinBtnComponent, SingleContactComponent],
+  imports: [CommonModule, SingleContactComponent],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.scss'
 })
@@ -47,6 +46,10 @@ export class ContactListComponent {
     let hasChanged = currentLetter !== this.previousLetter;
     this.previousLetter = currentLetter; // Update the previous letter
     return hasChanged;
+  }
+
+  addNewContact(contact: any){
+    this.contactList.push(contact);  // Add new contact in Array
   }
 
 }
