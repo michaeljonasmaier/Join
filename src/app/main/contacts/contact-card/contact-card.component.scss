@@ -89,6 +89,8 @@
 }
 
 .actions span {
+  width: 159;
+  height: 24;
   cursor: pointer;
   margin-right: 8px;
 }
@@ -113,6 +115,7 @@
 }
 
 .email {
-  color: blue;
+  cursor: pointer;
+  color: #29abe2;
   text-decoration: underline;
 }
