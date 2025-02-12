@@ -16,6 +16,7 @@ $hover-grey: #D1D1D1;
     z-index: 10;
 
     .folder-info{
+        color: white;
         width: 40%;
         background-color: $main_grey;
         display: flex;
@@ -37,7 +38,7 @@ $hover-grey: #D1D1D1;
             align-items: center;
             justify-content: space-between;
             padding: 5px;
-            height: 30px;
+            height: 40px;
             border: solid 1px;
             border-color: $hover-grey;
             border-radius: 10px;
@@ -109,6 +110,7 @@ $hover-grey: #D1D1D1;
         color: $light_blue;
     }
     .create{
+        color: white;
         background-color: $main_grey;
         border-color: $main_grey;
     }
