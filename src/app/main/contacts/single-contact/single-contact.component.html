@@ -15,25 +15,20 @@
             <img class="profile-image" src="../../../../assets/add-contact/Group 13.png" alt="">
             <div class="inputs">
                 <div class="single-input">
-                    <input type="text" placeholder="Name">
+                    <input [(ngModel)]="contact.name" type="text" placeholder="Name">
                     <img src="../../../../assets/add-contact/person.png" alt="">
                 </div>
                 <div class="single-input">
-                    <input type="email" placeholder="Email">
+                    <input [(ngModel)]="contact.email" type="email" placeholder="Email">
                     <img src="../../../../assets/add-contact/mail.png" alt="">
                 </div>
                 <div class="single-input">
-                    <input type="tel" placeholder="Phone">
+                    <input [(ngModel)]="contact.phone" type="tel" placeholder="Phone">
                     <img src="../../../../assets/add-contact/call.png" alt="">
                 </div>
-                <!--
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="tel" placeholder="Phone">
-            -->
                 <div class="add-contact-buttons">
-                    <div class="cancel add-contact-button">Cancel <img src="../../../../assets/add-contact/iconoir_cancel.png" alt=""></div>
-                    <div class="create add-contact-button">Create contact <img src="../../../../assets/add-contact/check.png" alt=""></div>
+                    <div class="cancel add-contact-button" (click)="cleanInputs()">Cancel <img src="../../../../assets/add-contact/iconoir_cancel.png" alt=""></div>
+                    <div class="create add-contact-button" (click)="createContact()">Create contact <img src="../../../../assets/add-contact/check.png" alt=""></div>
                 </div>
             </div>
         </div>
