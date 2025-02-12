@@ -4,5 +4,6 @@
 
 section{
     @include dFlex(row, center, flex-start);
+    height: 100%;
 }
 
