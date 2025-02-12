@@ -1,14 +1,20 @@
 .contact-card {
-    width: 300px;
+    width: 579px;
+    height: 839px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 16px;
+    /* padding: 16px; */
     font-family: Arial, sans-serif;
-  }
+}
   
   .title {
     font-size: 22px;
     font-weight: bold;
+    color: black;
   }
   
   .subtitle {
@@ -39,6 +45,7 @@
   
   .contact-name h3 {
     margin: 0;
+    color: black;
   }
   
   .actions {
@@ -53,6 +60,7 @@
   
   .contact-info {
     margin-top: 16px;
+    color: gray;
   }
   
   .email {
