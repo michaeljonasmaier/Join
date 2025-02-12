@@ -1,71 +1,118 @@
-:host{flex-grow: 1; height: 100%;}
-.contact-card {
-    
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    /* padding: 16px; */
-    font-family: Arial, sans-serif;
+:host {
+  flex-grow: 1;
+  height: 100%;
 }
-  
-  .title {
-    font-size: 22px;
-    font-weight: bold;
-    color: black;
+.contact-card {
+  padding-top: 100px;
+  padding-left: 70px;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  width: 569;
+  height: 73;
+  top: 206px;
+  left: 743px;
+  gap: 30px;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 73.2px;
+  letter-spacing: 0%;
+  color: black;
+  > .line {
+    height: 59px;
+    width: 3px;
+    background-color: #29abe2;
   }
-  
-  .subtitle {
-    font-size: 14px;
-    color: gray;
-    margin-left: 10px;
+}
+
+.subtitle {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 32.4px;
+  letter-spacing: 0%;
+  color: black;
+  margin-left: 10px;
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  width: 287;
+  height: 88;
+  gap: 54px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  gap: 10px;
+  border-width: 3px;
+  border-radius: 70px;
+  background-color: orange;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.contact-name h3 {
+  margin: 0;
+  color: black;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 47px;
+  line-height: 56.4px;
+  letter-spacing: 0%;
+}
+
+.actions {
+  width: 159;
+  height: 24;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: 0%;
+  color: gray;
+}
+
+.actions span {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.contact-info {
+  margin-top: 16px;
+  color: black;
+  > h4 {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0%;
   }
-  
-  .contact-header {
-    display: flex;
-    align-items: center;
-    margin-top: 12px;
+  > p {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19.2px;
+    letter-spacing: 0%;
   }
-  
-  .avatar {
-    width: 50px;
-    height: 50px;
-    background-color: orange;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    margin-right: 12px;
-  }
-  
-  .contact-name h3 {
-    margin: 0;
-    color: black;
-  }
-  
-  .actions {
-    font-size: 14px;
-    color: gray;
-  }
-  
-  .actions span {
-    cursor: pointer;
-    margin-right: 8px;
-  }
-  
-  .contact-info {
-    margin-top: 16px;
-    color: gray;
-  }
-  
-  .email {
-    color: blue;
-    text-decoration: underline;
-  }
-  
+}
+
+.email {
+  color: blue;
+  text-decoration: underline;
+}
