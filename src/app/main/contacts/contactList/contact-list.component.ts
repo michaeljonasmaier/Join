@@ -3,11 +3,12 @@ import { FirebaseContactsService } from '../../../services/firebase-contacts.ser
 import { Contact } from '../../../interfaces/contact';
 import { CommonModule } from '@angular/common';
 import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
+import { SingleContactComponent } from '../single-contact/single-contact.component';
 
 @Component({
   selector: 'app-contact-list',
   standalone: true,
-  imports: [CommonModule, JoinBtnComponent],
+  imports: [CommonModule, JoinBtnComponent, SingleContactComponent],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.scss'
 })

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
 
 @Component({
   selector: 'app-single-contact',
   standalone: true,
-  imports: [],
+  imports: [JoinBtnComponent],
   templateUrl: './single-contact.component.html',
   styleUrl: './single-contact.component.scss'
 })
