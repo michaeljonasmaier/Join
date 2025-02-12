@@ -1,8 +1,14 @@
 @import '../../../../styles.scss';
 
+:host{
+    height: calc(100% - 30px);
+}
+
 section {
     color: black;
     padding: 0px 48px 30px 48px;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 .contact-item-list{
