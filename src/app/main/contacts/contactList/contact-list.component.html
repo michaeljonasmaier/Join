@@ -1,10 +1,28 @@
 <section>
-    @for (contactItem of getList(); track $index) {
-    <div class="contact-item">
-        <span>{{contactItem.name}} {{contactItem.surname}}</span>
-        <span>{{contactItem.email}}</span>
-        <span>{{contactItem.phone}}</span>
+    <div class="new-contact-btn-div">
+        <app-join-btn title="Add new contact" imgPath="assets/contacts/person_add.png" style="width: 100%;"></app-join-btn>
     </div>
-    }
+    <div class="contact-item-list">
+        @for (contactItem of getSortedList(); track $index) {
+
+            @if(hasLetterChanged(getFirstLetter(contactItem.name))){
+                <div class="letter-div">
+                    <span>{{ getFirstLetter(contactItem.name) }}</span>
+                </div>     
+            }
+            <div class="contact-item">
+                <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
+                    <span>
+                        {{getInitials(contactItem.name, contactItem.surname)}}
+                     </span>
+                </div>
+                <div>
+                    <span class="name">{{contactItem.name}} {{contactItem.surname}}</span>
+                    <span class="mail">{{contactItem.email}}</span>
+                </div>
+            </div>
+            }
+    </div>
+    
 
 </section>
