@@ -24,11 +24,6 @@ export class ContactCardComponent {
    }); 
   }
 
-  
-  contact = {
-    name: 'Anton Mayer',
-    email: 'anton@gmail.com',
-    phone: '+49 1111 111 11 1',
-    initials: 'AM'
-  };
+
+ 
 }
