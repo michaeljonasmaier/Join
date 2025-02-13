@@ -1,6 +1,6 @@
 <div class="contact-card">
   <h2 class="title">Contacts <div class="line"></div> <span class="subtitle">Better with a team</span></h2>
-<app-edit-contact [currentContact]="selectedContact"></app-edit-contact>
+<app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()"></app-edit-contact>
   @if(selectedContact!=null){
   <div class="contact-header">
     <div class="avatar">{{ selectedContact?.initials }}</div>

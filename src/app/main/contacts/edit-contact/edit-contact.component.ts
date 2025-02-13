@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, OnInit } from '@angular/core';
+import { Component, Input, SimpleChanges, OnInit , Output, EventEmitter } from '@angular/core';
 import { GreyBackgroundComponent } from '../../../shared/grey-background/grey-background.component';
 import { ModalWindowService } from '../../../services/modal-window/modal-window.service';
 import { Contact } from '../../../interfaces/contact';
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class EditContactComponent implements OnInit{
   @Input() currentContact: Contact | null = null;
+  @Output() deleteContactEvent = new EventEmitter<void>();
 
   contact = {
     name: "",
@@ -59,4 +60,9 @@ export class EditContactComponent implements OnInit{
   }
 
   editContact(){}
+
+  deleteContact(){
+    this.deleteContactEvent.emit();
+    this.closeInfo()
+  }
 }
