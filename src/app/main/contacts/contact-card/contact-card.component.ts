@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactsComponent } from '../contacts.component';
 import { Contact } from '../../../interfaces/contact';
 import { FirebaseContactsService } from '../../../services/firebase-contacts.service';
+import { EditContactComponent } from "../edit-contact/edit-contact.component";
 @Component({
   selector: 'app-contact-card',
   standalone: true,
-  imports: [CommonModule,],
+  imports: [CommonModule, EditContactComponent],
   templateUrl: './contact-card.component.html',
   styleUrl: './contact-card.component.scss'
 })

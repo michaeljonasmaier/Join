@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
 import { FormsModule } from '@angular/forms';
 import { GreyBackgroundComponent } from '../../../shared/grey-background/grey-background.component';
+import { ModalWindowService } from '../../../services/modal-window/modal-window.service';
 
 @Component({
   selector: 'app-single-contact',
@@ -12,29 +13,22 @@ import { GreyBackgroundComponent } from '../../../shared/grey-background/grey-ba
 })
 export class SingleContactComponent {
   @Output() contactCreated = new EventEmitter<any>(); //send new comment to the list
+  
   contact = {
     name: "",
     email: "",
     phone: ""
   }
   isHidden = true;
-
-  closeInfo(){
-    this.isHidden = true;
-    this.moveWindow();
-    this.changeBg();
-  }
+  constructor(public modalWindowService: ModalWindowService){}
+  // takes info from service (open and close)
   openInfo(){
-    this.isHidden = false;
-    this.moveWindow();
-    this.changeBg();
+    this.modalWindowService.openInfo('add-contact');
+  }
+  closeInfo(){
+    this.modalWindowService.closeInfo('add-contact');
   }
 
-  moveWindow(){
-    let window = document.getElementById('add-contact');
-    if (!window) return;
-    window.style.transform = this.isHidden ? 'translateX(150%)' : 'translateX(0)';
-  }
   cleanInputs(){
     this.contact = { name: '', email: '', phone: '' };
   }
@@ -53,12 +47,6 @@ export class SingleContactComponent {
     console.log('New contact:', newContact);
     this.cleanInputs();
     this.closeInfo();
-  }
-
-  changeBg(){
-    let background = document.getElementById('absolute-background');
-    if (!background) return;
-    background.classList.toggle('d-none');
   }
   
 }

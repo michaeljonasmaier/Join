@@ -1,0 +1,33 @@
+<button (click)="openInfo()">Example</button>
+<app-grey-background class="d-none" id="absolute-background" (click)="closeInfo()"></app-grey-background>
+<div class="edit-contact " id="edit-contact">
+    <div class="folder-info">
+        <img src="../../../../assets/add-contact/Capa 2.png" alt="">
+        <h2>Edit contact</h2>
+        <div class="edit-contact-line"></div>
+    </div>
+    <div class="edit-info">
+        <img class="close" (click)="closeInfo()" src="../../../../assets/add-contact/iconoir_cancel.png" alt="">
+        <div class="edit-info-main">
+            <img class="profile-image" src="../../../../assets/add-contact/Group 13.png" alt="">
+            <div class="inputs">
+                <div class="single-input">
+                    <input [(ngModel)]="contact.name" type="text" placeholder="Name" value="Lon">
+                    <img src="../../../../assets/add-contact/person.png" alt="">
+                </div>
+                <div class="single-input">
+                    <input [(ngModel)]="contact.email" type="email" placeholder="Email">
+                    <img src="../../../../assets/add-contact/mail.png" alt="">
+                </div>
+                <div class="single-input">
+                    <input [(ngModel)]="contact.phone" type="tel" placeholder="Phone">
+                    <img src="../../../../assets/add-contact/call.png" alt="">
+                </div>
+                <div class="edit-contact-buttons">
+                    <div class="cancel edit-contact-button">Delete</div>
+                    <div class="create edit-contact-button" (click)="editContact()">Save<img src="../../../../assets/add-contact/check.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
