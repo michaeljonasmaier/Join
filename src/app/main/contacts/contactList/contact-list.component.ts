@@ -32,12 +32,6 @@ export class ContactListComponent {
     return sortedContactList;
   }
 
-  getInitials(name: string, surname: string) {
-    let nameInitial = name.slice(0, 1);
-    let surnameInitial = surname.slice(0, 1);
-    return nameInitial + surnameInitial;
-  }
-
   getFirstLetter(name: string){
     return name.slice(0, 1);
   }

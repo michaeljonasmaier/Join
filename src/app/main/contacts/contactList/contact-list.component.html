@@ -11,7 +11,7 @@
             <div class="contact-item" (click)="selectContact(contactItem)">
                 <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
                     <span>
-                        {{getInitials(contactItem.name, contactItem.surname)}}
+                        {{contactItem.initials}}
                      </span>
                 </div>
                 <div>
