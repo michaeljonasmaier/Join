@@ -48,6 +48,7 @@ export class ContactListComponent {
 
   addNewContact(contact: any){
     this.contactList.push(contact);  // Add new contact in Array
+    this.contactsService.addContact(contact);
   }
 
 }

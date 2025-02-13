@@ -1,5 +1,5 @@
 import { Injectable, inject, OnDestroy } from '@angular/core';
-import { collection, Firestore, limit, onSnapshot, query, doc } from '@angular/fire/firestore';
+import { collection, Firestore, limit, onSnapshot, query, doc, addDoc } from '@angular/fire/firestore';
 import { Contact } from '../interfaces/contact';
 import { BehaviorSubject } from 'rxjs';
 
@@ -32,6 +32,10 @@ export class FirebaseContactsService {
 
   getContactsRef(){
     return collection(this.firestore, 'contacts');
+  }
+
+  async addContact(newContact: Contact){
+    await addDoc(this.getContactsRef(), newContact);
   }
 
   setContactObject(obj: any, objId: string): Contact{
