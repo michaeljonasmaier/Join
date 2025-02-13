@@ -1,6 +1,7 @@
 import { Injectable, inject, OnDestroy } from '@angular/core';
 import { collection, Firestore, limit, onSnapshot, query, doc } from '@angular/fire/firestore';
 import { Contact } from '../interfaces/contact';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class FirebaseContactsService {
 
   firestore: Firestore = inject(Firestore);
   unsubContacts;
+  contactSource = new BehaviorSubject<Contact | null>(null);
+  selectedContact$ = this.contactSource.asObservable();
 
   constructor() { 
     this.unsubContacts = this.subContactsList();
@@ -39,6 +42,10 @@ export class FirebaseContactsService {
       phone: obj.phone || "+49 0000000",
       id: objId
     }
+  }
+
+  selectContact(contact: Contact){
+    this.contactSource.next(contact);
   }
 
   ngOnDestroy(){

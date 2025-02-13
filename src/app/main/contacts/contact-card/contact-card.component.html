@@ -2,9 +2,9 @@
   <h2 class="title">Contacts <div class="line"></div> <span class="subtitle">Better with a team</span></h2>
 
   <div class="contact-header">
-    <div class="avatar">{{ contact.initials }}</div>
+    <div class="avatar">AM</div>
     <div class="contact-name">
-      <h3>{{ contact.name }}</h3>
+      <h3>{{ selectedContact?.name }}</h3>
       <div class="actions">
         <span class="edit">✏️ Edit</span>
         <span class="delete">🗑️ Delete</span>
@@ -15,8 +15,8 @@
   <div class="contact-info">
     <h4>Contact Information</h4>
     <p><strong>Email</strong></p>
-    <p class="email">{{ contact.email }}</p>
+    <p class="email">{{ selectedContact?.email }}</p>
     <p><strong>Phone</strong></p>
-    <p>{{ contact.phone }}</p>
+    <p>{{ selectedContact?.phone }}</p>
   </div>
 </div>

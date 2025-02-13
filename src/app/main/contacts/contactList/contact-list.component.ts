@@ -48,6 +48,10 @@ export class ContactListComponent {
     return hasChanged;
   }
 
+  selectContact(contact: Contact){
+    this.contactsService.selectContact(contact);
+  }
+
   addNewContact(contact: any){
     this.contactList.push(contact);  // Add new contact in Array
   }

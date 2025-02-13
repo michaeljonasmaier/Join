@@ -8,7 +8,7 @@
                     <span>{{ getFirstLetter(contactItem.name) }}</span>
                 </div>     
             }
-            <div class="contact-item">
+            <div class="contact-item" (click)="selectContact(contactItem)">
                 <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
                     <span>
                         {{getInitials(contactItem.name, contactItem.surname)}}
