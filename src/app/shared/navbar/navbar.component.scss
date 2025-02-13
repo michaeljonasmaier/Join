@@ -1,12 +1,12 @@
 @import '../../../styles.scss';
 
-nav{
+nav {
     height: calc(100vh - 128px);
     position: sticky;
     width: 200px;
 }
 
-.navbar-content{
+.navbar-content {
     background-color: $main_grey;
     @include dFlex(column, space-between, center);
     height: 100%;
@@ -14,11 +14,48 @@ nav{
     padding-bottom: 64px;
 }
 
-.navbar-imprint{
+.links-div{
+    @include dFlex(row, center, center);
+    gap: 15px;
+}
+
+.navbar-imprint {
     @include dFlex(column, flex-start, flex-start);
 }
 
-a{
+a {
     color: white;
     text-decoration: none;
+}
+
+@media(max-width: 430px) {
+    nav {
+        position: absolute;
+        height: auto;
+        bottom: 0;
+        left: 0;
+        z-index: 20;
+        width: 100%;
+    }
+
+    .navbar-content {
+        @include dFlex(row, space-between, center);
+        padding-top: 20px;
+        padding-bottom: 14px;
+    }
+
+    .navbar-links{
+        @include dFlex(row, space-around, center);
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .logo, .navbar-imprint {
+        display: none;
+    }
+
+    .links-div{
+        @include dFlex(column, center, center);
+        gap: 0;
+    }
 }

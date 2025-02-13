@@ -7,6 +7,10 @@ header {
     position: relative;
 }
 
+.logo{
+    display: none
+}
+
 .header-content {
     @include dFlex(row, space-between, center);
     color: $main_grey;
@@ -28,4 +32,23 @@ span{
     font-size: 20px;
     color: $light_blue;
     font-weight: bold;
+}
+
+@media(max-width: 430px) {
+    header{
+        width: 100%;
+    }
+
+    .header-content{
+        padding: 20px 20px 20px 20px;
+    }
+
+    .name, .help{
+        display: none;
+    }
+
+    .logo{
+        display: block;
+    }
+
 }
