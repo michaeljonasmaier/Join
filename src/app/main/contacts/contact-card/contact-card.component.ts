@@ -14,16 +14,21 @@ export class ContactCardComponent {
 
   selectedContact: Contact | null = null;
 
-  constructor(private contactsService: FirebaseContactsService){
+  constructor(private contactsService: FirebaseContactsService) {
 
   }
 
-  ngOnInit(){
-   this.contactsService.selectedContact$.subscribe(contact => {
-    this.selectedContact = contact;
-   }); 
+  ngOnInit() {
+    this.contactsService.selectedContact$.subscribe(contact => {
+      this.selectedContact = contact;
+    });
   }
 
+  deleteContact() {
+    if(this.selectedContact){
+      this.contactsService.deleteContact(this.selectedContact.id);
+      this.selectedContact = null;
+    }
+  }
 
- 
 }

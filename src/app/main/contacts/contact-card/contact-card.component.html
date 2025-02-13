@@ -1,13 +1,20 @@
 <div class="contact-card">
   <h2 class="title">Contacts <div class="line"></div> <span class="subtitle">Better with a team</span></h2>
 
+  @if(selectedContact!=null){
   <div class="contact-header">
     <div class="avatar">{{ selectedContact?.initials }}</div>
     <div class="contact-name">
       <h3>{{ selectedContact?.name }} {{ selectedContact?.surname }}</h3>
       <div class="actions">
-        <span class="edit">✏️ Edit</span>
-        <span class="delete">🗑️ Delete</span>
+        <div class="edit">
+          <img src="assets/contacts/edit.png" alt="">
+          <span>Edit</span>
+        </div>
+        <div class="delete" (click)="deleteContact()">
+          <img src="assets/contacts/delete.png" alt="">
+          <span>Delete</span>
+        </div>
       </div>
     </div>
   </div>
@@ -19,4 +26,5 @@
     <p><strong>Phone</strong></p>
     <p>{{ selectedContact?.phone }}</p>
   </div>
+  }
 </div>
