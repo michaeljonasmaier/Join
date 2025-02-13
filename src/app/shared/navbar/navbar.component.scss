@@ -14,9 +14,27 @@ nav {
     padding-bottom: 64px;
 }
 
+.navbar-links{
+    @include dFlex(column, center, center);
+    width: 100%;
+}
+
 .links-div{
-    @include dFlex(row, center, center);
+    @include dFlex(row, flex-start, center);
     gap: 15px;
+    width: 100%;
+    &:hover{
+        cursor: pointer;
+        background-color: #2A3D59;
+    }
+
+    >img{
+        padding-left: 30px;
+    }
+
+    &:active{
+        background-color: #091931;  
+    }
 }
 
 .navbar-imprint {
@@ -48,6 +66,7 @@ a {
         @include dFlex(row, space-around, center);
         font-size: 14px;
         width: 100%;
+        padding-left: 0;
     }
 
     .logo, .navbar-imprint {
@@ -57,5 +76,9 @@ a {
     .links-div{
         @include dFlex(column, center, center);
         gap: 0;
+
+        >img{
+            padding-left: 0;
+        }
     }
 }
