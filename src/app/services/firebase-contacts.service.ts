@@ -40,12 +40,19 @@ export class FirebaseContactsService {
       surname: obj.surname || "Mustermann",
       email: obj.email || "maxmustermann@mail.com",
       phone: obj.phone || "+49 0000000",
+      initials: this.getContactInitials(obj),
       id: objId
     }
   }
 
   selectContact(contact: Contact){
     this.contactSource.next(contact);
+  }
+
+  getContactInitials(obj: any){
+    let nameInitial = obj.name.slice(0, 1);
+    let surnameInitial = obj.surname.slice(0, 1);
+    return nameInitial + surnameInitial;
   }
 
   ngOnDestroy(){

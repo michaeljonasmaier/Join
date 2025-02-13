@@ -3,5 +3,6 @@ export interface Contact {
     surname: string,
     email: string,
     phone: string,
+    initials: string,
     id: string
 }
