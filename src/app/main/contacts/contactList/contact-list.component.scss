@@ -1,6 +1,6 @@
 @import '../../../../styles.scss';
 
-:host{
+:host {
     height: calc(100% - 30px);
 }
 
@@ -22,11 +22,13 @@ section {
     padding: 0px 48px 30px 48px;
     overflow-y: scroll;
     height: 100%;
+    -webkit-box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
+    box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
 }
 
-.contact-item-list{
+.contact-item-list {
     z-index: 5;
-    position: relative;
+    position: relative; 
 }
 
 .contact-item {
@@ -39,6 +41,7 @@ section {
     >div {
         @include dFlex(column, center, flex-start);
         gap: 5px;
+
         >.name {
             font-size: 20px;
         }
@@ -73,7 +76,7 @@ section {
     @include dFlex();
     padding-bottom: 30px;
     padding-top: 30px;
-    
+
 }
 
 .letter-div {
