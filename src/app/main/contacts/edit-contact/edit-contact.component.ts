@@ -18,8 +18,11 @@ export class EditContactComponent implements OnInit{
 
   contact = {
     name: "",
-    email: "",
-    phone: ""
+    surname: "",
+    mail: "",
+    phone: "",
+    initials: "",
+    id:""
   }
 
   constructor(public modalWindowService: ModalWindowService, private contactsService: FirebaseContactsService){
@@ -35,9 +38,12 @@ export class EditContactComponent implements OnInit{
 
   private updateContactModel(contact: Contact) {
     this.contact = {  
-      name: contact.name + " " + contact.surname, 
-      email: contact.email,
-      phone: contact.phone
+      name: contact.name, 
+      surname: contact.surname,
+      mail: contact.mail,
+      phone: contact.phone,
+      initials: contact.initials,
+      id: contact.id
     };
     console.log("обновилось");
   }
@@ -61,7 +67,8 @@ export class EditContactComponent implements OnInit{
   }
 
   editContact(){
-  
+    this.contactsService.editContact(this.contact);
+    this.closeInfo();
   }
 
   deleteContact(){

@@ -1,5 +1,6 @@
 <div class="contact-card">
   <h2 class="title">Contacts <div class="line"></div> <span class="subtitle">Better with a team</span></h2>
+  
 @if(selectedContact!=null){
   <div class="contact-header">
     <div class="avatar">{{ selectedContact?.initials }}</div>
@@ -7,7 +8,7 @@
       <h3>{{ selectedContact?.name }} {{ selectedContact?.surname }}</h3>
       <div class="actions">
         <div class="edit">
-          <app-edit-contact></app-edit-contact>
+          <app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()"></app-edit-contact>
         </div>
         <div class="delete" (click)="deleteContact()">
           <img src="assets/contacts/delete.png" alt="">
@@ -21,7 +22,7 @@
   <div class="contact-info">
     <h4>Contact Information</h4>
     <p><strong>Email</strong></p>
-    <p class="email">{{ selectedContact?.email }}</p>
+    <p class="email">{{ selectedContact?.mail }}</p>
     <p><strong>Phone</strong></p>
     <p>{{ selectedContact?.phone }}</p>
   </div>

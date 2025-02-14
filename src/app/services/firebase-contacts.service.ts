@@ -45,7 +45,7 @@ export class FirebaseContactsService {
       name: editedContact.name,
       surname: editedContact.surname,
       phone: editedContact.phone,
-      email: editedContact.email,
+      mail: editedContact.mail,
       initials: editedContact.initials,
       id: editedContact.id,
     })
@@ -59,7 +59,7 @@ export class FirebaseContactsService {
     return {
       name: obj.name || " ",
       surname: obj.surname || " ",
-      email: obj.mail || " ",
+      mail: obj.mail || " ",
       phone: obj.phone || " ",
       initials: this.getContactInitials(obj),
       id: objId
