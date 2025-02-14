@@ -12,7 +12,7 @@ import { EditContactComponent } from "../edit-contact/edit-contact.component";
   styleUrl: './contact-card.component.scss'
 })
 export class ContactCardComponent {
-  @ViewChild(EditContactComponent) editComponent!: EditContactComponent;
+  //@ViewChild(EditContactComponent) editComponent!: EditContactComponent;
 
   selectedContact: Contact | null = null;
 
@@ -35,10 +35,11 @@ export class ContactCardComponent {
     }
   }
 
+ /*
   editContact(){
       this.editComponent.openInfo();
   }
-
+*/
   closeCard(): void {
     this.close.emit();
   }
