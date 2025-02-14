@@ -38,8 +38,8 @@ export class EditContactComponent implements OnInit{
 
   private updateContactModel(contact: Contact) {
     this.contact = {  
-      name: contact.name, 
-      surname: contact.surname,
+      name: `${contact.name} ${contact.surname}`.trim(),
+      surname: "",
       mail: contact.mail,
       phone: contact.phone,
       initials: contact.initials,
@@ -66,7 +66,21 @@ export class EditContactComponent implements OnInit{
     this.modalWindowService.closeInfo('edit-contact');
   }
 
+  updateContact(){
+    const [name, surname] = this.contact.name.split(' '); //Makes first and second name from one
+
+    this.contact = {
+      name: name || '',  
+      surname: surname || '',
+      mail: this.contact.mail,
+      phone: this.contact.phone,
+      initials: this.contact.initials,
+      id: this.contact.id
+    };
+  }
+
   editContact(){
+    this.updateContact()
     this.contactsService.editContact(this.contact);
     this.closeInfo();
   }

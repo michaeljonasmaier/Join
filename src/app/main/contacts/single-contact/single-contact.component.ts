@@ -16,7 +16,7 @@ export class SingleContactComponent {
   
   contact = {
     name: "",
-    email: "",
+    mail: "",
     phone: ""
   }
   isHidden = true;
@@ -30,7 +30,7 @@ export class SingleContactComponent {
   }
 
   cleanInputs(){
-    this.contact = { name: '', email: '', phone: '' };
+    this.contact = { name: '', mail: '', phone: '' };
   }
 
   createContact(){
@@ -39,7 +39,7 @@ export class SingleContactComponent {
     const newContact = {
       name: name || '',  
       surname: surname || '',
-      email: this.contact.email,
+      mail: this.contact.mail,
       phone: this.contact.phone
     };
     this.contactCreated.emit(newContact);
