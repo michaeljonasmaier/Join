@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactsComponent } from '../contacts.component';
 import { Contact } from '../../../interfaces/contact';
@@ -12,6 +12,7 @@ import { EditContactComponent } from "../edit-contact/edit-contact.component";
   styleUrl: './contact-card.component.scss'
 })
 export class ContactCardComponent {
+  @ViewChild(EditContactComponent) editComponent!: EditContactComponent;
 
   selectedContact: Contact | null = null;
 
@@ -30,6 +31,11 @@ export class ContactCardComponent {
       this.contactsService.deleteContact(this.selectedContact.id);
       this.selectedContact = null;
     }
+  }
+
+  editContact(){
+      this.editComponent.openInfo();
+    
   }
 
 }
