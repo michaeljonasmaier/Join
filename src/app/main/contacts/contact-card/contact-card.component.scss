@@ -88,7 +88,7 @@
   line-height: 19.2px;
   letter-spacing: 0%;
   color: gray;
-  gap: 15px;
+  gap: 25px;
 
   .edit, .delete{
     display: flex;
@@ -133,5 +133,7 @@
   color: #29abe2;
   >img{
     content: url('./../../../../assets/contacts/delete_hover.png');
+    width: 16px;
+    height: 18px;
   }
 }
