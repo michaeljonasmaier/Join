@@ -26,7 +26,9 @@ export class FirebaseContactsService {
       this.contacts = []
       list.forEach(element => {
           this.contacts.push(this.setContactObject(element.data(), element.id));
+          console.log(element.data())
       });
+      console.log(this.contacts);
     })
   }
 
@@ -55,10 +57,10 @@ export class FirebaseContactsService {
 
   setContactObject(obj: any, objId: string): Contact{
     return {
-      name: obj.name || "Max",
-      surname: obj.surname || "Mustermann",
-      email: obj.email || "maxmustermann@mail.com",
-      phone: obj.phone || "+49 0000000",
+      name: obj.name || " ",
+      surname: obj.surname || " ",
+      email: obj.mail || " ",
+      phone: obj.phone || " ",
       initials: this.getContactInitials(obj),
       id: objId
     }

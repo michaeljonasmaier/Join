@@ -21,6 +21,7 @@ export class ContactListComponent {
   }
 
   getList(): Contact[] {
+    console.log(this.contactsService.contacts);
     return this.contactsService.contacts;
   }
 
