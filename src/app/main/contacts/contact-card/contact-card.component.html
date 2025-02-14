@@ -8,8 +8,7 @@
       <h3>{{ selectedContact?.name }} {{ selectedContact?.surname }}</h3>
       <div class="actions">
         <div class="edit">
-          <img src="assets/contacts/edit.png" alt="">
-          <span>Edit</span>
+          <app-edit-contact></app-edit-contact>
         </div>
         <div class="delete" (click)="deleteContact()">
           <img src="assets/contacts/delete.png" alt="">

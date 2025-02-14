@@ -1,4 +1,7 @@
-<button (click)="openInfo()">Example</button>
+<div (click)="openInfo()" class="edit-btn-div">
+    <img src="assets/contacts/edit.png" alt="">
+    <span>Edit</span>
+</div>
 <app-grey-background class="d-none" id="absolute-background" (click)="closeInfo()"></app-grey-background>
 <div class="edit-contact " id="edit-contact">
     <div class="folder-info">
@@ -25,7 +28,8 @@
                 </div>
                 <div class="edit-contact-buttons">
                     <div class="cancel edit-contact-button" (click)="deleteContact()">Delete</div>
-                    <div class="create edit-contact-button" (click)="editContact()">Save<img src="../../../../assets/add-contact/check.png" alt=""></div>
+                    <div class="create edit-contact-button" (click)="editContact()">Save<img
+                            src="../../../../assets/add-contact/check.png" alt=""></div>
                 </div>
             </div>
         </div>
