@@ -1,0 +1,27 @@
+@import '../../styles.scss';
+
+:host{
+    width: 100%;
+}
+
+section{
+    @include dFlex(row, flex-start, flex-start);
+    width: 100%;
+    height: 100vh;
+    >.header-content-wrapper{
+        flex: 1;
+        @include dFlex(column, flex-start, space-between);
+        height: 100%;
+        >.main-content{
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+    }
+}
+
+@media(max-width: 430px){
+    .header-content-wrapper{
+        width: 100%;
+    }
+}

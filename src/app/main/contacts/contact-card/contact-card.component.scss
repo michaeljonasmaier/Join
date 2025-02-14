@@ -88,7 +88,7 @@
   line-height: 19.2px;
   letter-spacing: 0%;
   color: gray;
-  gap: 15px;
+  gap: 25px;
 
   .edit, .delete{
     display: flex;
@@ -128,16 +128,12 @@
   text-decoration: underline;
 }
 
-.edit:hover {
-  color: #29abe2;
-  >img{
-    content: url('./../../../../assets/contacts/edit_hover.png');
-  } 
-}
-
 .delete:hover{
+  cursor: pointer;
   color: #29abe2;
   >img{
     content: url('./../../../../assets/contacts/delete_hover.png');
+    width: 16px;
+    height: 18px;
   }
 }

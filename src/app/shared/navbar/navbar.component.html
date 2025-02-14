@@ -2,19 +2,19 @@
     <div class="navbar-content">
         <img class="logo" src="assets/navbar/logo.png" alt="Logo">
         <div class="navbar-links">
-            <div class="links-div">
+            <div class="links-div" [ngClass]="{ 'active': activeIndex === 0 }" (click)="setActive(0)">
                 <img src="assets/navbar/summary.png" alt="">
                 <p>Summary</p>
             </div>
-            <div class="links-div">
+            <div class="links-div" [ngClass]="{ 'active': activeIndex === 1 }" (click)="setActive(1)">
                 <img src="assets/navbar/addtask.png" alt="">
                 <p>Add Task</p>
             </div>
-            <div class="links-div">
+            <div class="links-div" [ngClass]="{ 'active': activeIndex === 2 }" (click)="setActive(2)">
                 <img src="assets/navbar/board.png" alt="">
                 <p>Board</p>
             </div>
-            <div class="links-div">
+            <div class="links-div" [ngClass]="{ 'active': activeIndex === 3 }" (click)="setActive(3)">
                 <img src="assets/navbar/contacts.png" alt="">
                 <p>Contacts</p>
             </div>

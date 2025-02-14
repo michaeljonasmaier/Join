@@ -31,9 +31,12 @@ nav {
     >img{
         padding-left: 30px;
     }
+}
 
-    &:active{
-        background-color: #091931;  
+.active{
+    background-color: #091931;
+    &:hover{
+        background-color: #091931;
     }
 }
 
