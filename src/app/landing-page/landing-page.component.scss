@@ -22,20 +22,8 @@
       padding: 20px;
   
       .logo {
-        display: flex;
-        align-items: center;
-        font-size: 24px;
-        font-weight: bold;
-  
-        .logo-icon {
-          color: #007bff;
-          font-size: 28px;
-        }
-  
-        .logo-text {
-          margin-left: 5px;
-          color: #333;
-        }
+        width: 100px;
+        height: 122px;
       }
   
       .signup {
