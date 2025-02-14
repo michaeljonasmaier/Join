@@ -45,12 +45,10 @@ export class EditContactComponent implements OnInit{
       initials: contact.initials,
       id: contact.id
     };
-    console.log("обновилось");
   }
 
     ngOnChanges(changes: SimpleChanges) {
       if (changes['currentContact']?.currentValue) {
-        console.log('Обновился инпут контакта:', changes['currentContact']?.currentValue);
         this.updateContactModel(changes['currentContact'].currentValue);
       } else {
         console.log('currentContact is null or undefined в ngOnChanges');
