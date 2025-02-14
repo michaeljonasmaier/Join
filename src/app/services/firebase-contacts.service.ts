@@ -38,14 +38,14 @@ export class FirebaseContactsService {
     await addDoc(this.getContactsRef(), newContact);
   }
 
-  async editContact(contactID: string, editedContact: Contact){
-    await updateDoc(doc(this.firestore, 'contacts', contactID), {
+  async editContact(editedContact: Contact){
+    await updateDoc(doc(this.firestore, 'contacts', editedContact.id), {
       name: editedContact.name,
       surname: editedContact.surname,
       phone: editedContact.phone,
       email: editedContact.email,
       initials: editedContact.initials,
-      id: contactID
+      id: editedContact.id,
     })
   }
 

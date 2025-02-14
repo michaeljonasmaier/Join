@@ -3,6 +3,7 @@ import { GreyBackgroundComponent } from '../../../shared/grey-background/grey-ba
 import { ModalWindowService } from '../../../services/modal-window/modal-window.service';
 import { Contact } from '../../../interfaces/contact';
 import { FormsModule } from '@angular/forms';
+import { FirebaseContactsService } from '../../../services/firebase-contacts.service';
 
 @Component({
   selector: 'app-edit-contact',
@@ -21,7 +22,7 @@ export class EditContactComponent implements OnInit{
     phone: ""
   }
 
-  constructor(public modalWindowService: ModalWindowService){
+  constructor(public modalWindowService: ModalWindowService, private contactsService: FirebaseContactsService){
   }
 
   ngOnInit() {
@@ -59,7 +60,9 @@ export class EditContactComponent implements OnInit{
     this.modalWindowService.closeInfo('edit-contact');
   }
 
-  editContact(){}
+  editContact(){
+  
+  }
 
   deleteContact(){
     this.deleteContactEvent.emit();
