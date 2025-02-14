@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FirebaseContactsService } from '../../../services/firebase-contacts.service';
 import { Contact } from '../../../interfaces/contact';
 import { CommonModule } from '@angular/common';
@@ -21,7 +21,6 @@ export class ContactListComponent {
   }
 
   getList(): Contact[] {
-    console.log(this.contactsService.contacts);
     return this.contactsService.contacts;
   }
 
@@ -50,6 +49,12 @@ export class ContactListComponent {
   addNewContact(contact: any){
     this.contactList.push(contact);  // Add new contact in Array
     this.contactsService.addContact(contact);
+  }
+
+  @Output() showCard = new EventEmitter<boolean>();
+
+  onShowCard(): void {
+    this.showCard.emit(true);
   }
 
 }

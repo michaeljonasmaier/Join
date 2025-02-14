@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactsComponent } from '../contacts.component';
 import { Contact } from '../../../interfaces/contact';
@@ -15,6 +15,8 @@ export class ContactCardComponent {
   @ViewChild(EditContactComponent) editComponent!: EditContactComponent;
 
   selectedContact: Contact | null = null;
+
+  @Output() close = new EventEmitter<void>();
 
   constructor(private contactsService: FirebaseContactsService) {
 
@@ -35,7 +37,10 @@ export class ContactCardComponent {
 
   editContact(){
       this.editComponent.openInfo();
-    
+  }
+
+  closeCard(): void {
+    this.close.emit();
   }
 
 }

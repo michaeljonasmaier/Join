@@ -8,7 +8,7 @@
                     <span>{{ getFirstLetter(contactItem.name) }}</span>
                 </div>     
             }
-            <div class="contact-item" (click)="selectContact(contactItem)">
+            <div class="contact-item" (click)="selectContact(contactItem); onShowCard()">
                 <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
                     <span>
                         {{contactItem.initials}}

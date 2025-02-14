@@ -26,9 +26,7 @@ export class FirebaseContactsService {
       this.contacts = []
       list.forEach(element => {
           this.contacts.push(this.setContactObject(element.data(), element.id));
-          console.log(element.data())
       });
-      console.log(this.contacts);
     })
   }
 

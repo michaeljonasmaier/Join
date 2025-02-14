@@ -8,30 +8,44 @@
   padding-top: 100px;
   padding-left: 70px;
   height: 100%;
-  border: 1px solid #ddd;
   border-radius: 8px;
   font-family: Arial, sans-serif;
 }
 
-.title {
-  display: flex;
-  align-items: center;
-  width: 569;
-  height: 73;
-  top: 206px;
-  left: 743px;
-  gap: 30px;
-  font-family: Inter;
-  font-weight: 700;
-  font-size: 61px;
-  line-height: 73.2px;
-  letter-spacing: 0%;
-  color: black;
+.contact-title-div{
+  @include dFlex(row, flex-start, center);
+  gap: 20px;
   > .line {
     height: 59px;
     width: 3px;
     background-color: #29abe2;
   }
+}
+
+.line-mobile{
+  display: none;
+  padding-top: 20px;
+  width: 85px;
+  border-bottom: 3px solid #29abe2;
+
+}
+
+.back-img{
+  display: none;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  top: 206px;
+  left: 743px;
+  gap: 30px;
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 73.2px;
+  letter-spacing: 0%;
+  color: black;
+ 
 }
 
 .subtitle {
@@ -41,7 +55,6 @@
   line-height: 32.4px;
   letter-spacing: 0%;
   color: black;
-  margin-left: 10px;
 }
 
 .contact-header {
@@ -72,7 +85,6 @@
 .contact-name h3 {
   margin: 0;
   color: black;
-  font-family: Inter;
   font-weight: 500;
   font-size: 47px;
   line-height: 56.4px;
@@ -114,8 +126,6 @@
     letter-spacing: 0%;
   }
   > p {
-    font-family: Inter;
-    font-weight: 700;
     font-size: 16px;
     line-height: 19.2px;
     letter-spacing: 0%;
@@ -135,5 +145,60 @@
     content: url('./../../../../assets/contacts/delete_hover.png');
     width: 16px;
     height: 18px;
+  }
+}
+
+@media(max-width: 430px){
+  .back-img{
+    display: block;
+  }
+
+  .contact-card{
+   @include dFlex(column, flex-start, flex-start);
+    overflow: hidden;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .actions{
+    display: none;
+  }
+
+  .contact-card-title{
+    @include dFlex(row, space-between, flex-start);
+    width: 100%
+    
+  }
+
+  .contact-title-div{
+    @include dFlex(column, flex-start, flex-start);
+    gap: 0;
+  }
+
+  .contact-info{
+    > h4 {
+      margin: 0;
+    }
+  }
+
+  .line{
+    display: none;
+  }
+
+  .line-mobile{
+    display: block;
+  }
+
+  .title{
+    margin: 0;
+  }
+
+  .contact-name h3 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .contact-header{
+    gap: 5px;
   }
 }

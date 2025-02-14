@@ -98,9 +98,14 @@ section {
 }
 
 @media(max-width: 430px){
+    :host{
+        width: 100%;
+    }
+
     section{
         width: 100%;
         overflow-x: hidden;
+        padding: 0;
     }
 
     .single-contact{
