@@ -1,14 +1,14 @@
 <div class="contact-card">
   <h2 class="title">Contacts <div class="line"></div> <span class="subtitle">Better with a team</span></h2>
-<app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()"></app-edit-contact>
-  @if(selectedContact!=null){
+@if(selectedContact!=null){
   <div class="contact-header">
     <div class="avatar">{{ selectedContact?.initials }}</div>
     <div class="contact-name">
       <h3>{{ selectedContact?.name }} {{ selectedContact?.surname }}</h3>
       <div class="actions">
-        <div class="edit">
-          <img src="assets/contacts/edit.png" alt="">
+        <div class="edit" (click)="editContact()">
+          <app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()"></app-edit-contact>
+            <img src="assets/contacts/edit.png" alt="">
           <span>Edit</span>
         </div>
         <div class="delete" (click)="deleteContact()">

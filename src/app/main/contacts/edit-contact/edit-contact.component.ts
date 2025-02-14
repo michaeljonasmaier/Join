@@ -20,7 +20,7 @@ export class EditContactComponent implements OnInit{
     email: "",
     phone: ""
   }
-
+  
   constructor(public modalWindowService: ModalWindowService){
   }
 
