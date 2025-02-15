@@ -2,6 +2,7 @@
 
 :host {
     height: calc(100% - 30px);
+    overflow-y: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -20,8 +21,9 @@
 section {
     color: black;
     padding: 0px 48px 30px 48px;
-    overflow-y: scroll;
+    @include dFlex(column, flex-start, center);
     height: 100%;
+    overflow: hidden;
     -webkit-box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
     box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
     padding-top: 30px;
@@ -30,7 +32,9 @@ section {
 .contact-item-list {
     z-index: 5;
     position: relative; 
-    @include dFlex(column, center, center);
+    height: 100%;
+    overflow: scroll;
+    @include dFlex(column, flex-start, center);
 }
 
 .contact-item {
@@ -89,6 +93,9 @@ section {
     padding-top: 20px;
     padding-left: 10px;
     width: calc(100% - 75px);
+}
+
+.single-contact{
 }
 
 @media(max-width: 430px){

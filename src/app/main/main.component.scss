@@ -11,7 +11,7 @@ section{
     >.header-content-wrapper{
         flex: 1;
         @include dFlex(column, flex-start, space-between);
-        overflow-y: scroll;
+        height: 100%;
         >.main-content{
             display: flex;
             flex: 1;
