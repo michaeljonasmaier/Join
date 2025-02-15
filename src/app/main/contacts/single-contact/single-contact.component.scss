@@ -120,3 +120,21 @@ $hover-grey: #D1D1D1;
 }
 
 .d-none{display: none;}
+
+.add-contact-btn-mobile{
+    display: none;
+    position: absolute;
+    bottom: 130px;
+    right: 25px;
+    z-index: 20;
+}
+
+@media(max-width: 430px){
+    .add-contact-btn-mobile{
+        display: block;
+    }
+
+    .add-contact-btn{
+        display: none;
+    }
+}

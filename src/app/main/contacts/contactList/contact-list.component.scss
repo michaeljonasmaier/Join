@@ -91,14 +91,6 @@ section {
     width: calc(100% - 75px);
 }
 
-.add-contact-mobile{
-    display: none;
-    position: absolute;
-    bottom: 130px;
-    right: 25px;
-    z-index: 20;
-}
-
 @media(max-width: 430px){
     :host{
         width: 100%;
@@ -111,11 +103,4 @@ section {
         padding: 0;
     }
 
-    .single-contact{
-        display: none;
-    }
-
-    .add-contact-mobile{
-        display: block;
-    }
 }

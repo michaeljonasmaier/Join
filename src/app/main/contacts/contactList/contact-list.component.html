@@ -3,26 +3,27 @@
     <div class="contact-item-list">
         @for (contactItem of getSortedList(); track $index) {
 
-            @if(hasLetterChanged(getFirstLetter(contactItem.name))){
-                <div class="letter-div">
-                    <span>{{ getFirstLetter(contactItem.name) }}</span>
-                </div>     
-            }
-            <div class="contact-item" (click)="selectContact(contactItem); onShowCard()">
-                <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
-                    <span>
-                        {{contactItem.initials}}
-                     </span>
-                </div>
-                <div>
-                    <span class="name">{{contactItem.name}} {{contactItem.surname}}</span>
-                    <span class="mail">{{contactItem.mail}}</span>
-                </div>
+        @if(hasLetterChanged(getFirstLetter(contactItem.name))){
+        <div class="letter-div">
+            <span>{{ getFirstLetter(contactItem.name) }}</span>
+        </div>
+        }
+        <div class="contact-item" (click)="selectContact(contactItem); onShowCard()">
+            <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
+                <span>
+                    {{contactItem.initials}}
+                </span>
             </div>
-            }
+            <div>
+                <span class="name">{{contactItem.name}} {{contactItem.surname}}</span>
+                <span class="mail">{{contactItem.mail}}</span>
+            </div>
+        </div>
+        }
 
-        
+
     </div>
-    <img class="add-contact-mobile" src="assets/contacts/addcontact_mobile.png" alt="">
+    <app-single-contact (contactCreated)="addNewContact($event)" class="single-contact"></app-single-contact>
+
 
 </section>
