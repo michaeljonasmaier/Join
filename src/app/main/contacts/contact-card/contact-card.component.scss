@@ -164,6 +164,7 @@
 }
 
 .actions-mobile {
+  display: none;
   position: fixed;
   overflow: hidden;
   bottom: 120px;
@@ -243,6 +244,10 @@
   }
 
   .options {
+    display: block;
+  }
+
+  .actions-mobile{
     display: block;
   }
 }

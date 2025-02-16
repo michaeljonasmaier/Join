@@ -16,6 +16,7 @@ export class ContactCardComponent {
   //@ViewChild(EditContactComponent) editComponent!: EditContactComponent;
 
   selectedContact: Contact | null = null;
+  infoOpend = false;
 
   @Output() close = new EventEmitter<void>();
 
@@ -47,10 +48,14 @@ export class ContactCardComponent {
 
   openInfo(){
     this.modalWindowService.openInfo('actions_mobile');
+    this.infoOpend = true;
   }
 
   closeInfo(){
-    this.modalWindowService.closeInfo('actions_mobile');
+    if(this.infoOpend){
+      this.modalWindowService.closeInfo('actions_mobile');
+      this.infoOpend = false;
+    }
   }
 
   bubblingProtection(event: any) {
