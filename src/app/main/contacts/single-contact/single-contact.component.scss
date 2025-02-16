@@ -7,7 +7,7 @@ $hover-grey: #D1D1D1;
     top: 20%;
     height: 60%;
     left: 10%;
-    position: absolute;
+    position: fixed;
     border-radius: 10px;
     transition: transform 0.5s ease-in-out;
     transform: translateX(150%);
@@ -138,6 +138,11 @@ $hover-grey: #D1D1D1;
         display: none;
     }
 
+    .add-contact.hidden{
+         visibility: hidden;
+        
+    }
+
     .add-contact{
         flex-direction: column;
         height: auto;
@@ -189,6 +194,7 @@ $hover-grey: #D1D1D1;
         }
     }
 
+    
     .add-contact-buttons{
         @include dFlex();
         padding-top: 20px;
