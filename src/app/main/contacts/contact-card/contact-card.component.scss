@@ -163,6 +163,31 @@
   z-index: 20;
 }
 
+.actions-mobile {
+  position: fixed;
+  overflow: hidden;
+  bottom: 120px;
+  right: 20px;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(150%);
+  z-index: 30;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  -webkit-box-shadow: -4px 0px 4px 0px #000000;
+  box-shadow: -4px 0px 4px 0px rgba($color: #000000, $alpha: .25);
+  color: black;
+  padding: 15px;
+  @include dFlex(column, flex-start, flex-start);
+  gap: 15px;
+
+  .delete {
+    display: flex;
+    gap: 14px;
+  }
+}
+
 @media(max-width: 430px) {
   .back-img {
     display: block;
@@ -217,7 +242,7 @@
     gap: 5px;
   }
 
-  .options{
+  .options {
     display: block;
   }
 }

@@ -4,6 +4,7 @@ import { ContactsComponent } from '../contacts.component';
 import { Contact } from '../../../interfaces/contact';
 import { FirebaseContactsService } from '../../../services/firebase-contacts.service';
 import { EditContactComponent } from "../edit-contact/edit-contact.component";
+import { ModalWindowService } from '../../../services/modal-window/modal-window.service';
 @Component({
   selector: 'app-contact-card',
   standalone: true,
@@ -18,10 +19,10 @@ export class ContactCardComponent {
 
   @Output() close = new EventEmitter<void>();
 
-  constructor(private contactsService: FirebaseContactsService) {
+  constructor(private contactsService: FirebaseContactsService, public modalWindowService: ModalWindowService) {
 
   }
-
+  
   ngOnInit() {
     this.contactsService.selectedContact$.subscribe(contact => {
       this.selectedContact = contact;
@@ -44,4 +45,15 @@ export class ContactCardComponent {
     this.close.emit();
   }
 
+  openInfo(){
+    this.modalWindowService.openInfo('actions_mobile');
+  }
+
+  closeInfo(){
+    this.modalWindowService.closeInfo('actions_mobile');
+  }
+
+  bubblingProtection(event: any) {
+    event.stopPropagation();
+}
 }
