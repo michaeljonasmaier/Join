@@ -166,7 +166,6 @@
 .actions-mobile {
   display: none;
   position: fixed;
-  overflow: hidden;
   bottom: 120px;
   right: 20px;
   transition: transform 0.5s ease-in-out;
@@ -248,6 +247,6 @@
   }
 
   .actions-mobile{
-    display: block;
+    display: flex;
   }
 }
