@@ -7,11 +7,11 @@ $hover-grey: #D1D1D1;
     top: 20%;
     height: 60%;
     left: 10%;
-    position: absolute;
+    position: fixed;
     border-radius: 10px;
     transition: transform 0.5s ease-in-out;
     transform: translateX(150%);
-    z-index: 10;
+    z-index: 50;
     overflow: hidden;
 
     .folder-info{
@@ -28,6 +28,11 @@ $hover-grey: #D1D1D1;
             width: 50px;
         }
     }
+
+    form{
+        width: 100%;
+    }
+
     .inputs{
         display: flex;
         flex-direction: column;
@@ -41,7 +46,6 @@ $hover-grey: #D1D1D1;
             border: solid 1px;
             border-color: $hover-grey;
             border-radius: 10px;
-
             input{
                 border: none;
                 width: 100%;
@@ -120,3 +124,104 @@ $hover-grey: #D1D1D1;
 }
 
 .d-none{display: none;}
+
+.add-contact-btn-mobile{
+    display: none;
+    position: absolute;
+    bottom: 130px;
+    right: 25px;
+    z-index: 20;
+}
+
+.err-msg{
+    color: rgb(181, 0, 0);
+    font-size: 14px;
+}
+
+button{
+    font-size: 16px;
+}
+
+button:disabled{
+    background-color: gray;
+    color: white;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@media(max-width: 600px){
+    .add-contact-btn-mobile{
+        display: block;
+    }
+
+    .add-contact-btn{
+        display: none;
+    }
+
+    .add-contact.hidden{
+         visibility: hidden;
+        
+    }
+
+    .add-contact{
+        flex-direction: column;
+        height: auto;
+        top: 15%;
+        .folder-info{
+            width: 100%;
+            padding-top: 70px;
+            padding-bottom: 70px;
+            img{
+                display: none;
+            }
+
+            h2{
+                font-size: 47px;
+                margin: 0;
+            }
+
+            h3{
+                font-size: 20px;
+                margin-top: 0;
+            }
+        }
+
+        .add-info{
+            width: 100%;
+            padding: 0;
+            padding-bottom: 40px;
+            @include dFlex(column, center, center) 
+        }
+
+        .add-info-main{
+            flex-direction: column;
+           position: relative;
+           padding-top: 90px;
+           width: 90%;
+        }
+
+        .close{
+            display: none;
+        }
+
+        .profile-image{
+            margin-top: -150px;
+            width: 120px;
+            height: 120px;
+            margin-right: 0;
+            position: absolute;
+        }
+    }
+
+    
+    .add-contact-buttons{
+        @include dFlex();
+        padding-top: 20px;
+        .cancel{
+            display: none;
+        }
+    }
+
+    
+}

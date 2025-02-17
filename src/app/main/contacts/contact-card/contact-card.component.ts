@@ -1,9 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactsComponent } from '../contacts.component';
 import { Contact } from '../../../interfaces/contact';
 import { FirebaseContactsService } from '../../../services/firebase-contacts.service';
 import { EditContactComponent } from "../edit-contact/edit-contact.component";
+import { ModalWindowService } from '../../../services/modal-window/modal-window.service';
+
 @Component({
   selector: 'app-contact-card',
   standalone: true,
@@ -15,8 +17,11 @@ export class ContactCardComponent {
   //@ViewChild(EditContactComponent) editComponent!: EditContactComponent;
 
   selectedContact: Contact | null = null;
+  infoOpend = false;
 
-  constructor(private contactsService: FirebaseContactsService) {
+  @Output() close = new EventEmitter<void>();
+
+  constructor(private contactsService: FirebaseContactsService, public modalWindowService: ModalWindowService) {
 
   }
 
@@ -29,15 +34,35 @@ export class ContactCardComponent {
   }
 
   deleteContact() {
-    if(this.selectedContact){
+    if (this.selectedContact) {
       this.contactsService.deleteContact(this.selectedContact.id);
       this.selectedContact = null;
     }
   }
 
   /*
-  editContact(){
-      this.editComponent.openInfo();
+   editContact(){
+       this.editComponent.openInfo();
+   }
+ */
+  closeCard(): void {
+    this.close.emit();
+  }
+/*
+  openInfo() {
+    this.modalWindowService.openInfo('actions_mobile');
+    this.infoOpend = true;
+  }
+
+  closeInfo() {
+    if (this.infoOpend) {
+      this.modalWindowService.closeInfo('actions_mobile');
+      this.infoOpend = false;
+    }
   }*/
+
+  bubblingProtection(event: any) {
+    event.stopPropagation();
+  }
 
 }

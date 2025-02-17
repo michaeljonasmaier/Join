@@ -1,3 +1,4 @@
+
 <app-grey-background class="d-none" id="absolute-background-add" (click)="closeInfo()"></app-grey-background>
 <app-join-btn title="Add new contact" imgPath="assets/contacts/person_add.png" style="width: 100%;" (click)="openInfo()"></app-join-btn>
 <div class="add-contact" id="add-contact">
@@ -11,24 +12,53 @@
         <img class="close" (click)="closeInfo()" src="../../../../assets/add-contact/iconoir_cancel.png" alt="">
         <div class="add-info-main">
             <img class="profile-image" src="../../../../assets/add-contact/Group 13.png" alt="">
-            <div class="inputs">
-                <div class="single-input">
-                    <input [(ngModel)]="contact.name" type="text" placeholder="Name">
-                    <img src="../../../../assets/add-contact/person.png" alt="">
+            <form #contactForm="ngForm">
+                <div class="inputs">
+
+                    <div class="single-input">
+                        <input name="name" #nameRef="ngModel" [(ngModel)]="contact.name" type="text" placeholder="Name"
+                            required="">
+                        <img src="../../../../assets/add-contact/person.png" alt="">
+                    </div>
+                    @if(!nameRef.valid && nameRef.touched && !nameRef.disabled){
+                    <span class="err-msg">Please enter a name.</span>
+                    }
+
+                    <div class="single-input">
+                        <input name="mail" #mailRef="ngModel" [(ngModel)]="contact.mail" type="email"
+                            placeholder="Email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+                        <img src="../../../../assets/add-contact/mail.png" alt="">
+                    </div>
+                    @if(!mailRef.valid && mailRef.touched && !mailRef.disabled){
+                    <span class="err-msg">Please enter a valid email address.</span>
+                    }
+
+                    <div class="single-input">
+                        <input name="phone" #phoneRef="ngModel" [(ngModel)]="contact.phone" type="tel"
+                            placeholder="Phone" pattern="^(\+\d{1,4}\s?)?(\d[\d\s]{6,14}\d)$">
+                        <img src="../../../../assets/add-contact/call.png" alt="">
+                    </div>
+                    @if(!phoneRef.valid && phoneRef.touched && !phoneRef.disabled){
+                    <span class="err-msg">Please enter a valid phone number.</span>
+                    }
+
+                    <div class="add-contact-buttons">
+                        <div class="cancel add-contact-button" (click)="cleanInputs()">Cancel <img
+                                src="../../../../assets/add-contact/iconoir_cancel.png" alt=""></div>
+
+                        @if(contactForm.valid){
+                        <button type="submit" class="create add-contact-button" (click)="createContact()">Create contact
+                            <img src="../../../../assets/add-contact/check.png" alt=""></button>
+                        } @else {
+                        <button type="submit" class="create add-contact-button" disabled>Create contact <img
+                                src="../../../../assets/add-contact/check.png" alt=""></button>
+                        }
+
+                       <!--  <div class="create add-contact-button" (click)="createContact()">Create contact <img
+                                src="../../../../assets/add-contact/check.png" alt=""></div> -->
+                    </div>
                 </div>
-                <div class="single-input">
-                    <input [(ngModel)]="contact.mail" type="email" placeholder="Email">
-                    <img src="../../../../assets/add-contact/mail.png" alt="">
-                </div>
-                <div class="single-input">
-                    <input [(ngModel)]="contact.phone" type="tel" placeholder="Phone">
-                    <img src="../../../../assets/add-contact/call.png" alt="">
-                </div>
-                <div class="add-contact-buttons">
-                    <div class="cancel add-contact-button" (click)="cleanInputs()">Cancel <img src="../../../../assets/add-contact/iconoir_cancel.png" alt=""></div>
-                    <div class="create add-contact-button" (click)="createContact()">Create contact <img src="../../../../assets/add-contact/check.png" alt=""></div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

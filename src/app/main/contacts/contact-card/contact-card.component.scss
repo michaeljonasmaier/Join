@@ -4,34 +4,51 @@
   flex-grow: 1;
   height: 100%;
 }
+
 .contact-card {
   padding-top: 100px;
   padding-left: 70px;
   height: 100%;
-  border: 1px solid #ddd;
   border-radius: 8px;
   font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.contact-title-div {
+  @include dFlex(row, flex-start, center);
+  gap: 20px;
+
+  >.line {
+    height: 59px;
+    width: 3px;
+    background-color: #29abe2;
+  }
+}
+
+.line-mobile {
+  display: none;
+  padding-top: 20px;
+  width: 85px;
+  border-bottom: 3px solid #29abe2;
+
+}
+
+.back-img {
+  display: none;
 }
 
 .title {
   display: flex;
   align-items: center;
-  width: 569;
-  height: 73;
   top: 206px;
   left: 743px;
   gap: 30px;
-  font-family: Inter;
   font-weight: 700;
   font-size: 61px;
   line-height: 73.2px;
   letter-spacing: 0%;
   color: black;
-  > .line {
-    height: 59px;
-    width: 3px;
-    background-color: #29abe2;
-  }
+
 }
 
 .subtitle {
@@ -41,7 +58,6 @@
   line-height: 32.4px;
   letter-spacing: 0%;
   color: black;
-  margin-left: 10px;
 }
 
 .contact-header {
@@ -72,7 +88,6 @@
 .contact-name h3 {
   margin: 0;
   color: black;
-  font-family: Inter;
   font-weight: 500;
   font-size: 47px;
   line-height: 56.4px;
@@ -90,7 +105,8 @@
   color: gray;
   gap: 25px;
 
-  .edit, .delete{
+  .edit,
+  .delete {
     display: flex;
     gap: 10px;
   }
@@ -106,16 +122,16 @@
 .contact-info {
   margin-top: 16px;
   color: black;
-  > h4 {
+
+  >h4 {
     font-family: Inter;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
     letter-spacing: 0%;
   }
-  > p {
-    font-family: Inter;
-    font-weight: 700;
+
+  >p {
     font-size: 16px;
     line-height: 19.2px;
     letter-spacing: 0%;
@@ -128,12 +144,146 @@
   text-decoration: underline;
 }
 
-.delete:hover{
+.delete:hover {
   cursor: pointer;
   color: #29abe2;
-  >img{
+
+  >img {
     content: url('./../../../../assets/contacts/delete_hover.png');
     width: 16px;
     height: 18px;
+  }
+}
+
+.options {
+  display: none;
+  position: absolute;
+  bottom: 35px;
+  right: 25px;
+  z-index: 20;
+}
+
+.actions-mobile {
+  display: none;
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(150%);
+  z-index: 30;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  -webkit-box-shadow: -4px 0px 4px 0px #000000;
+  box-shadow: -4px 0px 4px 0px rgba($color: #000000, $alpha: .25);
+  color: black;
+  padding: 15px;
+  @include dFlex(column, flex-start, flex-start);
+  gap: 15px;
+
+  .delete {
+    display: flex;
+    gap: 14px;
+  }
+}
+
+@media(max-width: 1025px){
+  .contact-card {
+    padding-left: 30px;
+  }
+}
+
+@media(max-width: 900px){
+  .contact-title-div {
+    @include dFlex(column, flex-start, flex-start);
+    gap: 0;
+  }
+
+  .contact-info {
+    >h4 {
+      margin: 0;
+    }
+  }
+
+  .line {
+    display: none;
+  }
+
+  .line-mobile {
+    display: block;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .contact-header {
+    gap: 20px;
+  }
+
+
+}
+
+@media(max-width: 600px) {
+  .back-img {
+    display: block;
+  }
+
+  .contact-card {
+    @include dFlex(column, flex-start, flex-start);
+    overflow: hidden;
+    padding: 20px 20px 0 20px;
+    gap: 20px;
+    height: calc(100% - 20px);
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .contact-card-title {
+    @include dFlex(row, space-between, flex-start);
+    width: 100%
+  }
+
+  .contact-title-div {
+    @include dFlex(column, flex-start, flex-start);
+    gap: 0;
+  }
+
+  .contact-info {
+    >h4 {
+      margin: 0;
+    }
+  }
+
+  .line {
+    display: none;
+  }
+
+  .line-mobile {
+    display: block;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .contact-name h3 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .contact-header {
+    gap: 5px;
+  }
+
+  .options {
+    display: block;
+  }
+
+  .actions-mobile{
+    display: flex;
   }
 }

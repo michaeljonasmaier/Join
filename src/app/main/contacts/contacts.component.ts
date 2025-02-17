@@ -14,5 +14,26 @@ import { ContactCardComponent } from "./contact-card/contact-card.component";
 })
 export class ContactsComponent {
 
-  
+  screenWidth: number = 1;
+  resizeListener = () => {
+    this.screenWidth = window.innerWidth;
+    if(this.screenWidth < 500){
+
+    }
+  };
+
+  ngOnInit(): void {
+    this.screenWidth = window.innerWidth; // Initiale Breite setzen
+    window.addEventListener('resize', this.resizeListener);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.resizeListener);
+  }
+
+  isCardVisible = false;
+
+  toggleCard(show: boolean): void {
+    this.isCardVisible = show;
+  }
 }
