@@ -11,7 +11,7 @@
   height: 100%;
   border-radius: 8px;
   font-family: Arial, sans-serif;
-  position: relative;
+  //position: relative;
 }
 
 .contact-title-div {
@@ -170,7 +170,7 @@
   right: 20px;
   transition: transform 0.5s ease-in-out;
   transform: translateX(150%);
-  z-index: 30;
+  z-index: 50;
   background-color: white;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -186,6 +186,14 @@
     display: flex;
     gap: 14px;
   }
+}
+
+.invise-bg{
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 45;
 }
 
 @media(max-width: 1025px){

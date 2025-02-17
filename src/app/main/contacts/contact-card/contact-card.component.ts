@@ -14,10 +14,8 @@ import { ModalWindowService } from '../../../services/modal-window/modal-window.
   styleUrl: './contact-card.component.scss'
 })
 export class ContactCardComponent {
-  //@ViewChild(EditContactComponent) editComponent!: EditContactComponent;
 
   selectedContact: Contact | null = null;
-  infoOpend = false;
 
   @Output() close = new EventEmitter<void>();
 
@@ -40,26 +38,17 @@ export class ContactCardComponent {
     }
   }
 
-  /*
-   editContact(){
-       this.editComponent.openInfo();
-   }
- */
   closeCard(): void {
     this.close.emit();
   }
-/*
-  openInfo() {
-    this.modalWindowService.openInfo('actions_mobile');
-    this.infoOpend = true;
+
+  openButton(){
+    this.modalWindowService.openButton('actions_mobile', 'invise-bg');
   }
 
-  closeInfo() {
-    if (this.infoOpend) {
-      this.modalWindowService.closeInfo('actions_mobile');
-      this.infoOpend = false;
-    }
-  }*/
+  closeButton(){
+    this.modalWindowService.closeButton('actions_mobile', 'invise-bg');
+  }
 
   bubblingProtection(event: any) {
     event.stopPropagation();

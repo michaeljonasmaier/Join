@@ -1,4 +1,5 @@
-<div class="contact-card" (click)="closeInfo()">
+<div class="invise-bg d-none" id="invise-bg" (click)="closeButton()"></div>
+<div class="contact-card">
   <div class="contact-card-title">
     <div class="contact-title-div">
       <h2 class="title">Contacts </h2>
@@ -37,7 +38,7 @@
     <p>{{ selectedContact?.phone }}</p>
   </div>
 
-  <img class="options" src="assets/contacts/options_mobile.png" alt="" (click)="openInfo(); bubblingProtection($event)">
+  <img class="options" src="assets/contacts/options_mobile.png" alt="" (click)="openButton(); bubblingProtection($event)">
   <div class="actions-mobile" id="actions_mobile">
     <app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()" class="app-edit-contact"></app-edit-contact>
     <div class="delete" (click)="deleteContact(); closeCard()">
