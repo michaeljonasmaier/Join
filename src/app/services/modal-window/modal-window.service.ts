@@ -6,16 +6,16 @@ import { Injectable } from '@angular/core';
 export class ModalWindowService {
   isHidden = true;
 
-  closeInfo(id: string){
+  closeInfo(id: string, bg: string){
     this.isHidden = true;
     this.moveWindow(id);
-    this.changeBg();
+    this.changeBg(bg);
   }
   
-  openInfo(id: string){
+  openInfo(id: string, bg: string){
     this.isHidden = false;
     this.moveWindow(id);
-    this.changeBg();
+    this.changeBg(bg);
   }
 
   moveWindow(id: string){
@@ -24,8 +24,8 @@ export class ModalWindowService {
     window.style.transform = this.isHidden ? 'translateX(150%)' : 'translateX(0)';
   }
 
-  changeBg(){
-    let background = document.getElementById('absolute-background');
+  changeBg(bg: string){
+    let background = document.getElementById(bg);
     if (!background) return;
     background.classList.toggle('d-none');
   }

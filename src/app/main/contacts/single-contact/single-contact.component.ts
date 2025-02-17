@@ -23,10 +23,10 @@ export class SingleContactComponent {
   constructor(public modalWindowService: ModalWindowService){}
   // takes info from service (open and close)
   openInfo(){
-    this.modalWindowService.openInfo('add-contact');
+    this.modalWindowService.openInfo('add-contact', 'absolute-background-add');
   }
   closeInfo(){
-    this.modalWindowService.closeInfo('add-contact');
+    this.modalWindowService.closeInfo('add-contact', 'absolute-background-add');
   }
 
   cleanInputs(){

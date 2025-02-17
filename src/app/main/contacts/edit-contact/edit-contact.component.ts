@@ -27,6 +27,7 @@ export class EditContactComponent implements OnInit{
 
   constructor(public modalWindowService: ModalWindowService, private contactsService: FirebaseContactsService){
   }
+  
 
   ngOnInit() {
     console.log(this.contact)
@@ -58,10 +59,10 @@ export class EditContactComponent implements OnInit{
 
   // takes info from service (open and close)
   openInfo(){
-    this.modalWindowService.openInfo('edit-contact');
+    this.modalWindowService.openInfo('edit-contact', 'edit-absolute-background');
   }
   closeInfo(){
-    this.modalWindowService.closeInfo('edit-contact');
+    this.modalWindowService.closeInfo('edit-contact', 'edit-absolute-background');
   }
 
   updateContact(){
