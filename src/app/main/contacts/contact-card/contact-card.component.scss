@@ -188,6 +188,43 @@
   }
 }
 
+@media(max-width: 1025px){
+  .contact-card {
+    padding-left: 30px;
+  }
+}
+
+@media(max-width: 900px){
+  .contact-title-div {
+    @include dFlex(column, flex-start, flex-start);
+    gap: 0;
+  }
+
+  .contact-info {
+    >h4 {
+      margin: 0;
+    }
+  }
+
+  .line {
+    display: none;
+  }
+
+  .line-mobile {
+    display: block;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .contact-header {
+    gap: 20px;
+  }
+
+
+}
+
 @media(max-width: 600px) {
   .back-img {
     display: block;
