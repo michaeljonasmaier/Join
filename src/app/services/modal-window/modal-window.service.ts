@@ -10,6 +10,7 @@ export class ModalWindowService {
     this.isHidden = true;
     this.moveWindow(id);
     this.changeBg();
+    console.log(id);
   }
   
   openInfo(id: string){
