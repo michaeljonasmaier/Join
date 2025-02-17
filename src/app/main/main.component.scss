@@ -20,10 +20,10 @@ section{
     }
 }
 
-@media(max-width: 430px){
+@media(max-width: 600px){
     .header-content-wrapper{
         width: 100%;
-        height: 90% !important;
+        height: 80% !important;
         @include dFlex(column-reverse, flex-start, space-between);
     }
 
