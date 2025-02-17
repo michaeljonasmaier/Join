@@ -95,8 +95,16 @@ section {
     width: calc(100% - 75px);
 }
 
-.single-contact{
-   
+@media(max-width: 800px) {
+    section{
+        padding: 24px;
+        padding-right: 0;
+    }
+
+    .contact-item{
+        width: 300px;
+        gap: 10px;
+    }
 }
 
 @media(max-width: 600px){
@@ -111,8 +119,10 @@ section {
         padding: 0;
     }
 
-    
-
+    .contact-item{
+        width: 352px;
+        gap: 35px;
+    }
 }
 
 @media(max-width: 400px) {
