@@ -9,7 +9,7 @@
         </div>
         }
         <div class="contact-item" (click)="selectContact(contactItem); onShowCard()">
-            <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
+            <div class="initials" [style.backgroundColor]="contactItem.color">
                 <span>
                     {{contactItem.initials}}
                 </span>

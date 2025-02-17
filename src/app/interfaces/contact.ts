@@ -4,5 +4,6 @@ export interface Contact {
     mail: string,
     phone: string,
     initials: string,
-    id: string
+    id: string,
+    color?: string,
 }

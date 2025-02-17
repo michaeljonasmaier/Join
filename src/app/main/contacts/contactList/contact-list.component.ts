@@ -12,7 +12,6 @@ import { SingleContactComponent } from '../single-contact/single-contact.compone
   styleUrl: './contact-list.component.scss'
 })
 export class ContactListComponent {
-  bgColors = ["#D72638", "#F46036", "#F3A712", "#5B8E7D", "#3A86FF", "#8338EC", "#FF006E", "#2EC4B6", "#EF476F", "#06D6A0"];
   contactList: Contact [] = [];
   previousLetter: string = '';
 
