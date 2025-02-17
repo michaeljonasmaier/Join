@@ -26,8 +26,10 @@ export class SingleContactComponent {
   openInfo(){
     this.modalWindowService.openInfo('add-contact');
   }
-  closeInfo(){
+  closeInfo(form?: any){
     this.modalWindowService.closeInfo('add-contact');
+    this.cleanInputs();
+    form.reset();
   }
 
   toggleAddContact(){

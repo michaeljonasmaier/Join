@@ -28,6 +28,11 @@ $hover-grey: #D1D1D1;
             width: 50px;
         }
     }
+
+    form{
+        width: 100%;
+    }
+
     .inputs{
         display: flex;
         flex-direction: column;
@@ -41,7 +46,6 @@ $hover-grey: #D1D1D1;
             border: solid 1px;
             border-color: $hover-grey;
             border-radius: 10px;
-
             input{
                 border: none;
                 width: 100%;
@@ -127,6 +131,23 @@ $hover-grey: #D1D1D1;
     bottom: 130px;
     right: 25px;
     z-index: 20;
+}
+
+.err-msg{
+    color: rgb(181, 0, 0);
+    font-size: 14px;
+}
+
+button{
+    font-size: 16px;
+}
+
+button:disabled{
+    background-color: gray;
+    color: white;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 @media(max-width: 600px){
