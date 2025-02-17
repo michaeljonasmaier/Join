@@ -1,4 +1,4 @@
-section{
+:host{
     //background-color: rgba(82, 82, 82, 0.8);
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
@@ -6,5 +6,5 @@ section{
     width: 100vw;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 45;
 }
