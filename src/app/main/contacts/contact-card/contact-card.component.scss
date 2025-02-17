@@ -195,6 +195,10 @@
   width: 100vw;
   z-index: 45;
 }
+.close{
+  position: absolute;
+  display: none;
+}
 
 @media(max-width: 1025px){
   .contact-card {
@@ -294,4 +298,6 @@
   .actions-mobile{
     display: flex;
   }
+
+ 
 }
