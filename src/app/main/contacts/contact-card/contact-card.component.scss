@@ -188,6 +188,11 @@
   }
 }
 
+.close{
+  position: absolute;
+  display: none;
+}
+
 @media(max-width: 1025px){
   .contact-card {
     padding-left: 30px;
@@ -286,4 +291,6 @@
   .actions-mobile{
     display: flex;
   }
+
+ 
 }

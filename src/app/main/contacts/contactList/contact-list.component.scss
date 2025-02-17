@@ -3,6 +3,7 @@
 :host {
     height: calc(100% - 30px);
     overflow-y: hidden;
+    box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
 }
 
 ::-webkit-scrollbar {
