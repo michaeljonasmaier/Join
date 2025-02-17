@@ -80,6 +80,7 @@ export class EditContactComponent implements OnInit{
   editContact(){
     this.updateContact()
     this.contactsService.editContact(this.contact);
+    this.contactsService.updateContact(this.contact)
     this.closeInfo();
   }
 

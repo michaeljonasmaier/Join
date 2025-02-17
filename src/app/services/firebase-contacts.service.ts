@@ -30,6 +30,10 @@ export class FirebaseContactsService {
     })
   }
 
+  updateContact(newContact: any) {
+    this.contactSource.next(newContact); 
+  }
+
   getContactsRef(){
     return collection(this.firestore, 'contacts');
   }
