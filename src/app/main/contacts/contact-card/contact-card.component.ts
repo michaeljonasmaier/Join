@@ -1,4 +1,4 @@
-import { Component, ViewChild, Output, EventEmitter, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter, ChangeDetectorRef, OnInit, viewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactsComponent } from '../contacts.component';
 import { Contact } from '../../../interfaces/contact';
@@ -14,6 +14,7 @@ import { ModalWindowService } from '../../../services/modal-window/modal-window.
   styleUrl: './contact-card.component.scss'
 })
 export class ContactCardComponent {
+  @ViewChild(EditContactComponent) editComponent!: EditContactComponent; 
 
   selectedContact: Contact | null = null;
 
@@ -54,4 +55,9 @@ export class ContactCardComponent {
     event.stopPropagation();
   }
 
+  openEdit(){
+    if (this.editComponent) {
+      this.editComponent.openInfo();
+    }
+  }
 }

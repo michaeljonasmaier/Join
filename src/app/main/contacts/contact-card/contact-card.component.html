@@ -1,8 +1,9 @@
 <div class="invise-bg d-none" id="invise-bg" (click)="closeButton()"></div>
+<app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()" class="app-edit-contact"></app-edit-contact>
 <div class="contact-card">
   <div class="contact-card-title">
     <div class="contact-title-div">
-      <h2 class="title">Contacts </h2>
+      <h2 class="title">Contacts</h2>
       <div class="line"></div> 
       <span class="subtitle">Better with a team</span>
       <div class="line-mobile"></div>
@@ -18,14 +19,14 @@
     <div class="contact-name">
       <h3>{{ selectedContact?.name }} {{ selectedContact?.surname }}</h3>
       <div class="actions">
-        <div class="edit">
-          <app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()" class="app-edit-contact"></app-edit-contact>
+        <div class="edit" (click)="openEdit()">
+            <img src="assets/contacts/edit.png" alt="">
+            <span>Edit</span>
         </div>
         <div class="delete" (click)="deleteContact()">
           <img src="assets/contacts/delete.png" alt="">
           <span>Delete</span>
         </div>
-        
       </div>
     </div>
   </div>
@@ -40,7 +41,10 @@
 
   <img class="options" src="assets/contacts/options_mobile.png" alt="" (click)="openButton(); bubblingProtection($event)">
   <div class="actions-mobile" id="actions_mobile">
-    <app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()" class="app-edit-contact"></app-edit-contact>
+    <div class="edit" (click)="openEdit(); closeButton()">
+      <img src="assets/contacts/edit.png" alt="">
+      <span>Edit</span>
+  </div>
     <div class="delete" (click)="deleteContact(); closeCard()">
       <img src="assets/contacts/delete.png" alt="">
       <span>Delete</span>

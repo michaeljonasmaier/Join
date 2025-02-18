@@ -105,13 +105,16 @@
   color: gray;
   gap: 25px;
 
-  .edit,
+  
   .delete {
     display: flex;
     gap: 10px;
   }
 }
-
+.edit{
+    display: flex;
+    gap: 10px !important;
+  }
 .actions span {
   width: 159;
   height: 24;
@@ -142,6 +145,18 @@
   cursor: pointer;
   color: #29abe2;
   text-decoration: underline;
+}
+
+.edit:hover {
+  cursor: pointer;
+  color: #29abe2;
+  gap: 10px;
+
+  >img {
+    content: url('./../../../../assets/contacts/edit_hover.png');
+    width: 19px;
+    height: 19px;
+  }
 }
 
 .delete:hover {
@@ -248,6 +263,7 @@
     padding: 20px 20px 0 20px;
     gap: 20px;
     height: calc(100% - 20px);
+    position: relative;
   }
 
   .actions {
