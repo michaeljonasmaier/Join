@@ -47,7 +47,7 @@ export class ContactListComponent {
 
   hasLetterChanged(currentLetter: string): boolean {
     let hasChanged = currentLetter !== this.previousLetter;
-    this.previousLetter = currentLetter; // Update the previous letter
+    this.previousLetter = currentLetter; 
     return hasChanged;
   }
 
@@ -56,7 +56,7 @@ export class ContactListComponent {
   }
 
   addNewContact(contact: any){
-    this.contactList.push(contact);  // Add new contact in Array
+    this.contactList.push(contact);
     this.contactsService.addContact(contact);
   }
 

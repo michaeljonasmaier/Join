@@ -58,6 +58,4 @@ export class ModalWindowService {
     if (!window) return;
     window.style.transform = this.isButtonHidden ? 'translateX(150%)' : 'translateX(0)';
   }
-  
-  //constructor() { }
 }

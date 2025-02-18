@@ -55,7 +55,6 @@ export class EditContactComponent implements OnInit{
     }
 
 
-  // takes info from service (open and close)
   openInfo(){
     this.modalWindowService.openInfo('edit-contact', 'edit-absolute-background');
   }
@@ -64,7 +63,7 @@ export class EditContactComponent implements OnInit{
   }
 
   updateContact(){
-    const [name, surname] = this.contact.name.split(' '); //Makes first and second name from one
+    const [name, surname] = this.contact.name.split(' '); 
 
     this.contact = {
       name: name || '',  
