@@ -213,5 +213,11 @@ $hover-grey: #D1D1D1;
         @include dFlex();
         padding-top: 20px;
     }
+
+    .edit-contact-line{
+        width: 100px;
+        border-bottom: 3px solid #29abe2;
+        padding-top: 10px;
+    }
     
 }

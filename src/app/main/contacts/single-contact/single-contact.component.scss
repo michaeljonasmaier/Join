@@ -178,6 +178,8 @@ button:disabled{
             h3{
                 font-size: 20px;
                 margin-top: 0;
+                font-weight: 400;
+                margin-bottom: 10px;
             }
         }
 
@@ -208,7 +210,12 @@ button:disabled{
         }
     }
 
-    
+    .add-contact-line{
+        width: 100px;
+        border-bottom: 3px solid #29abe2;
+
+    }
+
     .add-contact-buttons{
         @include dFlex();
         padding-top: 20px;
