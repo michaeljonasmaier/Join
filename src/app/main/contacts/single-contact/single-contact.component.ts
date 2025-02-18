@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './single-contact.component.scss'
 })
 export class SingleContactComponent {
-  @Output() contactCreated = new EventEmitter<any>(); //send new comment to the list
+  @Output() contactCreated = new EventEmitter<any>(); 
   
   contact = {
     name: "",
@@ -23,7 +23,6 @@ export class SingleContactComponent {
   isHidden = true;
 
   constructor(public modalWindowService: ModalWindowService){}
-  // takes info from service (open and close)
   openInfo(){
     this.modalWindowService.openInfo('add-contact', 'absolute-background-add');
   }
@@ -36,7 +35,7 @@ export class SingleContactComponent {
   }
 
   createContact(){
-    const [name, surname] = this.contact.name.split(' '); //Makes first and second name from one
+    const [name, surname] = this.contact.name.split(' '); 
 
     const newContact = {
       name: name || '',  

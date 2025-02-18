@@ -161,6 +161,9 @@ $hover-grey: #D1D1D1;
         height: auto;
         top: 15%;
 
+        transform: translateX(0);
+        transform: translateY(150%);
+
         .folder-info{
             width: 100%;
             padding-top: 70px;
