@@ -75,6 +75,11 @@ section {
     }
 }
 
+.contact-item.active{
+    background-color: #2A3647;
+    color: white;
+}
+
 .new-contact-btn-div {
     position: sticky;
     background-color: white;

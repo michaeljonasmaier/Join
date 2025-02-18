@@ -14,10 +14,17 @@ import { SingleContactComponent } from '../single-contact/single-contact.compone
 export class ContactListComponent {
   contactList: Contact [] = [];
   previousLetter: string = '';
+  isActive = false;
+  activeIndex: number | null = null;
 
   constructor(private contactsService: FirebaseContactsService) {
 
   }
+
+  setActive(index: number) {
+    this.activeIndex = index;
+  }
+
 
   getList(): Contact[] {
     return this.contactsService.contacts;
