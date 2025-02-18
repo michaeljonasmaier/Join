@@ -147,6 +147,13 @@ button:disabled{
     pointer-events: none;
 }
 
+.close-btn{
+    position: absolute;
+    display: none;
+    top: 20px;
+    right: 20px;
+}
+
 @media(max-width: 600px){
 
     .add-contact.hidden{
@@ -181,6 +188,13 @@ button:disabled{
                 font-weight: 400;
                 margin-bottom: 10px;
             }
+
+            .close-btn{
+                display: block;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+            }
         }
 
         .add-info{
@@ -213,7 +227,6 @@ button:disabled{
     .add-contact-line{
         width: 100px;
         border-bottom: 3px solid #29abe2;
-
     }
 
     .add-contact-buttons{

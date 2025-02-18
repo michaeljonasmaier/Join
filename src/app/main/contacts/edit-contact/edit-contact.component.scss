@@ -92,6 +92,13 @@ $hover-grey: #D1D1D1;
         background-color: $hover-grey;
         border-radius: 50px;
     }
+
+    .close-btn{
+        position: absolute;
+        display: none;
+        top: 20px;
+        right: 20px;
+    }
 }
 
 .edit-contact-buttons {
@@ -180,6 +187,13 @@ $hover-grey: #D1D1D1;
             h3{
                 font-size: 20px;
                 margin-top: 0;
+            }
+
+            .close-btn{
+                display: block;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
             }
         }
 
