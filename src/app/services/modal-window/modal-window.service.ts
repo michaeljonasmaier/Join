@@ -49,5 +49,25 @@ export class ModalWindowService {
     window.style.transform = this.isButtonHidden ? 'translateX(150%)' : 'translateX(0)';
   }
 
+  /*
+  closeMobileInfo(id: string, bg: string){
+    this.isHidden = true;
+    this.moveMobileWindow(id);
+    this.changeBg(bg);
+  }
+  
+  openMobileInfo(id: string, bg: string){
+    this.isHidden = false;
+    this.moveMobileWindow(id);
+    this.changeBg(bg);
+  }
+
+  moveMobileWindow(id: string){
+    let window = document.getElementById(id);
+    if (!window) return;
+    window.style.transform = this.isHidden ? 'translateY(150%)' : 'translateY(0)';
+  }
+    */
+
   //constructor() { }
 }

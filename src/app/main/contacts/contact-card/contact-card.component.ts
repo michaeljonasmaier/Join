@@ -58,4 +58,5 @@ export class ContactCardComponent {
       this.editComponent.openInfo();
     }
   }
+  
 }

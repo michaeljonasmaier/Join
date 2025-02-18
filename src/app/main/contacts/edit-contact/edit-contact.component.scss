@@ -153,3 +153,62 @@ $hover-grey: #D1D1D1;
     }
 }
 
+
+
+@media(max-width: 600px){
+    .edit-contact{
+        flex-direction: column;
+        height: auto;
+        top: 15%;
+
+        .folder-info{
+            width: 100%;
+            padding-top: 70px;
+            padding-bottom: 70px;
+            img{
+                display: none;
+            }
+
+            h2{
+                font-size: 47px;
+                margin: 0;
+            }
+
+            h3{
+                font-size: 20px;
+                margin-top: 0;
+            }
+        }
+
+        .edit-info{
+            width: 100%;
+            padding: 0;
+            padding-bottom: 40px;
+            @include dFlex(column, center, center) 
+        }
+
+        .edit-info-main{
+            flex-direction: column;
+           position: relative;
+           padding-top: 90px;
+           width: 90%;
+        }
+
+        .close{
+            display: none;
+        }
+
+        .profile-image{
+            margin-top: -150px;
+            width: 120px;
+            height: 120px;
+            margin-right: 0;
+            position: absolute;
+        }
+    }
+    .edit-contact-buttons{
+        @include dFlex();
+        padding-top: 20px;
+    }
+    
+}
