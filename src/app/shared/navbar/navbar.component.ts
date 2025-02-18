@@ -9,8 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  activeIndex: number | null = null;
-  navItems = ['Home', 'About', 'Contact']; // Beispiel-Daten
+  activeIndex: number | null = 3;
 
   setActive(index: number) {
     this.activeIndex = index;

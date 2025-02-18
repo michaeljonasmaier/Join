@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class FirebaseContactsService {
 
   contacts: Contact [] = [];
+  bgColors = ["#D72638", "#F46036", "#F3A712", "#5B8E7D", "#3A86FF", "#8338EC", "#FF006E", "#2EC4B6", "#EF476F", "#06D6A0"];
 
   firestore: Firestore = inject(Firestore);
   unsubContacts;
@@ -27,7 +28,14 @@ export class FirebaseContactsService {
       list.forEach(element => {
           this.contacts.push(this.setContactObject(element.data(), element.id));
       });
+      this.setRandomColor();
     })
+  }
+
+  setRandomColor(){
+    this.contacts.forEach((contact, index) => {
+      contact.color = this.bgColors[index % this.bgColors.length]
+    });
   }
 
   updateContact(newContact: any) {

@@ -76,6 +76,7 @@
   border-width: 3px;
   border-radius: 70px;
   background-color: orange;
+  border: 2px solid white;
   color: white;
   font-size: 48px;
   font-weight: bold;
@@ -92,6 +93,7 @@
   font-size: 47px;
   line-height: 56.4px;
   letter-spacing: 0%;
+  margin-bottom: 10px
 }
 
 .actions {
@@ -172,8 +174,8 @@
 
 .options {
   display: none;
-  position: absolute;
-  bottom: 35px;
+  position: fixed;
+  bottom: 118px;
   right: 25px;
   z-index: 20;
 }
@@ -248,8 +250,6 @@
   .contact-header {
     gap: 20px;
   }
-
-
 }
 
 @media(max-width: 600px) {
@@ -267,7 +267,7 @@
   }
 
   .actions {
-    display: none;
+    /* display: none; */
   }
 
   .contact-card-title {
@@ -296,11 +296,17 @@
 
   .title {
     margin: 0;
+    font-size: 47px;
+  }
+
+  .subtitle {
+    font-size: 20px;
   }
 
   .contact-name h3 {
-    font-size: 36px;
+    font-size: 30px;
     font-weight: bold;
+    margin-bottom: 0;
   }
 
   .contact-header {
@@ -315,5 +321,10 @@
     display: flex;
   }
 
+  .avatar{
+    font-size: 32px;
+    width: 90px;
+    height: 90px;
+  }
  
 }

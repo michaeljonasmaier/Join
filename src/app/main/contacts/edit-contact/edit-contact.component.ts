@@ -30,9 +30,7 @@ export class EditContactComponent implements OnInit{
   
 
   ngOnInit() {
-    console.log(this.contact)
     if (this.currentContact) {
-      console.log("передалось" + this.contact);
       this.updateContactModel(this.currentContact);
     }
   }

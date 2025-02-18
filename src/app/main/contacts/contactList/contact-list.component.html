@@ -8,8 +8,8 @@
             <span>{{ getFirstLetter(contactItem.name) }}</span>
         </div>
         }
-        <div class="contact-item" (click)="selectContact(contactItem); onShowCard()">
-            <div class="initials" [style.backgroundColor]="bgColors[$index % bgColors.length]">
+        <div class="contact-item" (click)="selectContact(contactItem); onShowCard(); setActive($index)" [ngClass]="{ 'active': activeIndex === $index }">
+            <div class="initials" [style.backgroundColor]="contactItem.color">
                 <span>
                     {{contactItem.initials}}
                 </span>

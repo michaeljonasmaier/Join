@@ -28,8 +28,6 @@ export class ContactCardComponent {
     this.contactsService.selectedContact$.subscribe(contact => {
       this.selectedContact = contact;
     });
-    
-    console.log(screen.width)
   }
 
   deleteContact() {

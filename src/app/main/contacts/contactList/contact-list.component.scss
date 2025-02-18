@@ -1,9 +1,10 @@
 @import '../../../../styles.scss';
 
 :host {
-    height: calc(100% - 30px);
+    height: 100%;
     overflow-y: hidden;
     box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
+    background-color: white;
 }
 
 ::-webkit-scrollbar {
@@ -23,7 +24,7 @@ section {
     color: black;
     padding: 0px 48px 30px 48px;
     @include dFlex(column, flex-start, center);
-    height: 100%;
+    height: calc(100% - 30px);
     overflow: hidden;
     -webkit-box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
     box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.08);
@@ -74,6 +75,11 @@ section {
     }
 }
 
+.contact-item.active{
+    background-color: #2A3647;
+    color: white;
+}
+
 .new-contact-btn-div {
     position: sticky;
     background-color: white;
@@ -118,11 +124,17 @@ section {
         width: 100%;
         overflow-x: hidden;
         padding: 0;
+        height: 100%;
     }
 
     .contact-item{
         width: 352px;
         gap: 35px;
+    }
+
+    .contact-item.active{
+        background-color: transparent;
+        color: black;
     }
 }
 
