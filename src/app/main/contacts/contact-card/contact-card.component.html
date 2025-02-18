@@ -17,7 +17,7 @@
     <div class="avatar" [style.backgroundColor]="selectedContact.color">{{ selectedContact?.initials }}</div>
     <div class="contact-name">
       <h3>{{ selectedContact?.name }} {{ selectedContact?.surname }}</h3>
-      <div class="actions">
+      <div class="actions" id="actions">
         <div class="edit">
           <app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()" class="app-edit-contact"></app-edit-contact>
         </div>
@@ -39,12 +39,14 @@
   </div>
 
   <img class="options" src="assets/contacts/options_mobile.png" alt="" (click)="openButton(); bubblingProtection($event)">
-  <div class="actions-mobile" id="actions_mobile">
+  <!--<div class="actions-mobile" id="actions_mobile">
     <app-edit-contact [currentContact]="selectedContact" (deleteContactEvent)="deleteContact()" class="app-edit-contact"></app-edit-contact>
     <div class="delete" (click)="deleteContact(); closeCard()">
       <img src="assets/contacts/delete.png" alt="">
       <span>Delete</span>
     </div>
-  </div>
+  </div>-->
   }
 </div>
+
+  

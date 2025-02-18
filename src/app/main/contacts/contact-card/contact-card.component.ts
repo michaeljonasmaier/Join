@@ -41,7 +41,7 @@ export class ContactCardComponent {
   }
 
   openButton(){
-    this.modalWindowService.openButton('actions_mobile', 'invise-bg');
+    this.modalWindowService.openButton('actions', 'invise-bg');
   }
 
   closeButton(){
