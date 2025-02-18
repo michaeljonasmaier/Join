@@ -151,13 +151,14 @@ button:disabled{
 }
 
 @media(max-width: 600px){
+    /*
     .add-contact-btn-mobile{
         display: block;
     }
 
     .add-contact-btn{
         display: none;
-    }
+    }*/
 
     .add-contact.hidden{
          visibility: hidden;
@@ -168,6 +169,10 @@ button:disabled{
         flex-direction: column;
         height: auto;
         top: 15%;
+
+        transform: translateX(0);
+        transform: translateY(150%);
+
         .folder-info{
             width: 100%;
             padding-top: 70px;

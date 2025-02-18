@@ -21,6 +21,7 @@ export class SingleContactComponent {
     phone: ""
   }
   isHidden = true;
+
   constructor(public modalWindowService: ModalWindowService){}
   // takes info from service (open and close)
   openInfo(){
