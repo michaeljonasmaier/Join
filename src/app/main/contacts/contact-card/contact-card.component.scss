@@ -93,6 +93,7 @@
   font-size: 47px;
   line-height: 56.4px;
   letter-spacing: 0%;
+  margin-bottom: 10px
 }
 
 .actions {
@@ -159,7 +160,7 @@
 .options {
   display: none;
   position: absolute;
-  bottom: 35px;
+  bottom: 118px;
   right: 25px;
   z-index: 20;
 }
@@ -234,8 +235,6 @@
   .contact-header {
     gap: 20px;
   }
-
-
 }
 
 @media(max-width: 600px) {
@@ -291,6 +290,7 @@
   .contact-name h3 {
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 0;
   }
 
   .contact-header {

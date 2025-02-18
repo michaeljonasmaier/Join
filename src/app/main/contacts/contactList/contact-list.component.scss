@@ -124,11 +124,17 @@ section {
         width: 100%;
         overflow-x: hidden;
         padding: 0;
+        height: 100%;
     }
 
     .contact-item{
         width: 352px;
         gap: 35px;
+    }
+
+    .contact-item.active{
+        background-color: transparent;
+        color: black;
     }
 }
 
