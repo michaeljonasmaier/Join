@@ -101,6 +101,9 @@ section {
     padding-left: 10px;
     width: calc(100% - 75px);
 }
+.mobile-add-contact{
+    display: none;
+}
 
 @media(max-width: 800px) {
     section{
@@ -135,6 +138,13 @@ section {
     .contact-item.active{
         background-color: transparent;
         color: black;
+    }
+    .mobile-add-contact{
+        position: fixed;
+        bottom: 110px;
+        right: 15px;
+        z-index: 40;
+        display: block;
     }
 }
 

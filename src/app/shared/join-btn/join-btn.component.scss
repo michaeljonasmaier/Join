@@ -7,17 +7,26 @@ button {
     font-size: 21px;
     border-radius: 10px;
     border: none;
-    width: 100%;
+    //width: 100%;
     @include dFlex();
     gap: 20px;
     font-family: 'Inter';
     padding-top: 10px;
     padding-bottom: 10px;
 
+    width: 90%;
+    margin-right: 5%;
+
     &:hover {
         cursor: pointer;
         background-color: #29ABE2;
         -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media(max-width: 600px){
+    button{
+        display: none;
     }
 }

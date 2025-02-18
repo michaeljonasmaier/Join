@@ -1,17 +1,20 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FirebaseContactsService } from '../../../services/firebase-contacts.service';
 import { Contact } from '../../../interfaces/contact';
 import { CommonModule } from '@angular/common';
 import { SingleContactComponent } from '../single-contact/single-contact.component';
+import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
 
 @Component({
   selector: 'app-contact-list',
   standalone: true,
-  imports: [CommonModule, SingleContactComponent],
+  imports: [CommonModule, SingleContactComponent, JoinBtnComponent],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.scss'
 })
 export class ContactListComponent {
+  @ViewChild(SingleContactComponent) singleContactComponent!: SingleContactComponent; 
+
   contactList: Contact [] = [];
   previousLetter: string = '';
   isActive = false;
@@ -61,6 +64,12 @@ export class ContactListComponent {
 
   onShowCard(): void {
     this.showCard.emit(true);
+  }
+
+  openAddContact(){
+    if (this.singleContactComponent) {
+      this.singleContactComponent.openInfo();
+    }
   }
 
 }

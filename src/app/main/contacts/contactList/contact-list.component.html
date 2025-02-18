@@ -1,5 +1,6 @@
 <section>
     <app-single-contact (contactCreated)="addNewContact($event)" class="single-contact"></app-single-contact>
+    <app-join-btn title="Add new contact" imgPath="assets/contacts/person_add.png" style="width: 100%;" (click)="openAddContact()"></app-join-btn>
     <div class="contact-item-list">
         @for (contactItem of getSortedList(); track $index) {
 
@@ -23,6 +24,7 @@
 
 
     </div>
+    <img class="mobile-add-contact" src="../../../../assets/contacts/addcontact_mobile.png" alt="" (click)="openAddContact()">
 
 
 </section>
