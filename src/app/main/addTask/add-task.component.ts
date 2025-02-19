@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from '../../interfaces/task';
 
 @Component({
   selector: 'app-add-task',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './add-task.component.scss'
 })
 export class AddTaskComponent {
-
+  task: Task = {
+    title: "",
+    date: "",
+    category: 'Technical Task',
+    description: "",
+    prio: 'Medium',
+    subtasks: [],
+    assigned: [],
+  }
 }
