@@ -101,6 +101,27 @@ $hover-grey: #D1D1D1;
     }
 }
 
+form{
+    width: 100%;
+}
+
+.err-msg{
+    color: rgb(181, 0, 0);
+    font-size: 14px;
+}
+
+button{
+    font-size: 16px;
+}
+
+button:disabled{
+    background-color: gray;
+    color: white;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .edit-contact-buttons {
     display: flex;
     //justify-content: center;

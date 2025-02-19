@@ -10,25 +10,48 @@
         <img class="close" (click)="closeInfo()" src="../../../../assets/add-contact/iconoir_cancel.png" alt="">
         <div class="edit-info-main">
             <img class="profile-image" src="../../../../assets/add-contact/Group 13.png" alt="">
-            <div class="inputs">
-                <div class="single-input">
-                    <input [(ngModel)]="contact.name" type="text" placeholder="Name" value="Lon">
-                    <img src="../../../../assets/add-contact/person.png" alt="">
+            <form #contactForm="ngForm">
+                <div class="inputs">
+
+                    <div class="single-input">
+                        <input [(ngModel)]="contact.name" name="contact.name" #nameRef="ngModel" type="text" placeholder="Name" value="Lon" required>
+                        <img src="../../../../assets/add-contact/person.png" alt="">
+                    </div>
+                    @if(!nameRef.valid && nameRef.touched && !nameRef.disabled){
+                        <span class="err-msg">Please enter a name.</span>
+                        }
+                    
+                    <div class="single-input">
+                        <input [(ngModel)]="contact.mail" name="mail" #mailRef="ngModel" type="email" placeholder="Email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+                        <img src="../../../../assets/add-contact/mail.png" alt="">
+                    </div>
+                    @if(!mailRef.valid && mailRef.touched && !mailRef.disabled){
+                        <span class="err-msg">Please enter a valid email address.</span>
+                        }
+
+                    <div class="single-input">
+                        <input [(ngModel)]="contact.phone" name="phone" #phoneRef="ngModel" type="tel" placeholder="Phone" pattern="^(\+\d{1,4}\s?)?(\d[\d\s]{6,14}\d)$">
+                        <img src="../../../../assets/add-contact/call.png" alt="">
+                    </div>
+                    @if(!phoneRef.valid && phoneRef.touched && !phoneRef.disabled){
+                        <span class="err-msg">Please enter a valid phone number.</span>
+                        }
+
+                    <div class="edit-contact-buttons">
+                        <div class="cancel edit-contact-button" (click)="deleteContact()">Delete</div>
+
+                        @if(contactForm.valid){
+                            <button class="create edit-contact-button" (click)="editContact()">Save <img
+                                src="../../../../assets/add-contact/check.png" alt=""></button>
+                        } @else {
+                            <button class="create edit-contact-button" disabled>Save <img
+                                src="../../../../assets/add-contact/check.png" alt=""></button>
+                        }
+                       <!--  <div class="create edit-contact-button" (click)="editContact()">Save<img
+                                src="../../../../assets/add-contact/check.png" alt=""></div> -->
+                    </div>
                 </div>
-                <div class="single-input">
-                    <input [(ngModel)]="contact.mail" type="email" placeholder="Email">
-                    <img src="../../../../assets/add-contact/mail.png" alt="">
-                </div>
-                <div class="single-input">
-                    <input [(ngModel)]="contact.phone" type="tel" placeholder="Phone">
-                    <img src="../../../../assets/add-contact/call.png" alt="">
-                </div>
-                <div class="edit-contact-buttons">
-                    <div class="cancel edit-contact-button" (click)="deleteContact()">Delete</div>
-                    <div class="create edit-contact-button" (click)="editContact()">Save<img
-                            src="../../../../assets/add-contact/check.png" alt=""></div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
