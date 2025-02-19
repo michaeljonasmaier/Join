@@ -6,11 +6,14 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ContactsComponent } from './main/contacts/contacts.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MainComponent } from './main/main.component';
+import { AddTaskComponent } from './main/addTask/add-task.component';
+import { SummaryComponent } from './main/summary/summary.component';
+import { BoardComponent } from './main/board/board.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, LandingPageComponent, MainComponent, RouterOutlet],
+  imports: [CommonModule, LandingPageComponent, MainComponent, RouterOutlet, AddTaskComponent, SummaryComponent, BoardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

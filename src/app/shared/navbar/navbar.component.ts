@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,13 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   activeIndex: number | null = 3;
 
-  setActive(index: number) {
+  constructor(private router: Router){
+
+  }
+
+  setActive(index: number, route: string) {
     this.activeIndex = index;
+    console.log("route")
+    this.router.navigate(['main/' + route]);
   }
 }
