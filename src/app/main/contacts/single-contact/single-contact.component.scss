@@ -1,20 +1,20 @@
 @import '../../../../styles.scss';
 $hover-grey: #D1D1D1;
 
-.add-contact{
+.add-contact {
     display: flex;
-    width: 80%;
-    top: 20%;
-    height: 60%;
-    left: 10%;
+    width: 1000px;
+    top: calc(50% - 250px);
+    height: 500px;
+    left: calc(50% - 500px);
     position: fixed;
     border-radius: 10px;
     transition: transform 0.5s ease-in-out;
-    transform: translateX(150%);
+    transform: translateX(300%);
     z-index: 50;
     overflow: hidden;
 
-    .folder-info{
+    .folder-info {
         color: white;
         width: 40%;
         background-color: $main_grey;
@@ -22,21 +22,23 @@ $hover-grey: #D1D1D1;
         justify-content: center;
         flex-direction: column;
         padding: 20px;
-        img{
+
+        img {
             height: 50px;
             width: 50px;
         }
     }
 
-    form{
+    form {
         width: 100%;
     }
 
-    .inputs{
+    .inputs {
         display: flex;
         flex-direction: column;
         row-gap: 10px;
-        .single-input{
+
+        .single-input {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -45,17 +47,20 @@ $hover-grey: #D1D1D1;
             border: solid 1px;
             border-color: $hover-grey;
             border-radius: 10px;
-            input{
+
+            input {
                 border: none;
                 width: 100%;
                 outline: none;
             }
-            img{
+
+            img {
                 height: 50%;
             }
         }
     }
-    .add-info{
+
+    .add-info {
         width: 60%;
         display: flex;
         flex-direction: column;
@@ -63,33 +68,39 @@ $hover-grey: #D1D1D1;
         padding: 20px;
         background-color: white;
     }
-    .add-info-main{
+
+    .add-info-main {
         display: flex;
         width: 100%;
         align-items: center;
     }
-    .inputs{
+
+    .inputs {
         width: 100%;
     }
-    .profile-image{
+
+    .profile-image {
         width: 100px;
         height: 100px;
-        margin-right:30px ;
+        margin-right: 30px;
     }
-    .close{
+
+    .close {
         cursor: pointer;
         margin-bottom: 15%;
     }
-    .close:hover{
+
+    .close:hover {
         background-color: $hover-grey;
         border-radius: 50px;
     }
 }
-.add-contact-buttons{
+
+.add-contact-buttons {
     display: flex;
     column-gap: 10px;
 
-    .add-contact-button{
+    .add-contact-button {
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -98,31 +109,38 @@ $hover-grey: #D1D1D1;
         border-radius: 10px;
         padding: 7px;
     }
-    .add-contact-button:hover{
+
+    .add-contact-button:hover {
         box-shadow: 0px 3px $hover-grey;
     }
-    .cancel{
+
+    .cancel {
         border-color: $main_grey;
         color: $main_grey;
     }
-    .cancel:hover{
+
+    .cancel:hover {
         border-color: $light_blue;
         color: $light_blue;
     }
-    .create{
+
+    .create {
         color: white;
         background-color: $main_grey;
         border-color: $main_grey;
     }
-    .create:hover{
+
+    .create:hover {
         background-color: $light_blue;
         border-color: $light_blue;
     }
 }
 
-.d-none{display: none;}
+.d-none {
+    display: none;
+}
 
-.add-contact-btn-mobile{
+.add-contact-btn-mobile {
     display: none;
     position: absolute;
     bottom: 130px;
@@ -130,16 +148,16 @@ $hover-grey: #D1D1D1;
     z-index: 20;
 }
 
-.err-msg{
+.err-msg {
     color: rgb(181, 0, 0);
     font-size: 14px;
 }
 
-button{
+button {
     font-size: 16px;
 }
 
-button:disabled{
+button:disabled {
     background-color: gray;
     color: white;
     opacity: 0.5;
@@ -147,49 +165,51 @@ button:disabled{
     pointer-events: none;
 }
 
-.close-btn{
+.close-btn {
     position: absolute;
     display: none;
     top: 20px;
     right: 20px;
 }
 
-@media(max-width: 600px){
+@media(max-width: 600px) {
 
-    .add-contact.hidden{
-         visibility: hidden;
-        
+    .add-contact.hidden {
+        visibility: hidden;
+
     }
 
-    .add-contact{
+    .add-contact {
         flex-direction: column;
         height: auto;
-        top: 15%;
-
+        width: 90%;
+        top: 5%;
+        left: 5%;
         transform: translateX(0);
         transform: translateY(150%);
 
-        .folder-info{
+        .folder-info {
             width: 100%;
             padding-top: 70px;
             padding-bottom: 70px;
-            img{
+
+            img {
                 display: none;
             }
 
-            h2{
+            h2 {
                 font-size: 47px;
                 margin: 0;
             }
 
-            h3{
+            h3 {
                 font-size: 20px;
                 margin-top: 0;
                 font-weight: 400;
                 margin-bottom: 10px;
             }
 
-            .close-btn{
+            .close-btn {
                 display: block;
                 width: 32px;
                 height: 32px;
@@ -197,25 +217,25 @@ button:disabled{
             }
         }
 
-        .add-info{
+        .add-info {
             width: 100%;
             padding: 0;
             padding-bottom: 40px;
-            @include dFlex(column, center, center) 
+            @include dFlex(column, center, center)
         }
 
-        .add-info-main{
+        .add-info-main {
             flex-direction: column;
-           position: relative;
-           padding-top: 90px;
-           width: 90%;
+            position: relative;
+            padding-top: 90px;
+            width: 90%;
         }
 
-        .close{
+        .close {
             display: none;
         }
 
-        .profile-image{
+        .profile-image {
             margin-top: -150px;
             width: 120px;
             height: 120px;
@@ -224,18 +244,30 @@ button:disabled{
         }
     }
 
-    .add-contact-line{
+    .add-contact-line {
         width: 100px;
         border-bottom: 3px solid #29abe2;
     }
 
-    .add-contact-buttons{
+    .add-contact-buttons {
         @include dFlex();
         padding-top: 20px;
-        .cancel{
+
+        .cancel {
             display: none;
         }
     }
+}
 
-    
+@media(max-width:350px) {
+    .add-contact {
+        .folder-info {
+            h2 {
+                font-size: 37px;
+            }
+            h3{
+                font-size: 16px;
+            }
+        }
+    }
 }

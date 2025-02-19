@@ -3,20 +3,20 @@ $hover-grey: #D1D1D1;
 
 .edit-contact {
     display: flex;
-    width: 80%;
-    top: 20%;
-    height: 60%;
-    left: 10%;
+    width: 1000px;
+    top: calc(50% - 250px);
+    height: 500px;
+    left: calc(50% - 500px);
     position: fixed;
     border-radius: 10px;
     transition: transform 0.5s ease-in-out;
-    transform: translateX(150%);
+    transform: translateX(300%);
     z-index: 50;
     overflow: hidden;
 
     .folder-info {
         color: white;
-        width: 40%;
+        width: 30%;
         background-color: $main_grey;
         display: flex;
         justify-content: center;
@@ -85,7 +85,7 @@ $hover-grey: #D1D1D1;
 
     .close {
         cursor: pointer;
-        margin-bottom: 15%;
+        margin-bottom: 20%;
     }
 
     .close:hover {
@@ -93,7 +93,7 @@ $hover-grey: #D1D1D1;
         border-radius: 50px;
     }
 
-    .close-btn{
+    .close-btn {
         position: absolute;
         display: none;
         top: 20px;
@@ -101,20 +101,20 @@ $hover-grey: #D1D1D1;
     }
 }
 
-form{
+form {
     width: 100%;
 }
 
-.err-msg{
+.err-msg {
     color: rgb(181, 0, 0);
     font-size: 14px;
 }
 
-button{
+button {
     font-size: 16px;
 }
 
-button:disabled{
+button:disabled {
     background-color: gray;
     color: white;
     opacity: 0.5;
@@ -183,34 +183,37 @@ button:disabled{
 
 
 
-@media(max-width: 600px){
-    .edit-contact{
+@media(max-width: 600px) {
+    .edit-contact {
         flex-direction: column;
         height: auto;
-        top: 15%;
+        width: 90%;
+        top: 10%;
+        left: 5%;
 
         transform: translateX(0);
         transform: translateY(150%);
 
-        .folder-info{
+        .folder-info {
             width: 100%;
             padding-top: 70px;
             padding-bottom: 70px;
-            img{
+
+            img {
                 display: none;
             }
 
-            h2{
+            h2 {
                 font-size: 47px;
                 margin: 0;
             }
 
-            h3{
+            h3 {
                 font-size: 20px;
                 margin-top: 0;
             }
 
-            .close-btn{
+            .close-btn {
                 display: block;
                 width: 32px;
                 height: 32px;
@@ -218,25 +221,25 @@ button:disabled{
             }
         }
 
-        .edit-info{
+        .edit-info {
             width: 100%;
             padding: 0;
             padding-bottom: 40px;
-            @include dFlex(column, center, center) 
+            @include dFlex(column, center, center)
         }
 
-        .edit-info-main{
+        .edit-info-main {
             flex-direction: column;
-           position: relative;
-           padding-top: 90px;
-           width: 90%;
+            position: relative;
+            padding-top: 90px;
+            width: 90%;
         }
 
-        .close{
+        .close {
             display: none;
         }
 
-        .profile-image{
+        .profile-image {
             margin-top: -150px;
             width: 120px;
             height: 120px;
@@ -244,15 +247,27 @@ button:disabled{
             position: absolute;
         }
     }
-    .edit-contact-buttons{
+
+    .edit-contact-buttons {
         @include dFlex();
         padding-top: 20px;
     }
 
-    .edit-contact-line{
+    .edit-contact-line {
         width: 100px;
         border-bottom: 3px solid #29abe2;
         padding-top: 10px;
     }
-    
+
+    @media(max-width: 350px) {
+        .edit-contact {
+            .folder-info {
+                h2 {
+                    font-size: 37px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
 }

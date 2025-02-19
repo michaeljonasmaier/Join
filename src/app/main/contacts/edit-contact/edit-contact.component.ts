@@ -57,6 +57,7 @@ export class EditContactComponent implements OnInit{
 
   openInfo(){
     this.modalWindowService.openInfo('edit-contact', 'edit-absolute-background');
+    this.updateContact();
   }
   closeInfo(){
     this.modalWindowService.closeInfo('edit-contact', 'edit-absolute-background');

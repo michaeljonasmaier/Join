@@ -17,7 +17,7 @@
 
                     <div class="single-input">
                         <input name="name" #nameRef="ngModel" [(ngModel)]="contact.name" type="text" placeholder="Name"
-                            required="">
+                            required>
                         <img src="../../../../assets/add-contact/person.png" alt="">
                     </div>
                     @if(!nameRef.valid && nameRef.touched && !nameRef.disabled){
@@ -26,7 +26,7 @@
 
                     <div class="single-input">
                         <input name="mail" #mailRef="ngModel" [(ngModel)]="contact.mail" type="email"
-                            placeholder="Email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+                            placeholder="Email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required>
                         <img src="../../../../assets/add-contact/mail.png" alt="">
                     </div>
                     @if(!mailRef.valid && mailRef.touched && !mailRef.disabled){
@@ -35,7 +35,7 @@
 
                     <div class="single-input">
                         <input name="phone" #phoneRef="ngModel" [(ngModel)]="contact.phone" type="tel"
-                            placeholder="Phone" pattern="^(\+\d{1,4}\s?)?(\d[\d\s]{6,14}\d)$">
+                            placeholder="Phone" pattern="^(\+\d{1,4}\s?)?(\d[\d\s]{6,14}\d)$" required>
                         <img src="../../../../assets/add-contact/call.png" alt="">
                     </div>
                     @if(!phoneRef.valid && phoneRef.touched && !phoneRef.disabled){
