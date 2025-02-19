@@ -22,7 +22,7 @@
                         }
                     
                     <div class="single-input">
-                        <input [(ngModel)]="contact.mail" name="mail" #mailRef="ngModel" type="email" placeholder="Email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+                        <input [(ngModel)]="contact.mail" name="mail" #mailRef="ngModel" type="email" placeholder="Email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required>
                         <img src="../../../../assets/add-contact/mail.png" alt="">
                     </div>
                     @if(!mailRef.valid && mailRef.touched && !mailRef.disabled){
@@ -30,7 +30,7 @@
                         }
 
                     <div class="single-input">
-                        <input [(ngModel)]="contact.phone" name="phone" #phoneRef="ngModel" type="tel" placeholder="Phone" pattern="^(\+\d{1,4}\s?)?(\d[\d\s]{6,14}\d)$">
+                        <input [(ngModel)]="contact.phone" name="phone" #phoneRef="ngModel" type="tel" placeholder="Phone" pattern="^(\+\d{1,4}\s?)?(\d[\d\s]{6,14}\d)$" required>
                         <img src="../../../../assets/add-contact/call.png" alt="">
                     </div>
                     @if(!phoneRef.valid && phoneRef.touched && !phoneRef.disabled){
