@@ -58,6 +58,17 @@ export class ContactListComponent {
   addNewContact(contact: any){
     this.contactList.push(contact);
     this.contactsService.addContact(contact);
+    contact.initials = this.contactsService.getContactInitials(contact);
+    this.contactsService.selectContact(contact);
+    this.setNewContactActive(contact);
+  }
+
+  setNewContactActive(newContact: Contact){
+    this.getSortedList().forEach((contactItem, index) => {
+      if(contactItem.phone === newContact.phone){
+        this.activeIndex = index;
+      }
+    });
   }
 
   @Output() showCard = new EventEmitter<boolean>();

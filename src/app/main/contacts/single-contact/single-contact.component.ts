@@ -44,8 +44,6 @@ export class SingleContactComponent {
       phone: this.contact.phone
     };
     this.contactCreated.emit(newContact);
-
-    console.log('New contact:', newContact);
     this.cleanInputs();
     this.closeInfo();
   }
