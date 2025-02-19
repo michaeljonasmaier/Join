@@ -3,9 +3,11 @@ import { Contact } from "./contact";
 export interface Task {
     title: string,
     date: string,
-    category: 'Technical Task' | 'User Story',
-    description: string,
-    prio: 'Urgent' | 'Medium' | 'Low',
-    subtasks: string [],
-    assigned: Contact [],
+    status: 'toDo' | 'inProgress' | 'awaitFeedback' | 'done',
+    category: 'technical task' | 'user story',
+    description?: string,
+    prio: 'urgent' | 'medium' | 'low',
+    subtasks?: string [],
+    assigned?: Contact [],
+    id: string,
 }

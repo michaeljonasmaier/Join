@@ -1,1 +1,20 @@
-<p>task-item works!</p>
+<section>
+    <span class="category">{{task.category}}</span>
+    <span class="title">{{task.title}}</span>
+    <span class="description">{{task.description}}</span>
+    @if(task.subtasks){
+        @if(task.subtasks.length > 0){
+            <div>
+                0 von {{task.subtasks.length}} Subtasks
+            </div>
+        }
+    }
+    <div>
+        @if(task.assigned){
+            @if(task.assigned.length > 0){
+                <div class="assignedItem" [style.backgroundColor]="task.assigned[0].color">{{task.assigned[0].initials}}</div>
+            }
+        }
+        <img src="assets/board/urgent.png" alt="">
+    </div>
+</section>

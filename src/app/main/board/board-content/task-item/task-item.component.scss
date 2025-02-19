@@ -1,0 +1,10 @@
+@import "../../../../../styles.scss";
+
+section{
+    @include dFlex(column, flex-start, flex-start);
+    color: black;
+    border: 3px solid black;
+    width: 250px;
+    padding: 10px;
+    border-radius: 20px;
+}

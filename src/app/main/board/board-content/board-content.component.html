@@ -1,3 +1,6 @@
 <section>
-    
+    @for (task of getTasks(); track $index) {
+       <app-task-item [task]="task"></app-task-item>
+
+    }
 </section>

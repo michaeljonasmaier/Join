@@ -12,10 +12,12 @@ export class AddTaskComponent {
   task: Task = {
     title: "",
     date: "",
-    category: 'Technical Task',
+    category: 'technical task',
     description: "",
-    prio: 'Medium',
+    prio: 'medium',
     subtasks: [],
     assigned: [],
+    id: "",
+    status: "toDo",
   }
 }
