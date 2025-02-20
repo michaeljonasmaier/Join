@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { collection, Firestore, onSnapshot, query } from '@angular/fire/firestore';
+import { addDoc, collection, Firestore, onSnapshot, query } from '@angular/fire/firestore';
 import { Task } from '../interfaces/task';
 import { Contact } from '../interfaces/contact';
 
@@ -83,6 +83,10 @@ export class FirebaseTasksService {
       id: objId,
     }
   }
+
+   async addTask(newTask: Task){
+      await addDoc(this.getTasksRef(), newTask);
+    }
 
   ngOnDestroy() {
     if (this.unsubTasks) {

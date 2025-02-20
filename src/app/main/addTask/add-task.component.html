@@ -24,12 +24,30 @@
         </div>
 
         <div class="form-group">
-          <label for="assigned">Assigned to</label>
-          <select id="assigned" formControlName="assigned">
-            <option *ngFor="let user of users" [value]="user.id">
-              {{ user.name }}
-            </option>
-          </select>
+          <mat-form-field>
+          <!-- <label for="assigned">Assigned to</label> -->
+           <mat-label for="assigned">Assigned to</mat-label>
+          <!-- <select  id="assigned" formControlName="assigned"> -->
+            <mat-select id="assigned" formControlName="assigned" multiple>
+              @for (user of getUserList(); track $index) {
+                <mat-option [value]="user.id">
+                  {{user.name}} {{user.surname}}
+                </mat-option>
+              }  
+            </mat-select>
+          </mat-form-field>
+            
+          <!-- </select> -->
+
+
+          <!-- <mat-form-field>
+            <mat-label>Toppings</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              @for (topping of toppingList; track topping) {
+                <mat-option [value]="topping">{{topping}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field> -->
         </div>
       </div>
 
@@ -43,17 +61,19 @@
 
         <div class="form-group">
           <label>Prio</label>
-          <button type="button" (click)="setPriority('urgent')">Urgent</button>
-          <button type="button" (click)="setPriority('medium')">Medium</button>
-          <button type="button" (click)="setPriority('low')">Low</button>
+          <button type="button" (click)="setPriority('Urgent')">Urgent</button>
+          <button type="button" (click)="setPriority('Medium')">Medium</button>
+          <button type="button" (click)="setPriority('Low')">Low</button>
         </div>
 
         <div class="form-group">
           <label for="category">Category<span>*</span></label>
           <select id="category" formControlName="category">
-            <option *ngFor="let cat of categories" [value]="cat">
-              {{ cat }}
-            </option>
+            @for (category of categories; track $index) {
+              <option [value]="category">
+                {{ category }}
+              </option>
+            }
           </select>
         </div>
         <div class="form-group">

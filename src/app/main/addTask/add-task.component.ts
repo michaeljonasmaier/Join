@@ -1,24 +1,29 @@
 import { Component } from '@angular/core';
 import { Task } from '../../interfaces/task';
-import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FirebaseTasksService } from '../../services/firebase-tasks.service';
+import { Contact } from '../../interfaces/contact';
+import { FirebaseContactsService } from '../../services/firebase-contacts.service';
+import {MatSelectModule, } from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, MatSelectModule,FormsModule, ReactiveFormsModule],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
 export class AddTaskComponent {
+  toppings = new FormControl('');
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   taskForm: FormGroup;
-  users = [
-    { id: '1', name: 'Alice' },
-    { id: '2', name: 'Bob' }
-  ];
+  users: Contact[] = [];
   categories = ['Technical Task', 'User Story'];
   priority: 'Urgent' | 'Medium' | 'Low' = 'Medium';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService) {
+
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
@@ -28,6 +33,10 @@ export class AddTaskComponent {
       subtasks: [[]],
       priority: [this.priority, Validators.required]
     });
+  }
+
+  getUserList(){
+    return this.contactService.contacts;
   }
 
   setPriority(priority: 'Urgent' | 'Medium' | 'Low') {
@@ -40,7 +49,7 @@ export class AddTaskComponent {
     this.priority = 'Medium';
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.taskForm.valid) {
       const formValue = this.taskForm.value;
 
@@ -51,10 +60,12 @@ export class AddTaskComponent {
         category: formValue.category,
         description: formValue.description,
         prio: formValue.priority,
-        subtasks: formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
+        subtasks: [],//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
         assigned: this.users.filter(user => formValue.assigned.includes(user.id)),
         id: this.generateUniqueId()
       };
+      await this.taskService.addTask(newTask);
+      this.onClear();
 
       console.log('Task Submitted:', newTask);
     }
