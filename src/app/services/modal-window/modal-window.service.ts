@@ -8,7 +8,7 @@ export class ModalWindowService {
   isButtonHidden = true;
 
   getScreenWidth(){
-    let screenWidth = screen.width;
+    let screenWidth = window.innerWidth;
     return screenWidth;
   }
 

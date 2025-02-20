@@ -1,9 +1,14 @@
 @import "../../../../../styles.scss";
 
+:host{
+    @include dFlex(column, center, center);
+    width: 80%;
+}
+
 section {
     @include dFlex(column, flex-start, flex-start);
     color: black;
-    width: 252px;
+    width: 100%;
     padding: 16px;
     border-radius: 24px;
     gap: 10px;

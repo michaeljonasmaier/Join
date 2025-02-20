@@ -4,9 +4,8 @@
             <span>To do</span>
             <img src="assets/board/plus-button.png" alt="">
         </div>
-        @for (task of getTasks(); track $index) {
+        @for (task of getTasks('To do'); track $index) {
             <app-task-item [task]="task"></app-task-item>
-     
          }
     </div>
     <div class="task-list">
@@ -14,18 +13,27 @@
             <span>In progress</span>
             <img src="assets/board/plus-button.png" alt="">
         </div>
+        @for (task of getTasks('In Progress'); track $index) {
+            <app-task-item [task]="task"></app-task-item>
+         }
     </div>
     <div class="task-list">
         <div class="task-list-header">
             <span>Await feedback</span>
             <img src="assets/board/plus-button.png" alt="">
         </div>
+        @for (task of getTasks('Await feedback'); track $index) {
+            <app-task-item [task]="task"></app-task-item>
+         }
     </div>
     <div class="task-list">
         <div class="task-list-header">
             <span>Done</span>
             <img src="assets/board/plus-button.png" alt="">
         </div>
+        @for (task of getTasks('Done'); track $index) {
+            <app-task-item [task]="task"></app-task-item>
+         }
     </div>
    
 </section>
