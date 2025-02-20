@@ -16,6 +16,14 @@ export class FirebaseTasksService {
     initials: "MM",
     id: "08734jkhf78",
     color: "#5B8E7D",
+  }, {
+    name: "Michael",
+    surname: "Maier",
+    mail: "maier@mail.com",
+    phone: "89879923648",
+    initials: "MM",
+    id: "08734jkhf78",
+    color: "#D72638",
   }]
   firestore: Firestore = inject(Firestore);
   unsubTasks;
@@ -41,14 +49,14 @@ export class FirebaseTasksService {
 
   setTaskObject(obj: any, objId: string): Task {
     return {
-      title: obj.name || " ",
+      title: obj.title || " ",
       description: obj.description || " ",
       date: obj.data || " ",
       status: obj.status || "toDo",
       category: obj.category || "technical task",
       prio: obj.prio || "medium",
       subtasks: obj.subtasks || [],
-      assigned: obj.assigned || [],
+      assigned: obj.assigned || this.exampleAssigned,
       id: objId,
     }
   }
