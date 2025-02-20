@@ -1,23 +1,45 @@
 import { Component } from '@angular/core';
 import { Task } from '../../interfaces/task';
+import { FormsModule ,ReactiveFormsModule , Validators ,FormGroup ,FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
-  imports: [],
+  imports: [FormsModule ,ReactiveFormsModule ],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
 export class AddTaskComponent {
-  task: Task = {
-    title: "",
-    date: "",
-    category: 'Technical Task',
-    description: "",
-    prio: 'Medium',
-    subtasks: [],
-    assigned: [],
-    id: "",
-    status: "To do",
+  taskForm: FormGroup;
+  users = [
+    { id: '1', name: 'Alice' },
+    { id: '2', name: 'Bob' }
+  ];
+  categories = ['Work', 'Personal', 'Other'];
+
+  constructor(private fb: FormBuilder) {
+    this.taskForm = this.fb.group({
+      title: ['', Validators.required],
+      description: [''],
+      assigned: [''],
+      dueDate: ['', Validators.required],
+      category: ['', Validators.required],
+      subtasks: ['']
+    });
+  }
+
+  setPriority(priority: string) {
+    console.log('Priority set to:', priority);
+  }
+
+  onClear() {
+    this.taskForm.reset();
+  }
+
+  onSubmit() {
+    if (this.taskForm.valid) {
+      console.log('Task Submitted:', this.taskForm.value);
+    }
   }
 }
