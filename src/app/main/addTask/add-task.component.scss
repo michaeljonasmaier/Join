@@ -1,4 +1,9 @@
 /* task-form.component.scss */
+:host{
+  display: flex;
+  width: 100%;
+}
+
 .task-form {
   width: 100%;
   max-width: 900px;
