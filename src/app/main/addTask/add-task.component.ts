@@ -56,7 +56,7 @@ export class AddTaskComponent {
       const newTask: Task = {
         title: formValue.title,
         date: formValue.dueDate,
-        status: 'To do',
+        status: 'toDo',
         category: formValue.category,
         description: formValue.description,
         prio: formValue.priority,

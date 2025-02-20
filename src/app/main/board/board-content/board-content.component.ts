@@ -1,29 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FirebaseTasksService } from '../../../services/firebase-tasks.service';
 import { Task } from '../../../interfaces/task';
 import { TaskItemComponent } from './task-item/task-item.component';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+  CdkDrag,
+  CdkDropListGroup,
+  CdkDropList,
+} from '@angular/cdk/drag-drop';
+
 @Component({
   selector: 'app-board-content',
   standalone: true,
-  imports: [TaskItemComponent],
+  imports: [TaskItemComponent, CdkDropList, CdkDrag, CdkDropListGroup],
   templateUrl: './board-content.component.html',
   styleUrl: './board-content.component.scss'
 })
 export class BoardContentComponent {
   tasks: Task[] = [];
+  
+  data = inject(FirebaseTasksService);
   constructor(private tasksService: FirebaseTasksService){
-
+    
   }
 
-  getTasks(status: string){
-    if(status == 'To do'){
-      return this.tasksService.toDo;
-    } else if(status == 'In progress'){
-      return this.tasksService.inProgress;
-    } else if(status == 'Await feedback'){
-      return this.tasksService.awaitFeedback;
+  drop(event: CdkDragDrop<Task[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      return this.tasksService.done;
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+
+      const currentTask = event.container.data[event.currentIndex];
+      this.data.updateTask(currentTask, event.container.id);
     }
   }
+
 }
