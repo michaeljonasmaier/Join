@@ -40,6 +40,8 @@ export class BoardContentComponent {
       const currentTask = event.container.data[event.currentIndex];
       this.data.updateTask(currentTask, event.container.id);
     }
+    console.log(this.data);
   }
+  
 
 }
