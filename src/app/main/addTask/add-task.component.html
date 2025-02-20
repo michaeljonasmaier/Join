@@ -1,96 +1,76 @@
 <div class="task-form">
-    <h2>Add Task</h2>
-  
-    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-      <div class="split">
-        <div>
-          <div class="form-group">
-            <label for="title">Title<span>*</span></label>
-            <input
-              id="title"
-              formControlName="title"
-              type="text"
-              placeholder="Enter a title"
-            />
-          </div>
-  
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea
-              id="description"
-              formControlName="description"
-              placeholder="Enter a Description"
-            ></textarea>
-          </div>
-  
-          <div class="form-group">
-            <label for="assigned">Assigned to</label>
-            <select id="assigned" formControlName="assigned" multiple>
-              <option *ngFor="let user of users" [value]="user.id">
-                {{ user.name }}
-              </option>
-            </select>
-          </div>
+  <h2>Add Task</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="split">
+      <div>
+        <div class="form-group">
+          <label for="title">Title<span>*</span></label>
+          <input
+            id="title"
+            formControlName="title"
+            type="text"
+            placeholder="Enter a title"
+          />
         </div>
-  
-        <div class="line"></div>
-  
-        <div>
-          <div class="form-group">
-            <label for="dueDate">Due date<span>*</span></label>
-            <input id="dueDate" formControlName="dueDate" type="date" />
-          </div>
-  
-          <div class="form-group">
-            <label>Prio</label>
-            <button
-              type="button"
-              [class.active]="priority === 'Urgent'"
-              (click)="setPriority('Urgent')"
-            >
-              Urgent
-            </button>
-            <button
-              type="button"
-              [class.active]="priority === 'Medium'"
-              (click)="setPriority('Medium')"
-            >
-              Medium
-            </button>
-            <button
-              type="button"
-              [class.active]="priority === 'Low'"
-              (click)="setPriority('Low')"
-            >
-              Low
-            </button>
-          </div>
-  
-          <div class="form-group">
-            <label for="category">Category<span>*</span></label>
-            <select id="category" formControlName="category">
-              <option *ngFor="let cat of categories" [value]="cat">
-                {{ cat }}
-              </option>
-            </select>
-          </div>
-  
-          <div class="form-group">
-            <label for="subtasks">Subtasks (comma separated)</label>
-            <input
-              id="subtasks"
-              formControlName="subtasks"
-              type="text"
-              placeholder="Add new subtask"
-            />
-          </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            placeholder="Enter a Description"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="assigned">Assigned to</label>
+          <select id="assigned" formControlName="assigned">
+            <option *ngFor="let user of users" [value]="user.id">
+              {{ user.name }}
+            </option>
+          </select>
         </div>
       </div>
-  
-      <div class="form-actions">
-        <button type="button" (click)="onClear()">Clear</button>
-        <button type="submit">Create Task</button>
+
+      <div class="line"></div>
+
+      <div>
+        <div class="form-group">
+          <label for="dueDate">Due date<span>*</span></label>
+          <input id="dueDate" formControlName="dueDate" type="date" />
+        </div>
+
+        <div class="form-group">
+          <label>Prio</label>
+          <button type="button" (click)="setPriority('urgent')">Urgent</button>
+          <button type="button" (click)="setPriority('medium')">Medium</button>
+          <button type="button" (click)="setPriority('low')">Low</button>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category<span>*</span></label>
+          <select id="category" formControlName="category">
+            <option *ngFor="let cat of categories" [value]="cat">
+              {{ cat }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="subtasks">Subtasks</label>
+          <input
+            id="subtasks"
+            formControlName="subtasks"
+            type="text"
+            placeholder="Add new subtask"
+          />
+        </div>
       </div>
-    </form>
-  </div>
-  
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="onClear()">Clear</button>
+      <button type="submit">Create Task</button>
+    </div>
+  </form>
+</div>
