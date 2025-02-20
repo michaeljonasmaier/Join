@@ -25,9 +25,7 @@
 
         <div class="form-group">
           <mat-form-field>
-          <!-- <label for="assigned">Assigned to</label> -->
            <mat-label for="assigned">Assigned to</mat-label>
-          <!-- <select  id="assigned" formControlName="assigned"> -->
             <mat-select id="assigned" formControlName="assigned" multiple>
               @for (user of getUserList(); track $index) {
                 <mat-option [value]="user.id">
@@ -36,18 +34,6 @@
               }  
             </mat-select>
           </mat-form-field>
-            
-          <!-- </select> -->
-
-
-          <!-- <mat-form-field>
-            <mat-label>Toppings</mat-label>
-            <mat-select [formControl]="toppings" multiple>
-              @for (topping of toppingList; track topping) {
-                <mat-option [value]="topping">{{topping}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field> -->
         </div>
       </div>
 
