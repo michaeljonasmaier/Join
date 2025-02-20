@@ -26,6 +26,13 @@
                 }
             }
         </div>
-        <img class="status" src="assets/board/urgent.png" alt="">
+        @if (task.prio == 'Urgent') {
+            <img class="prio" src="assets/board/urgent.png" alt="">
+        } @else if (task.prio == 'Medium') {
+            <img class="prio" src="assets/board/medium.png" alt="">
+        } @else {
+            <img class="prio" src="assets/board/low.png" alt="">
+        }
+        
     </div>
 </section>

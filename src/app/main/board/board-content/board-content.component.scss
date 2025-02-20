@@ -3,4 +3,19 @@
 section{
     width: 100%;
     height: 100%;
+    @include dFlex(row, space-between, flex-start);
+    margin-top: 50px;
+}
+
+.task-list{
+    width: 20%;
+    @include dFlex(column, flex-start, center);
+    gap: 25px;
+    .task-list-header{
+        @include dFlex(row, space-between, center);
+        width: 100%;
+        font-weight: 700;
+        font-size: 20px;
+        color: #42526E;
+    }
 }

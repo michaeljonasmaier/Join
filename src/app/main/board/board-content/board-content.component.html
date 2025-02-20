@@ -1,6 +1,31 @@
 <section>
-    @for (task of getTasks(); track $index) {
-       <app-task-item [task]="task"></app-task-item>
-
-    }
+    <div class="task-list">
+        <div class="task-list-header">
+            <span>To do</span>
+            <img src="assets/board/plus-button.png" alt="">
+        </div>
+        @for (task of getTasks(); track $index) {
+            <app-task-item [task]="task"></app-task-item>
+     
+         }
+    </div>
+    <div class="task-list">
+        <div class="task-list-header">
+            <span>In progress</span>
+            <img src="assets/board/plus-button.png" alt="">
+        </div>
+    </div>
+    <div class="task-list">
+        <div class="task-list-header">
+            <span>Await feedback</span>
+            <img src="assets/board/plus-button.png" alt="">
+        </div>
+    </div>
+    <div class="task-list">
+        <div class="task-list-header">
+            <span>Done</span>
+            <img src="assets/board/plus-button.png" alt="">
+        </div>
+    </div>
+   
 </section>
