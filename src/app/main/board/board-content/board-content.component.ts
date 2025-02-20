@@ -15,8 +15,15 @@ export class BoardContentComponent {
 
   }
 
-  getTasks(){
-    return this.tasksService.tasks;
+  getTasks(status: string){
+    if(status == 'To do'){
+      return this.tasksService.toDo;
+    } else if(status == 'In progress'){
+      return this.tasksService.inProgress;
+    } else if(status == 'Await feedback'){
+      return this.tasksService.awaitFeedback;
+    } else {
+      return this.tasksService.done;
+    }
   }
-
 }

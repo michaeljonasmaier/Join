@@ -9,7 +9,7 @@ section{
 
 .task-list{
     width: 20%;
-    @include dFlex(column, flex-start, center);
+    @include dFlex(column, center, center);
     gap: 25px;
     .task-list-header{
         @include dFlex(row, space-between, center);
