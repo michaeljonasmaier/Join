@@ -6,7 +6,10 @@
         </div>
         @if (data.toDo.length>0) {
             @for (task of data.toDo; track $index) {
-                <app-task-item [task]="task" cdkDrag></app-task-item>
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
              }
         } @else {
             <div class="no-items">No tasks to do</div>
@@ -20,9 +23,12 @@
         </div>
         @if(data.inProgress.length>0){
             @for (task of data.inProgress; track $index) {
-                <app-task-item [task]="task" cdkDrag></app-task-item>
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
              }
-        }@else {
+        } @else {
             <div class="no-items">No tasks in progress</div>
         }
         
@@ -34,7 +40,10 @@
         </div>
         @if (data.awaitFeedback.length>0) {
             @for (task of data.awaitFeedback; track $index) {
-                <app-task-item [task]="task" cdkDrag></app-task-item>
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
              }
         }@else {
             <div class="no-items">No tasks awaiting feedback</div>
@@ -47,7 +56,10 @@
         </div>
         @if(data.done.length>0){
             @for (task of data.done; track $index) {
-                <app-task-item [task]="task" cdkDrag></app-task-item>
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
              }
         }@else {
             <div class="no-items">No tasks done</div>

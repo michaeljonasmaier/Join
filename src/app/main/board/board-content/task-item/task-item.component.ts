@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../../../interfaces/task';
 
 @Component({
@@ -11,6 +11,9 @@ import { Task } from '../../../../interfaces/task';
 export class TaskItemComponent {
 
   @Input() task!: Task
+  @Output() taskClicked = new EventEmitter<Task>();
 
- 
+  openTaskDetailItem() {
+    this.taskClicked.emit(this.task);
+  }
 }

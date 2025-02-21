@@ -1,0 +1,43 @@
+<app-grey-background (click)="closeDetail()"></app-grey-background>
+<section>
+    <h2>{{task.title}}</h2>
+    <span>{{task.description}}</span>
+    <div class="date">
+        <span>Due date:</span>
+        <span>{{task.date}}</span>
+    </div>
+    <div class="prio">
+        <span>Priority:</span>
+        <div>
+            <span>{{task.prio}}</span>
+            @if (task.prio == "Medium") {
+            <img src="assets/board/medium.png" alt="">
+            } @else if(task.prio == "Urgent"){
+            <img src="assets/board/urgent.png" alt="">
+            } @else {
+            <img src="assets/board/low.png" alt="">
+            }
+        </div>
+    </div>
+    <div class="assigned">
+        <span>Assigned to:</span>
+        @if(task.assigned){
+        @if(task.assigned.length>0){
+        @for (user of task.assigned; track $index) {
+        <div class="user">
+            <div class="initials" [style.backgroundColor]="task.assigned[$index].color">
+                {{task.assigned[$index].initials}}</div>
+            <span>{{task.assigned[$index].name}} {{task.assigned[$index].surname}} </span>
+        </div>
+        }
+        }
+
+        } @else {
+        <span>No user assigned to this task.</span>
+        }
+    </div>
+    <div class="subtasks">
+        <span>Subtasks</span>
+    </div>
+
+</section>

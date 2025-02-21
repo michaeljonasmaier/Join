@@ -74,7 +74,7 @@ export class FirebaseTasksService {
     return {
       title: obj.title || " ",
       description: obj.description || " ",
-      date: obj.data || " ",
+      date: obj.date || " ",
       status: obj.status || "toDo",
       category: obj.category || "technical task",
       prio: obj.prio || "medium",
