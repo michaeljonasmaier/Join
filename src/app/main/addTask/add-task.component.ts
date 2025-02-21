@@ -81,7 +81,8 @@ export class AddTaskComponent {
         assigned: this.users.filter(user => formValue.assigned.includes(user.id)),
         id: this.generateUniqueId()
       };
-      await this.taskService.addTask(newTask);
+      //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
+      //await this.taskService.addTask(newTask);
       this.onClear();
 
       console.log('Task Submitted:', newTask);
