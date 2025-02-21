@@ -58,6 +58,7 @@ export class AddTaskComponent {
   setPriority(priority: 'Urgent' | 'Medium' | 'Low') {
     this.priority = priority;
     this.taskForm.patchValue({ priority });
+    this.changePriority(priority);
   }
 
   onClear() {
@@ -95,5 +96,21 @@ export class AddTaskComponent {
 
   private generateUniqueId(): string {
     return Math.random().toString(36).substr(2, 9);
+  }
+
+  changePriority(priority: string){
+    this.resetAllPriority();
+    let newPriority = priority.toLowerCase();
+    console.log(newPriority)
+    document.getElementById(newPriority)?.classList.add(newPriority)
+  }
+
+  resetAllPriority(){
+    this.resetSinglePriority('urgent');
+    this.resetSinglePriority('medium');
+    this.resetSinglePriority('low');
+  }
+  resetSinglePriority(priority: string){
+    document.getElementById(priority)?.classList.remove(priority);
   }
 }
