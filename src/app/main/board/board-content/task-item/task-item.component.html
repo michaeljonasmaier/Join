@@ -7,9 +7,9 @@
     @if(task.subtasks.length > 0){
     <div class="subtasks">
         <div class="progress-bar-div">
-            <div class="progress-bar"></div>
+            <div class="progress-bar" [style.width]="128/task.subtasks.length*getDoneSubtasks() +'px'"></div>
         </div>
-        1 von {{task.subtasks.length}} Subtasks
+        <span>{{getDoneSubtasks()}}/{{task.subtasks.length}} Subtasks</span>
     </div>
     }
     }

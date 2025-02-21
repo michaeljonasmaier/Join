@@ -16,4 +16,16 @@ export class TaskItemComponent {
   openTaskDetailItem() {
     this.taskClicked.emit(this.task);
   }
+
+  getDoneSubtasks(){
+    let num = 0;
+    if(this.task.subtasks){
+      this.task.subtasks.forEach(element => {
+        if(element.taskDone){
+          num++;
+        }
+      });
+    }
+    return num;
+  }
 }

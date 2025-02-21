@@ -48,7 +48,12 @@ span {
     width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
-    font-size: 12px
+    font-size: 12px;
+
+    span{
+        font-size: 12px;
+        text-align: right;
+    }
 }
 
 .progress-bar-div {
