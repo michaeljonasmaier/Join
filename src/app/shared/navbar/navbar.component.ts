@@ -18,7 +18,6 @@ export class NavbarComponent {
 
   setActive(index: number, route: string) {
     this.activeIndex = index;
-    console.log("route")
     this.router.navigate(['main/' + route]);
   }
 }

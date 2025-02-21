@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { collection, Firestore, onSnapshot, query } from '@angular/fire/firestore';
+import { addDoc, collection, doc, Firestore, onSnapshot, query, updateDoc } from '@angular/fire/firestore';
 import { Task } from '../interfaces/task';
 import { Contact } from '../interfaces/contact';
 
@@ -54,11 +54,11 @@ export class FirebaseTasksService {
     this.awaitFeedback = [];
     this.done = [];
     this.tasks.forEach(task => {
-      if(task.status === 'To do'){
+      if(task.status === 'toDo'){
         this.toDo.push(task);
-      } else if(task.status === 'In progress'){
+      } else if(task.status === 'inProgress'){
         this.inProgress.push(task);
-      } else if(task.status === 'Await feedback'){
+      } else if(task.status === 'awaitFeedback'){
         this.awaitFeedback.push(task);
       } else {
         this.done.push(task);
@@ -74,7 +74,7 @@ export class FirebaseTasksService {
     return {
       title: obj.title || " ",
       description: obj.description || " ",
-      date: obj.data || " ",
+      date: obj.date || " ",
       status: obj.status || "toDo",
       category: obj.category || "technical task",
       prio: obj.prio || "medium",
@@ -83,6 +83,23 @@ export class FirebaseTasksService {
       id: objId,
     }
   }
+
+  async updateTask(editedTask: Task, newStatus: string){
+      await updateDoc(doc(this.firestore, 'tasks', editedTask.id), {
+        title: editedTask.title,
+        date: editedTask.date,
+        status: newStatus,
+        category: editedTask.category,
+        description: editedTask.description,
+        prio: editedTask.prio,
+        subtasks: editedTask.subtasks,
+        assigned: editedTask.assigned,
+        id: editedTask.id,
+      })
+    }
+   async addTask(newTask: Task){
+      await addDoc(this.getTasksRef(), newTask);
+    }
 
   ngOnDestroy() {
     if (this.unsubTasks) {

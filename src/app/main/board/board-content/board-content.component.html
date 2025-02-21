@@ -1,39 +1,70 @@
-<section>
-    <div class="task-list">
+<section cdkDropListGroup class="content-container">
+    <div id="toDo" class="task-list drop-area" cdkDropList [cdkDropListData]="data.toDo" (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>To do</span>
-            <img src="assets/board/plus-button.png" alt="">
+            <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
-        @for (task of getTasks('To do'); track $index) {
-            <app-task-item [task]="task"></app-task-item>
-         }
+        @if (data.toDo.length>0) {
+            @for (task of data.toDo; track $index) {
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
+             }
+        } @else {
+            <div class="no-items">No tasks to do</div>
+        }
+        
     </div>
-    <div class="task-list">
+    <div id="inProgress" class="task-list drop-area" cdkDropList [cdkDropListData]="data.inProgress" (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>In progress</span>
-            <img src="assets/board/plus-button.png" alt="">
+            <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
-        @for (task of getTasks('In Progress'); track $index) {
-            <app-task-item [task]="task"></app-task-item>
-         }
+        @if(data.inProgress.length>0){
+            @for (task of data.inProgress; track $index) {
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
+             }
+        } @else {
+            <div class="no-items">No tasks in progress</div>
+        }
+        
     </div>
-    <div class="task-list">
+    <div id="awaitFeedback" class="task-list drop-area" cdkDropList [cdkDropListData]="data.awaitFeedback"  (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>Await feedback</span>
-            <img src="assets/board/plus-button.png" alt="">
+            <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
-        @for (task of getTasks('Await feedback'); track $index) {
-            <app-task-item [task]="task"></app-task-item>
-         }
+        @if (data.awaitFeedback.length>0) {
+            @for (task of data.awaitFeedback; track $index) {
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
+             }
+        }@else {
+            <div class="no-items">No tasks awaiting feedback</div>
+        }
+        
     </div>
-    <div class="task-list">
+    <div id="done" class="task-list drop-area" cdkDropList [cdkDropListData]="data.done"  (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>Done</span>
-            <img src="assets/board/plus-button.png" alt="">
         </div>
-        @for (task of getTasks('Done'); track $index) {
-            <app-task-item [task]="task"></app-task-item>
-         }
+        @if(data.done.length>0){
+            @for (task of data.done; track $index) {
+                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                @if(selectedTask){
+                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
+                }
+             }
+        }@else {
+            <div class="no-items">No tasks done</div>
+        }
+        
     </div>
    
 </section>

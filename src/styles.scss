@@ -12,6 +12,13 @@ body {
   overflow: hidden;
  
 }
+.mdc-notched-outline{
+  background-color: white;
+  //border: 1px solid #d1d5db;
+}
+.mat-mdc-select-arrow{
+  z-index: 10;
+}
 
 .d-none{
   display: none;

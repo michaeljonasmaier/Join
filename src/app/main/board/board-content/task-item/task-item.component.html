@@ -1,4 +1,4 @@
-<section>
+<section (click)="openTaskDetailItem()">
     <span class="category"
         [style.backgroundColor]="task.category === 'User Story' ? '#0038FF' : '#1FD7C1'">{{task.category}}</span>
     <span class="title">{{task.title}}</span>
