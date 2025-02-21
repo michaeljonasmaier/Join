@@ -27,9 +27,17 @@
         <div class="form-group">
           <label for="assigned">Assigned to</label>
           <select id="assigned" formControlName="assigned">
+            <option value="" disabled selected>Select contact to assign</option>
+            @for (user of users; track $index) {
+              <option value="{{user.name}}">
+                {{user.name}}
+              </option>
+            }
+            <!--
             <option *ngFor="let user of users" [value]="user.id">
               {{ user.name }}
             </option>
+            -->
           </select>
         </div>
       </div>
@@ -52,9 +60,16 @@
         <div class="form-group">
           <label for="category">Category<span>*</span></label>
           <select id="category" formControlName="category">
+            <option value="" disabled selected>Select task category</option>
+            @for (category of categories; track $index) {
+              <option value="{{category}}">
+                {{category}}
+              </option>
+            }
+            <!--
             <option *ngFor="let cat of categories" [value]="cat">
               {{ cat }}
-            </option>
+            </option>+-->
           </select>
         </div>
         <div class="form-group">
