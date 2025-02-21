@@ -4,7 +4,7 @@ section {
     background-color: white;
     color: #2A3647;
     position: absolute;
-    top: calc(50% - 300px);
+    top: calc(50% - 400px);
     left: calc(50% - 262px);
     width: 525px;
     border-radius: 30px;
@@ -12,6 +12,30 @@ section {
     z-index: 50;
     @include dFlex(column, flex-start, flex-start);
     gap: 25px;
+}
+
+.header{
+    @include dFlex(row, space-between, center);
+    width: 100%;
+}
+
+.close-btn{
+    @include dFlex(row, center, center);
+    padding: 3px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(224, 224, 224);
+    }
+}
+
+.category {
+    color: white;
+    padding: 4px 16px 4px 16px;
+    border-radius: 8px;
+    font-size: 23px;
 }
 
 h2 {
@@ -36,7 +60,7 @@ span {
 
 .assigned{
     @include dFlex(column, flex-start, flex-start);
-    gap: 20px
+    gap: 20px;
 }
 
 .user {
@@ -54,4 +78,58 @@ span {
     @include dFlex();
     color: white;
 }
+
+.subtasks{
+    @include dFlex(column, flex-start, flex-start);
+    gap: 10px;
+}
+
+.subtask-item{
+    @include dFlex();
+    gap: 10px;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.check{
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.edit-delete{
+    width: 100%;
+    @include dFlex(row, flex-end, center);
+    gap: 15px;
+}
+
+.edit, .delete{
+    @include dFlex();
+    gap: 10px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.edit:hover {
+    color: #29abe2;
+    >img {
+      content: url('../../../../../assets/contacts/edit_hover.png');
+    }
+  }
+  
+  .delete:hover {
+    color: #29abe2;
+    >img {
+      content: url('../../../../../assets/contacts/delete_hover.png');
+    }
+  }
+
+.line{
+    height: 25px;
+    border-left: 1px solid rgb(191, 191, 191);
+}
+
+
 

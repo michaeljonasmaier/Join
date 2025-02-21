@@ -7,7 +7,7 @@ export interface Task {
     category: 'Technical Task' | 'User Story';
     description?: string;
     prio: 'Urgent' | 'Medium' | 'Low';
-    subtasks?: string[];
+    subtasks?: {subtask: string, taskDone: boolean}[];
     assigned?: Contact[];
     id: string;
 }
