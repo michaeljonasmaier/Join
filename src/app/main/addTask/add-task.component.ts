@@ -87,12 +87,6 @@ export class AddTaskComponent {
       console.log('Task Submitted:', newTask);
     }
   }
- /*
-  createTask(){
-    if (this.taskForm.valid) {
-      console.log('Task Submitted:', this.taskForm.value);
-    }
-  }*/
 
   private generateUniqueId(): string {
     return Math.random().toString(36).substr(2, 9);

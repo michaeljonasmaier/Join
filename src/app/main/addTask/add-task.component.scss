@@ -8,6 +8,7 @@
   max-width: 900px;
   margin: auto;
   color: #0c0c0c;
+  
 
   h2 {
     font-size: 28px;
@@ -25,10 +26,19 @@
       background: #0c0c0c;
       flex-shrink: 0;
     }
+    .form-column{
+      flex: 1;
+      margin: 20px;
+    }
   }
 
   .form-group {
     margin-bottom: 20px;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
 
     span{
       color: red;
@@ -42,7 +52,7 @@
     input,
     select,
     textarea {
-      width: 100%;
+      //width: 100%;
       padding: 10px;
       border: 1px solid #d1d5db;
       border-radius: 6px;
@@ -66,19 +76,29 @@
 
     
   }
-.urgent {
-      background: #ff3b30;
+    .urgent {
+      background: #ff3b30 !important;
       color: white;
+      img{
+        content: url(../../../assets/board/urgent-hover.png);
+      }
     }
 
     .medium {
-      background: #ffcc00;
-      color: black;
+      background: #ffcc00 !important;
+      //color: black;
+      color: white;
+      img{
+        content: url(../../../assets/board/medium-hover.png);
+      }
     }
 
     .low {
-      background: #34c759;
+      background: #34c759 !important;
       color: white;
+      img{
+        content: url(../../../assets/board/low-hover.png);
+      }
     }
   .form-actions {
     display: flex;
@@ -104,4 +124,16 @@
       color: white;
     }
   }  
+  .priority-buttons{
+    display: flex;
+    gap: 10px;
+
+    .priority-button{
+      flex: 1;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      background: white;
+    }
+  }
 }
