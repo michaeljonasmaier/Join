@@ -65,10 +65,12 @@ export class AddTaskComponent {
     this.taskForm.reset();
     this.priority = 'Medium';
   }
+  
 
   async onSubmit() {
     if (this.taskForm.valid) {
       const formValue = this.taskForm.value;
+      console.log()
 
       const newTask: Task = {
         title: formValue.title,
@@ -78,12 +80,13 @@ export class AddTaskComponent {
         description: formValue.description,
         prio: formValue.priority,
         subtasks: [],//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
-        assigned: this.users.filter(user => formValue.assigned.includes(user.id)),
+        assigned: formValue.assigned,//this.users.filter(user => formValue.assigned.includes(user.id)),
         id: this.generateUniqueId()
       };
+      console.log(newTask.assigned)
       //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
       //await this.taskService.addTask(newTask);
-      this.onClear();
+      //this.onClear();
 
       console.log('Task Submitted:', newTask);
     }
@@ -107,5 +110,10 @@ export class AddTaskComponent {
   }
   resetSinglePriority(priority: string){
     document.getElementById(priority)?.classList.remove(priority);
+  }
+  changeSubtaskIcons(){
+    console.log("changed")
+    document.getElementById('plus-button')?.classList.add('d-none');
+    document.getElementById('subtask-buttons')?.classList.remove('d-none');
   }
 }

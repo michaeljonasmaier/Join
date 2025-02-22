@@ -4,6 +4,7 @@
 
 $main_grey: #2A3647;
 $light_blue: #29ABE2;
+$hover-grey: #f0f0f0;
 
 body {
   font-family: 'Inter';
@@ -22,7 +23,7 @@ body {
 }
 
 .d-none{
-  display: none;
+  display: none !important;
 }
 
 @mixin dFlex($fd: row, $jc: center, $ai: center) {
