@@ -24,26 +24,24 @@
         </div>
 
         <div class="form-group"> 
-          <label for="assigned">Assigned to</label><!--
-          <select id="assigned" multiple formControlName="assigned">
-            <option value="" disabled selected>Select contact to assign</option>
-            @for (user of users; track $index) {
-              <option value="{{user.name}}">
-                {{user.name}}
-              </option>
-            } 
-          </select>-->
-
+          <label for="assigned">Assigned to</label>
           <mat-form-field appearance="outline">
            <mat-label for="assigned">Assigned to</mat-label>
             <mat-select id="assigned" formControlName="assigned" multiple>
               @for (user of getUserList(); track $index) {
-                <mat-option [value]="user.id">
+                <mat-option [value]="user.id" (click)="getInitials(user.initials)">
                   {{user.name}} {{user.surname}}
                 </mat-option>
               }  
             </mat-select>
           </mat-form-field>
+          <div class="initials-container">
+            	@if (myInitials.length > 0) {
+            	  @for (initial of myInitials; track $index) {
+            	    <div id="{{initial}}" class="assigned-profile">{{initial}}</div>
+            	  }
+            	}
+          </div>
         </div>
       </div>
 

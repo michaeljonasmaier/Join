@@ -19,7 +19,7 @@
                 @if(task.assigned.length > 0){
                     @for (assignedItem of task.assigned; track $index) {
                         <div class="assigned-item-div">
-                            <div class="assigned-item" [style.backgroundColor]="task.assigned[$index].color">{{task.assigned[0].initials}}
+                            <div class="assigned-item" [style.backgroundColor]="task.assigned[$index].color">{{task.assigned[$index].initials}}
                             </div>
                         </div>           
                     }

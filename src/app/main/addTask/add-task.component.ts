@@ -38,6 +38,7 @@ export class AddTaskComponent {
   categories = ['Technical Task', 'User Story'];
   priority: 'Urgent' | 'Medium' | 'Low' = 'Medium';
   subtasks: string [] = [];
+  myInitials: string[] = [];
 
   constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService) {
 
@@ -72,7 +73,17 @@ export class AddTaskComponent {
     if (!myInput) return;
     let myValue = myInput.value;
     this.subtasks.push(myValue);
-    console.log(this.subtasks)
+  }
+
+  getInitials(initials: string){
+    const currentInitials = initials;
+    initials.indexOf(initials)
+    let isInitialsHere = this.myInitials.indexOf(currentInitials);
+    if(isInitialsHere === -1){
+      this.myInitials.push(currentInitials)
+    }else{
+      this.myInitials.splice(isInitialsHere, 1)
+    }
   }
   
 

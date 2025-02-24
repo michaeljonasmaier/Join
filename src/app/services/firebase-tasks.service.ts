@@ -17,7 +17,7 @@ export class FirebaseTasksService {
     surname: "Maier",
     mail: "maier@mail.com",
     phone: "89879923648",
-    initials: "MM",
+    initials: "MA",
     id: "08734jkhf78",
     color: "#5B8E7D",
   }, {

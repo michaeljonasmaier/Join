@@ -11,17 +11,19 @@ import {
   CdkDropList,
 } from '@angular/cdk/drag-drop';
 import { TaskDetailItemComponent } from './task-detail-item/task-detail-item.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @Component({
   selector: 'app-board-content',
   standalone: true,
-  imports: [TaskItemComponent, CdkDropList, CdkDrag, CdkDropListGroup, TaskDetailItemComponent],
+  imports: [TaskItemComponent, CdkDropList, CdkDrag, CdkDropListGroup, TaskDetailItemComponent, EditTaskComponent],
   templateUrl: './board-content.component.html',
   styleUrl: './board-content.component.scss'
 })
 export class BoardContentComponent {
   tasks: Task[] = [];
   selectedTask?: Task;
+  editTask?: Task;
 
   data = inject(FirebaseTasksService);
   constructor(private tasksService: FirebaseTasksService){
@@ -51,5 +53,11 @@ export class BoardContentComponent {
 
   closeTaskDetail() {
     this.selectedTask = undefined;
+  }
+
+  openTaskEdit(task: Task){
+    console.log("Open edit task")
+    this.editTask = task;
+    
   }
 }

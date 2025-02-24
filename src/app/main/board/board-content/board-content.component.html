@@ -1,70 +1,76 @@
 <section cdkDropListGroup class="content-container">
-    <div id="toDo" class="task-list drop-area" cdkDropList [cdkDropListData]="data.toDo" (cdkDropListDropped)="drop($event)">
+    <div id="toDo" class="task-list drop-area" cdkDropList [cdkDropListData]="data.toDo"
+        (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>To do</span>
             <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
         @if (data.toDo.length>0) {
-            @for (task of data.toDo; track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
-                @if(selectedTask){
-                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
-                }
-             }
+        @for (task of data.toDo; track $index) {
+        <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+
+        }
+
         } @else {
-            <div class="no-items">No tasks to do</div>
+        <div class="no-items">No tasks to do</div>
         }
         
+
     </div>
-    <div id="inProgress" class="task-list drop-area" cdkDropList [cdkDropListData]="data.inProgress" (cdkDropListDropped)="drop($event)">
+    <div id="inProgress" class="task-list drop-area" cdkDropList [cdkDropListData]="data.inProgress"
+        (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>In progress</span>
             <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
         @if(data.inProgress.length>0){
-            @for (task of data.inProgress; track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
-                @if(selectedTask){
-                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
-                }
-             }
-        } @else {
-            <div class="no-items">No tasks in progress</div>
+        @for (task of data.inProgress; track $index) {
+        <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
         }
-        
+        } @else {
+        <div class="no-items">No tasks in progress</div>
+        }
+
     </div>
-    <div id="awaitFeedback" class="task-list drop-area" cdkDropList [cdkDropListData]="data.awaitFeedback"  (cdkDropListDropped)="drop($event)">
+    <div id="awaitFeedback" class="task-list drop-area" cdkDropList [cdkDropListData]="data.awaitFeedback"
+        (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>Await feedback</span>
             <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
         @if (data.awaitFeedback.length>0) {
-            @for (task of data.awaitFeedback; track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
-                @if(selectedTask){
-                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
-                }
-             }
-        }@else {
-            <div class="no-items">No tasks awaiting feedback</div>
+        @for (task of data.awaitFeedback; track $index) {
+        <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
         }
-        
+        }@else {
+        <div class="no-items">No tasks awaiting feedback</div>
+        }
+
     </div>
-    <div id="done" class="task-list drop-area" cdkDropList [cdkDropListData]="data.done"  (cdkDropListDropped)="drop($event)">
+    <div id="done" class="task-list drop-area" cdkDropList [cdkDropListData]="data.done"
+        (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>Done</span>
         </div>
         @if(data.done.length>0){
-            @for (task of data.done; track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
-                @if(selectedTask){
-                    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"></app-task-detail-item>
-                }
-             }
-        }@else {
-            <div class="no-items">No tasks done</div>
+        @for (task of data.done; track $index) {
+        <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
         }
-        
+        }@else {
+        <div class="no-items">No tasks done</div>
+        }
+
     </div>
-   
+
+
 </section>
+
+
+@if(selectedTask){
+    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"
+        (taskEditClicked)="openTaskEdit($event)"></app-task-detail-item>
+
+}
+@if(editTask){
+    <app-edit-task [task]="editTask"></app-edit-task>
+}

@@ -1,0 +1,27 @@
+<section>
+    <label for="title">Title</label>
+    <input id="title" type="text">
+    <label for="description">Description</label>
+    <textarea name="description" id="description"></textarea>
+    <label for="dueDate">Due date<span></span></label>
+    <input id="dueDate" formControlName="dueDate" type="date" />
+    <span>Priority</span>
+    <div class="priority-buttons">
+        <button class="priority-button" type="button" id="urgent" >Urgent <img
+            src="../../../assets/board/urgent.png" alt=""></button>
+    <button class="medium priority-button" type="button" id="medium">Medium <img
+            src="../../../assets/board/medium.png" alt=""></button>
+    <button class="priority-button" type="button" id="low" >Low <img
+            src="../../../assets/board/low.png" alt=""></button>
+    </div>
+    <mat-form-field appearance="outline">
+        <mat-label for="assigned">Assigned to</mat-label>
+         <mat-select id="assigned" formControlName="assigned" multiple>
+           <!-- @for (user of []; track $index) {
+             <mat-option [value]="user.id">
+               {{user.name}} {{user.surname}}
+             </mat-option>
+           }   -->
+         </mat-select>
+       </mat-form-field>
+</section>
