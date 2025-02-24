@@ -7,9 +7,130 @@ section {
     top: calc(50% - 400px);
     left: calc(50% - 262px);
     width: 525px;
+    max-height: 746px;
     border-radius: 30px;
-    padding: 48px 40px 48px 40px;
+    padding: 48px 20px 48px 40px;
     z-index: 50;
     @include dFlex(column, flex-start, flex-start);
     gap: 25px;
+}
+
+div{
+    width: 100%;
+    @include dFlex(column, flex-start, flex-start);
+    gap: 10px;
+}
+
+.content{
+    height: 100%;
+    width: 100%;
+    @include dFlex(column, flex-start, flex-start);
+    overflow-y: scroll;
+    gap: 20px;
+    padding-right: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+.close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    @include dFlex(row, center, center);
+    padding: 3px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(224, 224, 224);
+    }
+}
+
+label, span {
+    font-size: 20px;
+}
+
+.input-div{
+    width: 100%;
+    @include dFlex(row, center, center);
+}
+
+form{
+    width: 100%;
+    @include dFlex(row, center, center);
+    input{
+        flex: 1;
+    }
+}
+
+input,
+textarea {
+    font-family: 'Inter';
+    flex: 1;
+    font-size: 20px;
+    padding: 12px 21px 12px 21px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+}
+
+textarea{
+    height: 120px;
+    resize: none;
+}
+
+.priority-buttons {
+    width: 100%;
+    @include dFlex(row, space-between, center);
+}
+
+.priority-button {
+    @include dFlex(row, center, center);
+    gap: 8px;
+    min-width: 120px;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 16px 10px 16px 10px;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba($color: #000000, $alpha: 0.1);
+    box-shadow: 0px 0px 4px 0px rgba($color: #000000, $alpha: 0.1);
+
+    &:hover {
+        -webkit-box-shadow: 0px 4px 4px 0px rgba($color: #000000, $alpha: 0.25);
+        box-shadow: 0px 4px 4px 0px rgba($color: #000000, $alpha: 0.25);
+        cursor: pointer;
+    }
+}
+
+.active{
+    color: white;
+    font-weight: 700;
+    img{
+        filter: brightness(0) invert(1);
+    }
+}
+
+.assigned-to-div{
+    @include dFlex(row, flex-start, center);
+    gap: 8px;
+}
+
+.assignedItem{
+    font-size: 12px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    @include dFlex(row, center, center);
+    color: white;
 }

@@ -72,5 +72,5 @@
 
 }
 @if(editTask){
-    <app-edit-task [task]="editTask"></app-edit-task>
+    <app-edit-task [task]="editTask" (close)="closeTaskEdit()"></app-edit-task>
 }

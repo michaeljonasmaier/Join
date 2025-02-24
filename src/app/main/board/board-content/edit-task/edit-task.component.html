@@ -1,27 +1,92 @@
+<app-grey-background (click)="closeEdit()"></app-grey-background>
 <section>
-    <label for="title">Title</label>
-    <input id="title" type="text">
-    <label for="description">Description</label>
-    <textarea name="description" id="description"></textarea>
-    <label for="dueDate">Due date<span></span></label>
-    <input id="dueDate" formControlName="dueDate" type="date" />
-    <span>Priority</span>
-    <div class="priority-buttons">
-        <button class="priority-button" type="button" id="urgent" >Urgent <img
-            src="../../../assets/board/urgent.png" alt=""></button>
-    <button class="medium priority-button" type="button" id="medium">Medium <img
-            src="../../../assets/board/medium.png" alt=""></button>
-    <button class="priority-button" type="button" id="low" >Low <img
-            src="../../../assets/board/low.png" alt=""></button>
+    <div class="content">
+        <div class="close-btn" (click)="closeEdit()">
+            <img src="assets/board/close.png" alt="">
+        </div>
+
+        <div>
+            <label for="title">Title</label>
+            <div class="input-div">
+                <input id="title" type="text" value="{{task.title}}">
+            </div>
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <div class="input-div">
+                <textarea name="description" id="description" value="{{task.description}}"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <label for="dueDate">Due date</label>
+            <div class="input-div">
+                <!--  <input placeholder="{{task.date}}" type="text" onfocus="(this.type = 'date')"  id="date"> -->
+                <form [formGroup]="dueDateFormGroup">
+                    <input id="dueDate" formControlName="dueDate" type="date" />
+                </form>
+            </div>
+
+
+        </div>
+
+        <div>
+            <span>Priority</span>
+            <div class="priority-buttons">
+
+                <div class="priority-button" type="button" id="urgent" (click)="selectPrio('Urgent')"
+                    [style.backgroundColor]="selectedPrio === 'Urgent' ? '#FF3D00' : 'white'"
+                    [ngClass]="{'active': selectedPrio == 'Urgent'}">Urgent
+                    <img src="../../../assets/board/urgent.png" alt="">
+                </div>
+                <div class="priority-button" type="button" id="medium" (click)="selectPrio('Medium')"
+                    [style.backgroundColor]="selectedPrio === 'Medium' ? '#FFA800' : 'white'"
+                    [ngClass]="{'active': selectedPrio == 'Medium'}">Medium
+                    <img src="../../../assets/board/medium.png" alt="">
+                </div>
+                <div class="priority-button" type="button" id="low" (click)="selectPrio('Low')"
+                    [style.backgroundColor]="selectedPrio === 'Low' ? '#7AE229' : 'white'"
+                    [ngClass]="{'active': selectedPrio == 'Low'}">Low
+                    <img src="../../../assets/board/low.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <span>Assigned to</span>
+            <mat-form-field appearance="outline">
+                <mat-label for="assigned">Assigned to</mat-label>
+                <mat-select id="assigned" multiple>
+                    <!-- @for (user of []; track $index) {
+                 <mat-option [value]="user.id">
+                   {{user.name}} {{user.surname}}
+                 </mat-option>
+               }   -->
+                </mat-select>
+            </mat-form-field>
+            <div class="assigned-to-div">
+                @for (assignedItem of task.assigned; track $index) {
+                <div class="assignedItem" [style.backgroundColor]="assignedItem.color">{{assignedItem.initials}}</div>
+                }
+            </div>
+        </div>
+
+        <div>
+            <div class="form-group">
+                <label for="subtasks">Subtasks</label>
+                <div class="subtask-input">
+                    <input id="subtasks" type="text" placeholder="Add new subtask" (click)="changeSubtaskIcons()" />
+                    <img id="plus-button" class="subtask-button" src="../../../assets/board/plus.png" alt=""
+                        (click)="changeSubtaskIcons()">
+                    <div class="subtask-buttons d-none" id="subtask-buttons">
+                        <img class="subtask-button" src="../../../assets/board/close.png" alt="">
+                        |
+                        <img class="subtask-button" src="../../../assets/board/check-black.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <mat-form-field appearance="outline">
-        <mat-label for="assigned">Assigned to</mat-label>
-         <mat-select id="assigned" formControlName="assigned" multiple>
-           <!-- @for (user of []; track $index) {
-             <mat-option [value]="user.id">
-               {{user.name}} {{user.surname}}
-             </mat-option>
-           }   -->
-         </mat-select>
-       </mat-form-field>
+
 </section>

@@ -55,6 +55,10 @@ export class BoardContentComponent {
     this.selectedTask = undefined;
   }
 
+  closeTaskEdit(){
+    this.editTask = undefined;
+  }
+
   openTaskEdit(task: Task){
     console.log("Open edit task")
     this.editTask = task;
