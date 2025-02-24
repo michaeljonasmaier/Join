@@ -14,6 +14,8 @@ export class TaskDetailItemComponent {
   @Input() task!: Task;
   @Output() close = new EventEmitter<void>();
 
+  @Output() taskEditClicked = new EventEmitter<Task>();
+  
   constructor(private taskService: FirebaseTasksService){
 
   }
@@ -34,5 +36,10 @@ export class TaskDetailItemComponent {
       this.task.subtasks[index].taskDone = true;
       this.taskService.updateTask(this.task, this.task.status);
     }
+  }
+
+  openTaskEdit() {
+    console.log("open task edit im task-detail item");
+    this.taskEditClicked.emit(this.task);
   }
 }
