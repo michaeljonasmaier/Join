@@ -29,7 +29,7 @@
            <mat-label for="assigned">Assigned to</mat-label>
             <mat-select id="assigned" formControlName="assigned" multiple>
               @for (user of getUserList(); track $index) {
-                <mat-option [value]="user.id" (click)="getInitials(user.initials)">
+                <mat-option [value]="user.id" (click)="getColor(user.color); getInitials(user.initials)">
                   {{user.name}} {{user.surname}}
                 </mat-option>
               }  
@@ -38,7 +38,7 @@
           <div class="initials-container">
             	@if (myInitials.length > 0) {
             	  @for (initial of myInitials; track $index) {
-            	    <div id="{{initial}}" class="assigned-profile">{{initial}}</div>
+            	    <div [style.background]="myColors[$index]" id="{{initial}}" class="assigned-profile">{{initial}}</div>
             	  }
             	}
           </div>

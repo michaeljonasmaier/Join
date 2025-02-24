@@ -39,6 +39,7 @@ export class AddTaskComponent {
   priority: 'Urgent' | 'Medium' | 'Low' = 'Medium';
   subtasks: string [] = [];
   myInitials: string[] = [];
+  myColors: string[] = [];
 
   constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService) {
 
@@ -77,12 +78,20 @@ export class AddTaskComponent {
 
   getInitials(initials: string){
     const currentInitials = initials;
-    initials.indexOf(initials)
     let isInitialsHere = this.myInitials.indexOf(currentInitials);
     if(isInitialsHere === -1){
       this.myInitials.push(currentInitials)
     }else{
       this.myInitials.splice(isInitialsHere, 1)
+      this.myColors.splice(isInitialsHere, 1)
+    }
+  }
+
+  getColor(color: string | undefined){
+    if(color === undefined){
+      console.log("No color")
+    }else{
+      this.myColors.push(color)
     }
   }
   
@@ -103,7 +112,6 @@ export class AddTaskComponent {
         assigned: formValue.assigned,//this.users.filter(user => formValue.assigned.includes(user.id)),
         id: this.generateUniqueId()
       };
-      //this.subtasks = newTask.subtasks;
       console.log(newTask.assigned)
       //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
       //await this.taskService.addTask(newTask);

@@ -177,7 +177,7 @@
   }
 
   .assigned-profile{
-    background-color: aqua;
+    //background-color: aqua;
     width: 40px;
     aspect-ratio: 1/1;
     //align-content: center;
@@ -189,5 +189,6 @@
   .initials-container{
     display: flex;
     gap: 15px;
+    color: white;
   }
 }
