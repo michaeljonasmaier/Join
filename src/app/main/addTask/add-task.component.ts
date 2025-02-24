@@ -37,6 +37,7 @@ export class AddTaskComponent {
   users: Contact[] = [];
   categories = ['Technical Task', 'User Story'];
   priority: 'Urgent' | 'Medium' | 'Low' = 'Medium';
+  subtasks: string [] = [];
 
   constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService) {
 
@@ -65,6 +66,14 @@ export class AddTaskComponent {
     this.taskForm.reset();
     this.priority = 'Medium';
   }
+
+  saveSubtask(){
+    let myInput = document.getElementById('subtasks') as HTMLInputElement;
+    if (!myInput) return;
+    let myValue = myInput.value;
+    this.subtasks.push(myValue);
+    console.log(this.subtasks)
+  }
   
 
   async onSubmit() {
@@ -79,10 +88,11 @@ export class AddTaskComponent {
         category: formValue.category,
         description: formValue.description,
         prio: formValue.priority,
-        subtasks: [],//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
+        subtasks: [formValue.subtasks],//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
         assigned: formValue.assigned,//this.users.filter(user => formValue.assigned.includes(user.id)),
         id: this.generateUniqueId()
       };
+      //this.subtasks = newTask.subtasks;
       console.log(newTask.assigned)
       //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
       //await this.taskService.addTask(newTask);
