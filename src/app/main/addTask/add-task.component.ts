@@ -67,6 +67,10 @@ export class AddTaskComponent {
   onClear() {
     this.taskForm.reset();
     this.priority = 'Medium';
+    this.subtasks = [];
+    this.myColors = [];
+    this.myInitials = [];
+    
   }
 
   saveSubtask(){
@@ -74,6 +78,12 @@ export class AddTaskComponent {
     if (!myInput) return;
     let myValue = myInput.value;
     this.subtasks.push(myValue);
+    this.cleanSubtask()
+  }
+  cleanSubtask(){
+    let myInput = document.getElementById('subtasks') as HTMLInputElement;
+    if (!myInput) return;
+    myInput.value = ""
   }
 
   getInitials(initials: string){
