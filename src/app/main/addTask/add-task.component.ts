@@ -124,8 +124,8 @@ export class AddTaskComponent {
       };
       console.log(newTask.assigned)
       //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
-      //await this.taskService.addTask(newTask);
-      //this.onClear();
+      await this.taskService.addTask(newTask);
+      this.onClear();
 
       console.log('Task Submitted:', newTask);
     }
