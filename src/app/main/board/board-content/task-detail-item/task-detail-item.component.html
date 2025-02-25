@@ -1,76 +1,77 @@
 <app-grey-background (click)="closeDetail()"></app-grey-background>
 <section>
-    <div class="header">
-        <span class="category"
-        [style.backgroundColor]="task.category === 'User Story' ? '#0038FF' : '#1FD7C1'">{{task.category}}</span>
-        <div class="close-btn" (click)="closeDetail()">
-            <img src="assets/board/close.png" alt="">
-        </div>
-        
-    </div>
-    <h2>{{task.title}}</h2>
-    <span>{{task.description}}</span>
-    <div class="date">
-        <span>Due date:</span>
-        <span>{{task.date}}</span>
-    </div>
-    <div class="prio">
-        <span>Priority:</span>
-        <div>
-            <span>{{task.prio}}</span>
-            @if (task.prio == "Medium") {
-            <img src="assets/board/medium.png" alt="">
-            } @else if(task.prio == "Urgent"){
-            <img src="assets/board/urgent.png" alt="">
-            } @else {
-            <img src="assets/board/low.png" alt="">
-            }
-        </div>
-    </div>
-    <div class="assigned">
-        <span>Assigned to:</span>
-        @if(task.assigned){
-        @if(task.assigned.length>0){
-        @for (user of task.assigned; track $index) {
-        <div class="user">
-            <div class="initials" [style.backgroundColor]="task.assigned[$index].color">
-                {{task.assigned[$index].initials}}</div>
-            <span>{{task.assigned[$index].name}} {{task.assigned[$index].surname}} </span>
-        </div>
-        }
-        }
+    <div class="content">
+        <div class="header">
+            <span class="category"
+                [style.backgroundColor]="task.category === 'User Story' ? '#0038FF' : '#1FD7C1'">{{task.category}}</span>
+            <div class="close-btn" (click)="closeDetail()">
+                <img src="assets/board/close.png" alt="">
+            </div>
 
-        } @else {
-        <span>No user assigned to this task.</span>
-        }
-    </div>
-    <div class="subtasks">
-            @if (task.subtasks) {
-                @if (task.subtasks.length>0) {
-                    <span>Subtasks</span>
-                    @for (subtaskItem of task.subtasks; track $index) {
-                        <div class="subtask-item">
-                            @if(subtaskItem.taskDone){
-                                <img class="check" src="assets/board/checked.png" alt="" (click)="uncheckSubtask($index)">
-                            } @else {
-                                <img class="check" src="assets/board/unchecked.png" alt="" (click)="checkSubtask($index)">
-                            }
-                            <span>{{ subtaskItem.subtask }}</span>
-                        </div>
-                    }
+        </div>
+        <h2>{{task.title}}</h2>
+        <span>{{task.description}}</span>
+        <div class="date">
+            <span>Due date:</span>
+            <span>{{task.date}}</span>
+        </div>
+        <div class="prio">
+            <span>Priority:</span>
+            <div>
+                <span>{{task.prio}}</span>
+                @if (task.prio == "Medium") {
+                <img src="assets/board/medium.png" alt="">
+                } @else if(task.prio == "Urgent"){
+                <img src="assets/board/urgent.png" alt="">
+                } @else {
+                <img src="assets/board/low.png" alt="">
                 }
+            </div>
+        </div>
+        <div class="assigned">
+            <span>Assigned to:</span>
+            @if(task.assigned){
+            @if(task.assigned.length>0){
+            @for (user of task.assigned; track $index) {
+            <div class="user">
+                <div class="initials" [style.backgroundColor]="task.assigned[$index].color">
+                    {{task.assigned[$index].initials}}</div>
+                <span>{{task.assigned[$index].name}} {{task.assigned[$index].surname}} </span>
+            </div>
             }
-    </div>
-    <div class="edit-delete">
-        <div class="edit" (click)="openTaskEdit()">
-            <img src="assets/contacts/edit.png" alt="">
-            <span>Edit</span>
-        </div>
-        <div class="line"></div>
-        <div class="delete">
-          <img src="assets/contacts/delete.png" alt="">
-          <span>Delete</span>
-        </div>
-    </div>
+            }
 
+            } @else {
+            <span>No user assigned to this task.</span>
+            }
+        </div>
+        <div class="subtasks">
+            @if (task.subtasks) {
+            @if (task.subtasks.length>0) {
+            <span>Subtasks</span>
+            @for (subtaskItem of task.subtasks; track $index) {
+            <div class="subtask-item">
+                @if(subtaskItem.taskDone){
+                <img class="check" src="assets/board/checked.png" alt="" (click)="uncheckSubtask($index)">
+                } @else {
+                <img class="check" src="assets/board/unchecked.png" alt="" (click)="checkSubtask($index)">
+                }
+                <span>{{ subtaskItem.subtask }}</span>
+            </div>
+            }
+            }
+            }
+        </div>
+        <div class="edit-delete">
+            <div class="edit" (click)="openTaskEdit()">
+                <img src="assets/contacts/edit.png" alt="">
+                <span>Edit</span>
+            </div>
+            <div class="line"></div>
+            <div class="delete" (click)="deleteTask()">
+                <img src="assets/contacts/delete.png" alt="">
+                <span>Delete</span>
+            </div>
+        </div>
+    </div>
 </section>

@@ -48,6 +48,7 @@ export class BoardContentComponent {
   }
   
   openTaskDetail(task: Task){
+    this.tasksService.updateCurrentTask(task);
     this.selectedTask = task;
   }
 

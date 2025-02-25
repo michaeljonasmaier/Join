@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../../../interfaces/task';
+import { FirebaseTasksService } from '../../../../services/firebase-tasks.service';
 
 @Component({
   selector: 'app-task-item',
@@ -12,6 +13,10 @@ export class TaskItemComponent {
 
   @Input() task!: Task
   @Output() taskClicked = new EventEmitter<Task>();
+
+  constructor(private taskService: FirebaseTasksService){
+
+  }
 
   openTaskDetailItem() {
     this.taskClicked.emit(this.task);

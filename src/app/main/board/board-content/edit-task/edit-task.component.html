@@ -8,14 +8,14 @@
         <div>
             <label for="title">Title</label>
             <div class="input-div">
-                <input id="title" type="text" value="{{task.title}}">
+                <input id="title" [(ngModel)]="editedTask.title" type="text">
             </div>
         </div>
 
         <div>
             <label for="description">Description</label>
             <div class="input-div">
-                <textarea name="description" id="description" value="{{task.description}}"></textarea>
+                <textarea name="description" [(ngModel)]="editedTask.description" id="description"></textarea>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
             <div class="input-div">
                 <!--  <input placeholder="{{task.date}}" type="text" onfocus="(this.type = 'date')"  id="date"> -->
                 <form [formGroup]="dueDateFormGroup">
-                    <input id="dueDate" formControlName="dueDate" type="date" />
+                    <input id="dueDate" [(ngModel)]="editedTask.date" formControlName="dueDate" type="date" />
                 </form>
             </div>
 
@@ -36,18 +36,18 @@
             <div class="priority-buttons">
 
                 <div class="priority-button" type="button" id="urgent" (click)="selectPrio('Urgent')"
-                    [style.backgroundColor]="selectedPrio === 'Urgent' ? '#FF3D00' : 'white'"
-                    [ngClass]="{'active': selectedPrio == 'Urgent'}">Urgent
+                    [style.backgroundColor]="editedTask.prio === 'Urgent' ? '#FF3D00' : 'white'"
+                    [ngClass]="{'active': editedTask.prio == 'Urgent'}">Urgent
                     <img src="../../../assets/board/urgent.png" alt="">
                 </div>
                 <div class="priority-button" type="button" id="medium" (click)="selectPrio('Medium')"
-                    [style.backgroundColor]="selectedPrio === 'Medium' ? '#FFA800' : 'white'"
-                    [ngClass]="{'active': selectedPrio == 'Medium'}">Medium
+                    [style.backgroundColor]="editedTask.prio === 'Medium' ? '#FFA800' : 'white'"
+                    [ngClass]="{'active': editedTask.prio == 'Medium'}">Medium
                     <img src="../../../assets/board/medium.png" alt="">
                 </div>
                 <div class="priority-button" type="button" id="low" (click)="selectPrio('Low')"
-                    [style.backgroundColor]="selectedPrio === 'Low' ? '#7AE229' : 'white'"
-                    [ngClass]="{'active': selectedPrio == 'Low'}">Low
+                    [style.backgroundColor]="editedTask.prio === 'Low' ? '#7AE229' : 'white'"
+                    [ngClass]="{'active': editedTask.prio == 'Low'}">Low
                     <img src="../../../assets/board/low.png" alt="">
                 </div>
             </div>
@@ -57,10 +57,9 @@
             <span>Assigned to</span>
             <div class="assigned-input">
                 <div class="input-div">
-                    <input #myInput="ngModel" [(ngModel)]="contactInputValue" type="text" (click)="toggleContactList()" (keydown)="filterList()">
+                    <input #myInput="ngModel" [(ngModel)]="contactInputValue" type="text" (click)="toggleContactList()" (keydown)="filterList()" placeholder="Select contacts to assign">
                 </div>
-                
-                <button class="contact-list-button" (click)="toggleContactList()">v</button>
+                <img class="contact-list-button" src="/assets/board/arrow_drop_down.png" alt="" (click)="toggleContactList()">
                 @if(contactListOpened){
                     <div class="contact-list">
                         @for (contact of getContacts(); track $index) {
@@ -112,5 +111,9 @@
             </div>
         </div>
     </div>
-
+    <div class="join-button-div">
+        <app-join-btn title="Ok" imgPath="assets/add-contact/check.png" (click)="acceptChanges()"></app-join-btn>
+        
+    </div>
+    
 </section>

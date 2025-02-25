@@ -1,7 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collection, doc, Firestore, onSnapshot, query, updateDoc } from '@angular/fire/firestore';
+import { addDoc, collection, deleteDoc, doc, Firestore, onSnapshot, query, updateDoc } from '@angular/fire/firestore';
 import { Task } from '../interfaces/task';
 import { Contact } from '../interfaces/contact';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,9 @@ export class FirebaseTasksService {
   firestore: Firestore = inject(Firestore);
   unsubTasks;
 
+  private taskSubject = new BehaviorSubject<Task | null>(null);
+  currentTask$ = this.taskSubject.asObservable(); 
+
   constructor() {
     this.unsubTasks = this.subTasksList();
   }
@@ -48,22 +52,22 @@ export class FirebaseTasksService {
     })
   }
 
-  sortTasks(){
+  sortTasks() {
     this.toDo = [];
     this.inProgress = [];
     this.awaitFeedback = [];
     this.done = [];
     this.tasks.forEach(task => {
-      if(task.status === 'toDo'){
+      if (task.status === 'toDo') {
         this.toDo.push(task);
-      } else if(task.status === 'inProgress'){
+      } else if (task.status === 'inProgress') {
         this.inProgress.push(task);
-      } else if(task.status === 'awaitFeedback'){
+      } else if (task.status === 'awaitFeedback') {
         this.awaitFeedback.push(task);
       } else {
         this.done.push(task);
       }
-    }); 
+    });
   }
 
   getTasksRef() {
@@ -84,22 +88,31 @@ export class FirebaseTasksService {
     }
   }
 
-  async updateTask(editedTask: Task, newStatus: string){
-      await updateDoc(doc(this.firestore, 'tasks', editedTask.id), {
-        title: editedTask.title,
-        date: editedTask.date,
-        status: newStatus,
-        category: editedTask.category,
-        description: editedTask.description,
-        prio: editedTask.prio,
-        subtasks: editedTask.subtasks,
-        assigned: editedTask.assigned,
-        id: editedTask.id,
-      })
-    }
-   async addTask(newTask: Task){
-      await addDoc(this.getTasksRef(), newTask);
-    }
+  async updateTask(editedTask: Task, newStatus: string) {
+    await updateDoc(doc(this.firestore, 'tasks', editedTask.id), {
+      title: editedTask.title,
+      date: editedTask.date,
+      status: newStatus,
+      category: editedTask.category,
+      description: editedTask.description,
+      prio: editedTask.prio,
+      subtasks: editedTask.subtasks,
+      assigned: editedTask.assigned,
+      id: editedTask.id,
+    })
+  }
+
+  async addTask(newTask: Task) {
+    await addDoc(this.getTasksRef(), newTask);
+  }
+
+  async deleteTask(taskID: string){
+    await deleteDoc(doc(this.firestore, 'tasks', taskID))
+  }
+
+  updateCurrentTask(task: Task){
+    this.taskSubject.next(task);
+  }
 
   ngOnDestroy() {
     if (this.unsubTasks) {

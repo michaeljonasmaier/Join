@@ -6,8 +6,8 @@ section {
     position: absolute;
     top: calc(50% - 400px);
     left: calc(50% - 262px);
-    width: 525px;
-    max-height: 746px;
+    width: 545px;
+    max-height: 700px;
     border-radius: 30px;
     padding: 48px 20px 48px 40px;
     z-index: 50;
@@ -166,7 +166,7 @@ textarea{
 .contact-list-button{
     position: absolute;
     right: 10px;
-    top: 20px;
+    top: 23px;
 }
 
 .initials{
@@ -175,4 +175,9 @@ textarea{
     border-radius: 50%;
     color: white;
     @include dFlex();
+}
+
+.join-button-div{
+    @include dFlex(row, flex-end, center);
+    width: 100%;
 }

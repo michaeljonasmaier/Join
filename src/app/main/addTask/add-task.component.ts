@@ -40,8 +40,10 @@ export class AddTaskComponent {
   subtasks: string [] = [];
   myInitials: string[] = [];
   myColors: string[] = [];
+  subtasksObj: {subtask: string, taskDone: boolean} [];
 
   constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService) {
+    this.subtasksObj = [];
 
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
@@ -109,8 +111,7 @@ export class AddTaskComponent {
   async onSubmit() {
     if (this.taskForm.valid) {
       const formValue = this.taskForm.value;
-      console.log()
-
+      
       const newTask: Task = {
         title: formValue.title,
         date: formValue.dueDate,
@@ -118,17 +119,24 @@ export class AddTaskComponent {
         category: formValue.category,
         description: formValue.description,
         prio: formValue.priority,
-        subtasks: [formValue.subtasks],//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
+        subtasks: this.setSubtaskObjects(),//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
         assigned: formValue.assigned,//this.users.filter(user => formValue.assigned.includes(user.id)),
         id: this.generateUniqueId()
       };
-      console.log(newTask.assigned)
       //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
       await this.taskService.addTask(newTask);
       this.onClear();
 
       console.log('Task Submitted:', newTask);
     }
+  }
+
+  setSubtaskObjects(){
+    this.subtasks.forEach(subtask => {
+      this.subtasksObj.push({subtask: subtask, taskDone: false});
+    });
+
+    return this.subtasksObj;
   }
 
   private generateUniqueId(): string {

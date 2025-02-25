@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { GreyBackgroundComponent } from '../../../../shared/grey-background/grey-background.component';
 import { Task } from '../../../../interfaces/task';
 import { FirebaseTasksService } from '../../../../services/firebase-tasks.service';
@@ -20,6 +20,19 @@ export class TaskDetailItemComponent {
 
   }
 
+  ngOnInit(){
+    this.taskService.currentTask$.subscribe(updatedTask => {
+      if (updatedTask) {
+        this.task = updatedTask;
+      }
+    });
+  }
+
+  deleteTask(){
+    this.taskService.deleteTask(this.task.id);
+    this.closeDetail();
+  }
+
   closeDetail() {
     this.close.emit();
   }
@@ -39,7 +52,6 @@ export class TaskDetailItemComponent {
   }
 
   openTaskEdit() {
-    console.log("open task edit im task-detail item");
     this.taskEditClicked.emit(this.task);
   }
 }
