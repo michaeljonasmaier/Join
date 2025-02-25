@@ -29,7 +29,9 @@ export class EditTaskComponent {
   contactListOpened: boolean = false;
   filteredContactList: Contact[] = [];
   contactInputValue: string = '';
-
+  subtaskInputValue: string = '';
+  subtaskEdits: string[] = [];
+  isFocused: boolean[] = [];
 
   editedTask: Task = {
     title: "",
@@ -52,6 +54,27 @@ export class EditTaskComponent {
 
     if (this.task) {
       this.updateTaskModel(this.task);
+      this.getAllSubtasks();
+    }
+  }
+
+  getAllSubtasks(){
+    if(this.editedTask.subtasks){
+      this.editedTask.subtasks.forEach(element => {
+        this.subtaskEdits.push(element.subtask);
+      });
+    }
+  }
+
+  onFocus(index: number){
+    this.isFocused[index] = true;
+  }
+
+  onBlur(index: number) {
+    this.isFocused[index] = false;
+    if(this.editedTask.subtasks){
+      this.editedTask.subtasks[index] = {subtask: this.subtaskEdits[index], taskDone: false};
+      
     }
   }
 
@@ -100,7 +123,6 @@ export class EditTaskComponent {
   }
 
   selectPrio(prio: 'Urgent' | 'Medium' | 'Low') {
-    console.log(prio)
     this.editedTask.prio = prio;
   }
 
@@ -131,5 +153,21 @@ export class EditTaskComponent {
     this.taskService.updateCurrentTask(this.editedTask);
     this.taskService.updateTask(this.editedTask, this.task.status);
     this.closeEdit();
+  }
+
+  clearSubtaskInput() {
+    this.subtaskInputValue = "";
+  }
+
+  addSubtask() {
+    this.editedTask.subtasks?.push({ subtask: this.subtaskInputValue, taskDone: false });
+    this.subtaskInputValue = "";
+  }
+
+  deleteSubtask(subtaskItem: { subtask: string, taskDone: boolean }) {
+    let index =  this.editedTask.subtasks?.findIndex(item => item.subtask === subtaskItem.subtask);
+    if (index !== undefined && index !== -1) {
+      this.editedTask.subtasks?.splice(index, 1);
+    }
   }
 }
