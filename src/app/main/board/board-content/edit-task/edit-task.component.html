@@ -55,16 +55,40 @@
 
         <div>
             <span>Assigned to</span>
-            <mat-form-field appearance="outline">
+            <div class="assigned-input">
+                <div class="input-div">
+                    <input #myInput="ngModel" [(ngModel)]="contactInputValue" type="text" (click)="toggleContactList()" (keydown)="filterList()">
+                </div>
+                
+                <button class="contact-list-button" (click)="toggleContactList()">v</button>
+                @if(contactListOpened){
+                    <div class="contact-list">
+                        @for (contact of getContacts(); track $index) {
+                            <div class="contact-item" (click)="assignContact(contact)">
+                                <div class="initials" [style.backgroundColor]="contact.color">{{contact.initials}}</div>
+                                <span>{{contact.name}} {{contact.surname}}</span>
+                                @if(isContactAssigned(contact)){
+                                    <img src="assets/board/checked.png" alt="">
+                                } @else {
+                                    <img src="assets/board/unchecked.png" alt="">
+                                }
+                                
+                            </div>
+                        }
+                    </div>
+                }
+                
+            </div>
+           <!--  <mat-form-field appearance="outline">
                 <mat-label for="assigned">Assigned to</mat-label>
                 <mat-select id="assigned" multiple>
-                    <!-- @for (user of []; track $index) {
+                     @for (user of []; track $index) {
                  <mat-option [value]="user.id">
                    {{user.name}} {{user.surname}}
                  </mat-option>
-               }   -->
+               }   
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
             <div class="assigned-to-div">
                 @for (assignedItem of task.assigned; track $index) {
                 <div class="assignedItem" [style.backgroundColor]="assignedItem.color">{{assignedItem.initials}}</div>

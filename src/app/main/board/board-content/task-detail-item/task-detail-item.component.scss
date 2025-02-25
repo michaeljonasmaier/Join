@@ -12,6 +12,8 @@ section {
     z-index: 50;
     @include dFlex(column, flex-start, flex-start);
     gap: 25px;
+    max-height: 700px;
+    overflow-y: scroll;
 }
 
 .header{
