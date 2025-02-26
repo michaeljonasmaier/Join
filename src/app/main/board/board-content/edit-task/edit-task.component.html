@@ -5,81 +5,82 @@
             <img src="assets/board/close.png" alt="">
         </div>
 
-        <div>
+        <div class="edit-task-div">
             <label for="title">Title</label>
             <div class="input-div">
-                <input id="title" type="text" value="{{task.title}}">
+                <input id="title" [(ngModel)]="editedTask.title" type="text">
             </div>
         </div>
 
-        <div>
+        <div class="edit-task-div">
             <label for="description">Description</label>
             <div class="input-div">
-                <textarea name="description" id="description" value="{{task.description}}"></textarea>
+                <textarea name="description" [(ngModel)]="editedTask.description" id="description"></textarea>
             </div>
         </div>
 
-        <div>
+        <div class="edit-task-div">
             <label for="dueDate">Due date</label>
             <div class="input-div">
                 <!--  <input placeholder="{{task.date}}" type="text" onfocus="(this.type = 'date')"  id="date"> -->
                 <form [formGroup]="dueDateFormGroup">
-                    <input id="dueDate" formControlName="dueDate" type="date" />
+                    <input id="dueDate" [(ngModel)]="editedTask.date" formControlName="dueDate" type="date" />
                 </form>
             </div>
 
 
         </div>
 
-        <div>
+        <div class="edit-task-div">
             <span>Priority</span>
             <div class="priority-buttons">
 
                 <div class="priority-button" type="button" id="urgent" (click)="selectPrio('Urgent')"
-                    [style.backgroundColor]="selectedPrio === 'Urgent' ? '#FF3D00' : 'white'"
-                    [ngClass]="{'active': selectedPrio == 'Urgent'}">Urgent
+                    [style.backgroundColor]="editedTask.prio === 'Urgent' ? '#FF3D00' : 'white'"
+                    [ngClass]="{'active': editedTask.prio == 'Urgent'}">Urgent
                     <img src="../../../assets/board/urgent.png" alt="">
                 </div>
                 <div class="priority-button" type="button" id="medium" (click)="selectPrio('Medium')"
-                    [style.backgroundColor]="selectedPrio === 'Medium' ? '#FFA800' : 'white'"
-                    [ngClass]="{'active': selectedPrio == 'Medium'}">Medium
+                    [style.backgroundColor]="editedTask.prio === 'Medium' ? '#FFA800' : 'white'"
+                    [ngClass]="{'active': editedTask.prio == 'Medium'}">Medium
                     <img src="../../../assets/board/medium.png" alt="">
                 </div>
                 <div class="priority-button" type="button" id="low" (click)="selectPrio('Low')"
-                    [style.backgroundColor]="selectedPrio === 'Low' ? '#7AE229' : 'white'"
-                    [ngClass]="{'active': selectedPrio == 'Low'}">Low
+                    [style.backgroundColor]="editedTask.prio === 'Low' ? '#7AE229' : 'white'"
+                    [ngClass]="{'active': editedTask.prio == 'Low'}">Low
                     <img src="../../../assets/board/low.png" alt="">
                 </div>
             </div>
         </div>
 
-        <div>
+        <div class="edit-task-div">
             <span>Assigned to</span>
             <div class="assigned-input">
                 <div class="input-div">
-                    <input #myInput="ngModel" [(ngModel)]="contactInputValue" type="text" (click)="toggleContactList()" (keydown)="filterList()">
+                    <input #myInput="ngModel" [(ngModel)]="contactInputValue" type="text" (click)="toggleContactList()"
+                        (keydown)="filterList()" placeholder="Select contacts to assign">
                 </div>
-                
-                <button class="contact-list-button" (click)="toggleContactList()">v</button>
+                <img class="contact-list-button" src="/assets/board/arrow_drop_down.png" alt=""
+                    (click)="toggleContactList()">
                 @if(contactListOpened){
-                    <div class="contact-list">
-                        @for (contact of getContacts(); track $index) {
-                            <div class="contact-item" (click)="assignContact(contact)">
-                                <div class="initials" [style.backgroundColor]="contact.color">{{contact.initials}}</div>
-                                <span>{{contact.name}} {{contact.surname}}</span>
-                                @if(isContactAssigned(contact)){
-                                    <img src="assets/board/checked.png" alt="">
-                                } @else {
-                                    <img src="assets/board/unchecked.png" alt="">
-                                }
-                                
-                            </div>
+                <div class="contact-list">
+                    @for (contact of getContacts(); track $index) {
+                    <div class="contact-item" (click)="assignContact(contact)">
+                        <div class="initials" [style.backgroundColor]="contact.color">{{contact.initials}}</div>
+                        <span>{{contact.name}} {{contact.surname}}</span>
+                        @if(isContactAssigned(contact)){
+                        <img src="assets/board/checked.png" alt="">
+                        } @else {
+                        <img src="assets/board/unchecked.png" alt="">
                         }
+
                     </div>
+                    }
+                </div>
                 }
-                
+
             </div>
-           <!--  <mat-form-field appearance="outline">
+            <!--  <mat-form-field appearance="outline">
                 <mat-label for="assigned">Assigned to</mat-label>
                 <mat-select id="assigned" multiple>
                      @for (user of []; track $index) {
@@ -96,21 +97,55 @@
             </div>
         </div>
 
-        <div>
-            <div class="form-group">
-                <label for="subtasks">Subtasks</label>
-                <div class="subtask-input">
-                    <input id="subtasks" type="text" placeholder="Add new subtask" (click)="changeSubtaskIcons()" />
-                    <img id="plus-button" class="subtask-button" src="../../../assets/board/plus.png" alt=""
-                        (click)="changeSubtaskIcons()">
-                    <div class="subtask-buttons d-none" id="subtask-buttons">
-                        <img class="subtask-button" src="../../../assets/board/close.png" alt="">
-                        |
-                        <img class="subtask-button" src="../../../assets/board/check-black.png" alt="">
-                    </div>
-                </div>
+        <div class="subtask-div edit-task-div">
+            <span>Subtasks</span>
+            <div class="input-div">
+                <input class="subtask-input" type="text" [(ngModel)]="subtaskInputValue">
             </div>
+            <img class="subtask-button d-none" src="assets/board/plus.png" alt="">
+            <div class="subtask-buttons " id="subtask-buttons">
+                <img class="" src="assets/board/close.png" alt="" (click)="clearSubtaskInput()">
+                |
+                <img class="" src="assets/board/check-black.png" alt="" (click)="addSubtask()">
+            </div>
+
+            <div class="subtask-list">
+                @if(editedTask.subtasks){
+                    @for (subtaskItem of editedTask.subtasks; track $index) {
+                        <div class="subtaskItem">
+                            <input [(ngModel)]="subtaskEdits[$index]" (focus)="onFocus($index)" (blur)="onBlur($index)">
+                            <div class="edit-delete">
+                                @if(isFocused[$index]){ 
+                                    <img class="check" src="assets/board/check-black.png" alt=""> |
+                                } @else {
+                                    <img src="assets/contacts/edit.png" alt=""> |
+                                }
+                                
+                                <img src="assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtaskItem)">
+                            </div>
+                        </div>
+                        
+                    }
+                }
+            </div>
+
+            <!-- <label for="subtasks">Subtasks</label>
+            <div class="subtask-input">
+                <input id="subtasks" type="text" placeholder="Add new subtask" (click)="changeSubtaskIcons()" />
+                <img id="plus-button" class="subtask-button" src="../../../assets/board/plus.png" alt=""
+                    (click)="changeSubtaskIcons()">
+                <div class="subtask-buttons d-none" id="subtask-buttons">
+                    <img class="subtask-button" src="../../../assets/board/close.png" alt="">
+                    |
+                    <img class="subtask-button" src="../../../assets/board/check-black.png" alt="">
+                </div>
+            </div> -->
         </div>
+    </div>
+
+    <div class="join-button-div">
+        <app-join-btn title="Ok" imgPath="assets/add-contact/check.png" (click)="acceptChanges()"></app-join-btn>
+
     </div>
 
 </section>

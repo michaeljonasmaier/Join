@@ -6,8 +6,8 @@ section {
     position: absolute;
     top: calc(50% - 400px);
     left: calc(50% - 262px);
-    width: 525px;
-    max-height: 746px;
+    width: 545px;
+    max-height: 700px;
     border-radius: 30px;
     padding: 48px 20px 48px 40px;
     z-index: 50;
@@ -15,7 +15,7 @@ section {
     gap: 25px;
 }
 
-div{
+.edit-task-div{
     width: 100%;
     @include dFlex(column, flex-start, flex-start);
     gap: 10px;
@@ -26,7 +26,7 @@ div{
     width: 100%;
     @include dFlex(column, flex-start, flex-start);
     overflow-y: scroll;
-    gap: 20px;
+    gap: 30px;
     padding-right: 5px;
 }
 
@@ -123,6 +123,7 @@ textarea{
 
 .assigned-to-div{
     @include dFlex(row, flex-start, center);
+    padding-top: 10px;
     gap: 8px;
 }
 
@@ -137,6 +138,7 @@ textarea{
 
 .assigned-input{
     position: relative;
+    width: 100%;
     input{
         width: 100%;
     }
@@ -148,12 +150,15 @@ textarea{
     gap: 0;
     -webkit-box-shadow: 0px 0px 4px 0px rgba($color: #000000, $alpha: 0.1);
     box-shadow: 0px 0px 4px 0px rgba($color: #000000, $alpha: 0.1);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .contact-item{
     @include dFlex(row, flex-start, center);
     width: 90%;
     padding: 8px 12px;
+    gap: 10px;
     span{
         flex: 1;
     }
@@ -166,7 +171,7 @@ textarea{
 .contact-list-button{
     position: absolute;
     right: 10px;
-    top: 20px;
+    top: 23px;
 }
 
 .initials{
@@ -175,4 +180,85 @@ textarea{
     border-radius: 50%;
     color: white;
     @include dFlex();
+}
+
+.subtask-div{
+    position: relative;
+}
+
+.subtask-button{
+    position: absolute;
+    right: 10px;
+    top: 52px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.subtask-buttons{
+    position: absolute;
+    @include dFlex(row, flex-end, center);
+    gap: 10px;
+    right: 10px;
+    top: 51px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.subtask-list{
+    width: 100%;
+    @include dFlex(column, center, flex-start);
+}
+
+.subtaskItem{
+    @include dFlex(row, space-between, center);
+    position: relative;
+    width: 95%;
+    padding: 10px;
+    border-radius: 10px; 
+    
+    input{
+        font-size: 16px;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        padding-right: 10%;
+        flex: none;
+        width: 84%;
+        z-index: 12;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    input:focus{
+        outline: none;
+        width: 74%;
+    }
+
+    &:hover{
+        background-color: #EEEEEE;
+        cursor: pointer;
+    }
+}
+
+.edit-delete{
+    @include dFlex(row, center, center);
+    position: absolute;
+    right: 10px;
+    gap: 10px;
+    padding-left: 20px;
+    z-index: 10;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.join-button-div{
+    @include dFlex(row, flex-end, center);
+    width: 100%;
 }

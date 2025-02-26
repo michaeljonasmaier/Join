@@ -29,7 +29,7 @@
            <mat-label for="assigned">Assigned to</mat-label>
             <mat-select id="assigned" formControlName="assigned" multiple disableOptionCentering="true">
               @for (user of getUserList(); track $index) {
-                <mat-option [value]="user.id" (click)="getColor(user.color); getInitials(user.initials)">
+                <mat-option [value]="user" (click)="getColor(user.color); getInitials(user.initials)">
                   {{user.name}} {{user.surname}}
                 </mat-option>
               }  

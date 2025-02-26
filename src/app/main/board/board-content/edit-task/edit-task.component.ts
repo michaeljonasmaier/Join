@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild  } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Task } from '../../../../interfaces/task';
 import { MatSelectModule, } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,11 +9,12 @@ import { Contact } from '../../../../interfaces/contact';
 import { FirebaseContactsService } from '../../../../services/firebase-contacts.service';
 import { FirebaseTasksService } from '../../../../services/firebase-tasks.service';
 import { filter } from 'rxjs';
+import { JoinBtnComponent } from '../../../../shared/join-btn/join-btn.component';
 
 @Component({
   selector: 'app-edit-task',
   standalone: true,
-  imports: [MatFormFieldModule, MatSelectModule, CommonModule, GreyBackgroundComponent, ReactiveFormsModule, FormsModule],
+  imports: [MatFormFieldModule, MatSelectModule, CommonModule, GreyBackgroundComponent, ReactiveFormsModule, FormsModule, JoinBtnComponent],
   templateUrl: './edit-task.component.html',
   styleUrl: './edit-task.component.scss'
 })
@@ -26,26 +27,78 @@ export class EditTaskComponent {
 
   selectedPrio: string = "Medium";
   contactListOpened: boolean = false;
-  filteredContactList: Contact [] = [];
+  filteredContactList: Contact[] = [];
   contactInputValue: string = '';
+  subtaskInputValue: string = '';
+  subtaskEdits: string[] = [];
+  isFocused: boolean[] = [];
 
+  editedTask: Task = {
+    title: "",
+    description: "",
+    date: "",
+    status: "toDo",
+    category: "User Story",
+    id: "",
+    prio: "Medium",
+    subtasks: [],
+  }
   constructor(private contactService: FirebaseContactsService, private taskService: FirebaseTasksService) {
-    
+
   }
 
   ngOnInit() {
     this.selectedPrio = this.task.prio;
     this.dueDateFormGroup.patchValue({ dueDate: '2010-01-01' });
     this.getDataFormat();
+
+    if (this.task) {
+      this.updateTaskModel(this.task);
+      this.getAllSubtasks();
+    }
   }
 
-  toggleContactList(){
+  getAllSubtasks(){
+    if(this.editedTask.subtasks){
+      this.editedTask.subtasks.forEach(element => {
+        this.subtaskEdits.push(element.subtask);
+      });
+    }
+  }
+
+  onFocus(index: number){
+    this.isFocused[index] = true;
+  }
+
+  onBlur(index: number) {
+    this.isFocused[index] = false;
+    if(this.editedTask.subtasks){
+      this.editedTask.subtasks[index] = {subtask: this.subtaskEdits[index], taskDone: false};
+      
+    }
+  }
+
+  updateTaskModel(task: Task) {
+    this.editedTask = {
+      title: task.title,
+      description: task.description || "",
+      date: task.date,
+      status: task.status,
+      category: task.category,
+      id: task.id,
+      prio: task.prio,
+      subtasks: task.subtasks,
+      assigned: task.assigned,
+    };
+  }
+
+  toggleContactList() {
     this.contactListOpened = !this.contactListOpened;
   }
 
-  filterList(){
+  filterList() {
     this.filteredContactList = this.contactService.contacts;
-    if(this.contactInputValue!=''){
+    if (this.contactInputValue != '') {
       let filteredContacts = this.filteredContactList.filter(contact => {
         let fullName = (contact.name + ' ' + contact.surname).toLowerCase();
         return fullName.includes(this.contactInputValue);
@@ -57,31 +110,29 @@ export class EditTaskComponent {
     }
   }
 
-  getContacts(){
+  getContacts() {
     return this.filterList();
   }
 
-  getDataFormat(){
-    console.log(this.task.date);
+  getDataFormat() {
   }
 
   changeSubtaskIcons() {
-    console.log("changed")
     document.getElementById('plus-button')?.classList.add('d-none');
     document.getElementById('subtask-buttons')?.classList.remove('d-none');
   }
 
-  selectPrio(prio: string) {
-    this.selectedPrio = prio;
+  selectPrio(prio: 'Urgent' | 'Medium' | 'Low') {
+    this.editedTask.prio = prio;
   }
 
   closeEdit() {
     this.close.emit();
   }
 
-  assignContact(contact: Contact){
-    let index = this.task.assigned?.findIndex(assignedContact => assignedContact.id === contact.id); 
-    if(index !== undefined && index !== -1){
+  assignContact(contact: Contact) {
+    let index = this.task.assigned?.findIndex(assignedContact => assignedContact.id === contact.id);
+    if (index !== undefined && index !== -1) {
       this.task.assigned?.splice(index, 1);
     } else {
       this.task.assigned?.push(contact);
@@ -89,12 +140,34 @@ export class EditTaskComponent {
     this.taskService.updateTask(this.task, this.task.status);
   }
 
-  isContactAssigned(contact: Contact){
+  isContactAssigned(contact: Contact) {
     let index = this.task.assigned?.findIndex(assignedContact => assignedContact.id === contact.id);
-    if(index !== undefined && index !== -1){
+    if (index !== undefined && index !== -1) {
       return true;
     } else {
       return false;
-    } 
+    }
+  }
+
+  acceptChanges() {
+    this.taskService.updateCurrentTask(this.editedTask);
+    this.taskService.updateTask(this.editedTask, this.task.status);
+    this.closeEdit();
+  }
+
+  clearSubtaskInput() {
+    this.subtaskInputValue = "";
+  }
+
+  addSubtask() {
+    this.editedTask.subtasks?.push({ subtask: this.subtaskInputValue, taskDone: false });
+    this.subtaskInputValue = "";
+  }
+
+  deleteSubtask(subtaskItem: { subtask: string, taskDone: boolean }) {
+    let index =  this.editedTask.subtasks?.findIndex(item => item.subtask === subtaskItem.subtask);
+    if (index !== undefined && index !== -1) {
+      this.editedTask.subtasks?.splice(index, 1);
+    }
   }
 }
