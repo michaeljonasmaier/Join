@@ -1,13 +1,18 @@
 @import '../../../styles.scss';
 :host{
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+}
+h2{
+  margin-left: 20px;
 }
 
 .task-form {
   width: 100%;
   max-width: 900px;
-  margin: auto;
+  //margin: auto;
   color: #0c0c0c;
   
 
@@ -207,4 +212,42 @@
     gap: 15px;
     color: white;
   }
+  .buttons-div{
+    margin: 20px;
+  }
+}
+@media(max-width: 1120px){
+  .split{
+    gap: 0px !important;
+  }
+}
+
+@media(max-width: 910px){}
+
+@media(max-width: 600px){
+  :host{
+    overflow-y: scroll;
+  }
+  .task-form{
+    margin-top: 190px;
+
+    .split{
+      flex-direction: column;
+
+      .form-column{
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+    }
+    
+  }
+  .priority-buttons{
+      gap: 15px;
+      .priority-button{
+        font-size: 12px;
+        img{
+          width: 14px;
+        }
+      }
+    }
 }

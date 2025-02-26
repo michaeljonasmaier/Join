@@ -27,7 +27,7 @@
           <label for="assigned">Assigned to</label>
           <mat-form-field appearance="outline">
            <mat-label for="assigned">Assigned to</mat-label>
-            <mat-select id="assigned" formControlName="assigned" multiple>
+            <mat-select id="assigned" formControlName="assigned" multiple disableOptionCentering="true">
               @for (user of getUserList(); track $index) {
                 <mat-option [value]="user.id" (click)="getColor(user.color); getInitials(user.initials)">
                   {{user.name}} {{user.surname}}
@@ -99,7 +99,7 @@
       </div>
     </div>
 
-    <div class="form-actions">
+    <div class="form-actions buttons-div">
       <button class="end-buttons clear-btn" type="button" (click)="onClear()">Clear <img src="../../../assets/add-contact/Vector.png" alt=""></button>
       <button class="end-buttons submit-btn" type="submit">Create Task <img src="../../../assets/add-contact/check.png" alt=""></button>
     </div>

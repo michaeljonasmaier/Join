@@ -11,7 +11,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   selector: 'app-add-task',
   standalone: true,
   imports: [MatFormFieldModule, MatSelectModule,FormsModule, ReactiveFormsModule],
-
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
