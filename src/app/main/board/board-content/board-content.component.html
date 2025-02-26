@@ -5,16 +5,15 @@
             <span>To do</span>
             <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
-        @if (data.toDo.length>0) {
+        @if (filterList(data.toDo).length>0) {
         @for (task of filterList(data.toDo); track $index) {
         <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
-
         }
 
         } @else {
         <div class="no-items">No tasks to do</div>
         }
-        
+
 
     </div>
     <div id="inProgress" class="task-list drop-area" cdkDropList [cdkDropListData]="data.inProgress"
@@ -24,7 +23,7 @@
             <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
         @if(data.inProgress.length>0){
-        @for (task of data.inProgress; track $index) {
+        @for (task of filterList(data.inProgress); track $index) {
         <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
         }
         } @else {
@@ -39,7 +38,7 @@
             <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
         @if (data.awaitFeedback.length>0) {
-        @for (task of data.awaitFeedback; track $index) {
+        @for (task of filterList(data.awaitFeedback); track $index) {
         <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
         }
         }@else {
@@ -53,7 +52,7 @@
             <span>Done</span>
         </div>
         @if(data.done.length>0){
-        @for (task of data.done; track $index) {
+        @for (task of filterList(data.done); track $index) {
         <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
         }
         }@else {
@@ -67,10 +66,10 @@
 
 
 @if(selectedTask){
-    <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"
-        (taskEditClicked)="openTaskEdit($event)"></app-task-detail-item>
+<app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"
+    (taskEditClicked)="openTaskEdit($event)"></app-task-detail-item>
 
 }
 @if(editTask){
-    <app-edit-task [task]="editTask" (close)="closeTaskEdit()"></app-edit-task>
+<app-edit-task [task]="editTask" (close)="closeTaskEdit()"></app-edit-task>
 }
