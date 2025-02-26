@@ -36,3 +36,64 @@ section {
         border-left: 1px solid #D1D1D1;
     }
 }
+
+@media(max-width: 900px){
+    :host{
+        width: 100%;
+    }
+
+    section {
+        >h2 {
+            font-size: 47px;
+        }
+
+        div{
+            gap: 20px;
+        }
+
+        .search {
+            input {
+                width: 160px;
+                
+            }
+        }
+    }
+}
+
+@media(max-width: 650px){
+    section {
+        @include dFlex(column, flex-start, flex-start);
+        gap: 20px;
+
+        div{
+            @include dFlex(column, flex-start, flex-start);
+            width: 95%;
+        }
+        .search {
+            input {
+                width: 85%;
+            }
+        }
+    }
+
+    .add-btn{
+        display: none;
+    }
+}
+
+@media(max-width:500px){
+    section {
+        @include dFlex(column, flex-start, flex-start);
+        gap: 20px;
+
+        div{
+            @include dFlex(column, flex-start, flex-start);
+            width: 100%;
+        }
+        .search {
+            input {
+                width: calc(100% - 96px);
+            }
+        }
+    }
+}
