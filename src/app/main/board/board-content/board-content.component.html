@@ -6,7 +6,7 @@
             <img class="plus-button" src="assets/board/plus-button.png" alt="">
         </div>
         @if (data.toDo.length>0) {
-        @for (task of data.toDo; track $index) {
+        @for (task of filterList(data.toDo); track $index) {
         <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
 
         }

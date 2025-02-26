@@ -1,5 +1,5 @@
 <app-grey-background (click)="closeDetail()"></app-grey-background>
-<section>
+<section id="section">
     <div class="content">
         <div class="header">
             <span class="category"
@@ -13,7 +13,7 @@
         <span>{{task.description}}</span>
         <div class="date">
             <span>Due date:</span>
-            <span>{{task.date}}</span>
+            <span>{{styleDate(task.date)}}</span>
         </div>
         <div class="prio">
             <span>Priority:</span>

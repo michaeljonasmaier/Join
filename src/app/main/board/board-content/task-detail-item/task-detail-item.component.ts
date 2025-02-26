@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, inject, Input, Output, ViewChild } from '@angular/core';
 import { GreyBackgroundComponent } from '../../../../shared/grey-background/grey-background.component';
 import { Task } from '../../../../interfaces/task';
 import { FirebaseTasksService } from '../../../../services/firebase-tasks.service';
@@ -13,14 +13,13 @@ import { FirebaseTasksService } from '../../../../services/firebase-tasks.servic
 export class TaskDetailItemComponent {
   @Input() task!: Task;
   @Output() close = new EventEmitter<void>();
-
   @Output() taskEditClicked = new EventEmitter<Task>();
-  
-  constructor(private taskService: FirebaseTasksService){
+
+  constructor(private taskService: FirebaseTasksService) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.taskService.currentTask$.subscribe(updatedTask => {
       if (updatedTask) {
         this.task = updatedTask;
@@ -28,7 +27,7 @@ export class TaskDetailItemComponent {
     });
   }
 
-  deleteTask(){
+  deleteTask() {
     this.taskService.deleteTask(this.task.id);
     this.closeDetail();
   }
@@ -49,6 +48,12 @@ export class TaskDetailItemComponent {
       this.task.subtasks[index].taskDone = true;
       this.taskService.updateTask(this.task, this.task.status);
     }
+  }
+
+  styleDate(date: string) {
+    let [year, month, day] = date.split("-");
+    let formattedDate = `${day}.${month}.${year}`;
+    return formattedDate;
   }
 
   openTaskEdit() {

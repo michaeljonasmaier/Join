@@ -1,5 +1,23 @@
 @import '../../../../../styles.scss';
 
+@keyframes slideIn {
+    from {
+      transform: translateX(200%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(200%);
+    }
+  }
+
 section {
     background-color: white;
     color: #2A3647;
@@ -12,7 +30,12 @@ section {
     z-index: 50;
     max-height: 700px;
     @include dFlex(column, flex-start, flex-start);
+    animation: slideIn 0.25s ease-out;
 }
+
+/* .slide-out{
+    animation: slideOut 0.5s forwards;
+} */
 
 .content{
     width: 100%;

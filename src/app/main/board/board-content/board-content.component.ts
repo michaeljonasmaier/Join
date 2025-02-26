@@ -12,6 +12,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { TaskDetailItemComponent } from './task-detail-item/task-detail-item.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { SearchService } from '../../../services/search.service';
 
 @Component({
   selector: 'app-board-content',
@@ -26,8 +27,8 @@ export class BoardContentComponent {
   editTask?: Task;
 
   data = inject(FirebaseTasksService);
-  constructor(private tasksService: FirebaseTasksService){
-    
+  constructor(private tasksService: FirebaseTasksService, private searchService: SearchService) {
+
   }
 
   drop(event: CdkDragDrop<Task[]>) {
@@ -46,8 +47,8 @@ export class BoardContentComponent {
     }
     console.log(this.data);
   }
-  
-  openTaskDetail(task: Task){
+
+  openTaskDetail(task: Task) {
     this.tasksService.updateCurrentTask(task);
     this.selectedTask = task;
   }
@@ -56,13 +57,39 @@ export class BoardContentComponent {
     this.selectedTask = undefined;
   }
 
-  closeTaskEdit(){
+  closeTaskEdit() {
     this.editTask = undefined;
   }
 
-  openTaskEdit(task: Task){
+  openTaskEdit(task: Task) {
     console.log("Open edit task")
     this.editTask = task;
-    
+
+  }
+
+  filterList(list: Task[]) {
+    let currentList = list;
+    this.searchService.searchTerm$.subscribe(searchTerm => {
+      console.log(searchTerm);
+      if (searchTerm != '') {
+        list = list.filter(task =>
+          (task.title + " " + task.description).toLowerCase().includes(searchTerm.toLowerCase())
+        );
+       currentList = list
+      } 
+    });
+    return currentList;
+
+   /*  this.filteredContactList = this.contactService.contacts;
+    if (this.contactInputValue != '') {
+      let filteredContacts = this.filteredContactList.filter(contact => {
+        let fullName = (contact.name + ' ' + contact.surname).toLowerCase();
+        return fullName.includes(this.contactInputValue);
+      });
+      this.filteredContactList = filteredContacts;
+      return this.filteredContactList
+    } else {
+      return this.filteredContactList;
+    } */
   }
 }
