@@ -1,10 +1,16 @@
 <section>
-    <h2>Board</h2>
-    <div>
+    <div class="title">
+        <h2>Board</h2>
+        <app-join-btn class="add-btn-mobile" title="" imgPath="assets/board/add.png" customClass="btn-class-mobile"
+            (click)="navigateToAddTask()"></app-join-btn>
+    </div>
+
+    <div class="search-div">
         <div class="search">
             <input type="text" [(ngModel)]="searchInput" placeholder="Find Task" (keyup)="search()">
             <img class="search-img" src="assets/board/search.png" alt="">
-        </div>       
-        <app-join-btn title="Add task" imgPath="assets/board/add.png" customClass="btn-class" (click)="navigateToAddTask()"></app-join-btn>
+        </div>
+        <app-join-btn class="add-btn" title="Add task" imgPath="assets/board/add.png" customClass="btn-class"
+            (click)="navigateToAddTask()"></app-join-btn>
     </div>
 </section>

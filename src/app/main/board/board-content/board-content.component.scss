@@ -76,6 +76,7 @@ section {
 
     section{
         @include dFlex(column, flex-start, flex-start);
+        margin-top: 20px;
         gap: 20px;
     }
 
