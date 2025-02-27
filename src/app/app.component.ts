@@ -10,10 +10,11 @@ import { AddTaskComponent } from './main/addTask/add-task.component';
 import { SummaryComponent } from './main/summary/summary.component';
 import { BoardComponent } from './main/board/board.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HelpComponent } from './main/help/help.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, LandingPageComponent, MainComponent, RouterOutlet, AddTaskComponent, FormsModule,ReactiveFormsModule , SummaryComponent, BoardComponent],
+  imports: [CommonModule, LandingPageComponent, MainComponent, RouterOutlet, AddTaskComponent, FormsModule,ReactiveFormsModule , SummaryComponent, BoardComponent, HelpComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -5,6 +5,7 @@ import { MainComponent } from './main/main.component';
 import { SummaryComponent } from './main/summary/summary.component';
 import { AddTaskComponent } from './main/addTask/add-task.component';
 import { BoardComponent } from './main/board/board.component';
+import { HelpComponent } from './main/help/help.component';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
@@ -15,7 +16,8 @@ export const routes: Routes = [
             { path: 'summary', component: SummaryComponent },
             { path: 'addTask', component: AddTaskComponent },
             { path: 'board', component: BoardComponent },
-            { path: 'contacts', component: ContactsComponent },]
+            { path: 'contacts', component: ContactsComponent },
+            { path: 'help', component: HelpComponent },]
 
     },
 
