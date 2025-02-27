@@ -113,7 +113,7 @@
                 @if(editedTask.subtasks){
                     @for (subtaskItem of editedTask.subtasks; track $index) {
                         <div class="subtaskItem">
-                            <input [(ngModel)]="subtaskEdits[$index]" (focus)="onFocus($index)" (blur)="onBlur($index)">
+                            <textarea [(ngModel)]="subtaskEdits[$index]" (focus)="onFocus($index)" (blur)="onBlur($index)"></textarea>
                             <div class="edit-delete">
                                 @if(isFocused[$index]){ 
                                     <img class="check" src="assets/board/check-black.png" alt=""> |
