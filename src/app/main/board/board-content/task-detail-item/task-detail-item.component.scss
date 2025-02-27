@@ -2,21 +2,23 @@
 
 @keyframes slideIn {
     from {
-      transform: translateX(200%);
+        transform: translateX(200%);
     }
-    to {
-      transform: translateX(0);
-    }
-  }
 
-  @keyframes slideOut {
-    from {
-      transform: translateX(0);
-    }
     to {
-      transform: translateX(200%);
+        transform: translateX(0);
     }
-  }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(300%);
+    }
+}
 
 section {
     background-color: white;
@@ -30,14 +32,18 @@ section {
     z-index: 50;
     max-height: 700px;
     @include dFlex(column, flex-start, flex-start);
+
+}
+
+.slide-out {
+    animation: slideOut 0.25s forwards;
+}
+
+.slide-in {
     animation: slideIn 0.25s ease-out;
 }
 
-/* .slide-out{
-    animation: slideOut 0.5s forwards;
-} */
-
-.content{
+.content {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
@@ -58,18 +64,19 @@ section {
     border-radius: 10px;
 }
 
-.header{
+.header {
     @include dFlex(row, space-between, center);
     width: 100%;
 }
 
-.close-btn{
+.close-btn {
     @include dFlex(row, center, center);
     padding: 3px;
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: rgb(224, 224, 224);
     }
@@ -102,7 +109,7 @@ span {
     }
 }
 
-.assigned{
+.assigned {
     @include dFlex(column, flex-start, flex-start);
     gap: 20px;
 }
@@ -123,57 +130,101 @@ span {
     color: white;
 }
 
-.subtasks{
+.subtasks {
     @include dFlex(column, flex-start, flex-start);
     gap: 10px;
 }
 
-.subtask-item{
+.subtask-item {
     @include dFlex();
     gap: 10px;
     padding-left: 20px;
     font-size: 16px;
 }
 
-.check{
-    &:hover{
+.check {
+    &:hover {
         cursor: pointer;
     }
 }
 
-.edit-delete{
+.edit-delete {
     width: 95%;
     @include dFlex(row, flex-end, center);
     gap: 15px;
 }
 
-.edit, .delete{
+.edit,
+.delete {
     @include dFlex();
     gap: 10px;
 
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }
 
 .edit:hover {
     color: #29abe2;
-    >img {
-      content: url('../../../../../assets/contacts/edit_hover.png');
-    }
-  }
-  
-  .delete:hover {
-    color: #29abe2;
-    >img {
-      content: url('../../../../../assets/contacts/delete_hover.png');
-    }
-  }
 
-.line{
+    >img {
+        content: url('../../../../../assets/contacts/edit_hover.png');
+    }
+}
+
+.delete:hover {
+    color: #29abe2;
+
+    >img {
+        content: url('../../../../../assets/contacts/delete_hover.png');
+    }
+}
+
+.line {
     height: 25px;
     border-left: 1px solid rgb(191, 191, 191);
 }
 
+@media(max-height: 900px) {
+    section {
+        top: 10%;
+        max-height: 520px;
+    }
+}
 
 
+@media(max-width: 900px) {
+    section {
+        left: 10%;
+        width: 70%;
+    }
+}
+
+@media(max-width: 500px) {
+    section {
+        left: 20px;
+        width: 75%;
+        padding: 32px 24px 32px 24px;
+    }
+
+    h2 {
+        font-size: 36px
+    }
+
+    span {
+        font-size: 16px;
+    }
+
+    .category{
+        font-size: 16px;
+    }
+
+    .prio,
+    .date {
+        @include dFlex(row, flex-start, flex-start);
+        width: 100%;
+        span {
+            width: 30%;
+        }
+    }
+}

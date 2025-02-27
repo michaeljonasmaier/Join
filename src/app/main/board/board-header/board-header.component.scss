@@ -37,6 +37,10 @@ section {
     }
 }
 
+.btn-class{
+   background-color: aqua !important;
+}
+
 @media(max-width: 900px){
     :host{
         width: 100%;

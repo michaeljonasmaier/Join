@@ -1,5 +1,5 @@
 <app-grey-background (click)="closeDetail()"></app-grey-background>
-<section id="section">
+<section id="section" [ngClass]="{ 'slide-in': active, 'slide-out': !active }">
     <div class="content">
         <div class="header">
             <span class="category"

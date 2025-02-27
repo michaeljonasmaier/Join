@@ -5,6 +5,6 @@
             <input type="text" [(ngModel)]="searchInput" placeholder="Find Task" (keyup)="search()">
             <img class="search-img" src="assets/board/search.png" alt="">
         </div>       
-        <app-join-btn class="add-btn"></app-join-btn>
+        <app-join-btn title="Add task" imgPath="assets/board/add.png" customClass="btn-class" (click)="navigateToAddTask()"></app-join-btn>
     </div>
 </section>

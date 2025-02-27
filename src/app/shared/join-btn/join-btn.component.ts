@@ -11,4 +11,5 @@ import { Component, Input } from '@angular/core';
 export class JoinBtnComponent {
   @Input() title: string = 'Default';
   @Input() imgPath: string = '';
+  @Input() customClass?: string;
 }
