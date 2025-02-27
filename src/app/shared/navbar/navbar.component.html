@@ -21,8 +21,8 @@
             
         </div>
         <div class="navbar-imprint">
-            <a href="">Privacy Policy</a>
-            <a href="">Legal notice</a>
+            <span href="" [ngClass]="{ 'active': navigationService.activeIndex === 4 }" (click)="setActive(4, 'privacypolicy')">Privacy Policy</span>
+            <span href="" [ngClass]="{ 'active': navigationService.activeIndex === 5 }" (click)="setActive(5, 'legalnotice')">Legal notice</span>
         </div>
     </div>
 </nav>
