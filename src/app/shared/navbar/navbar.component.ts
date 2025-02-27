@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +11,14 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  activeIndex: number | null = 3;
+  navigationService  = inject(NavigationService);
+  
 
-  constructor(private router: Router){
-
+  constructor(private navigation: NavigationService){
+  
   }
 
   setActive(index: number, route: string) {
-    this.activeIndex = index;
-    this.router.navigate(['main/' + route]);
+    this.navigation.setActive(index, route);
   }
 }

@@ -13,6 +13,8 @@ import {
 import { TaskDetailItemComponent } from './task-detail-item/task-detail-item.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { SearchService } from '../../../services/search.service';
+import { Router } from '@angular/router';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-board-content',
@@ -27,7 +29,7 @@ export class BoardContentComponent {
   editTask?: Task;
 
   data = inject(FirebaseTasksService);
-  constructor(private tasksService: FirebaseTasksService, private searchService: SearchService) {
+  constructor(private tasksService: FirebaseTasksService, private searchService: SearchService, private router: Router, private navigation: NavigationService) {
 
   }
 
@@ -78,5 +80,10 @@ export class BoardContentComponent {
       } 
     });
     return currentList;
+  }
+
+  navigateToAddTask(){
+    this.router.navigate(['main/addTask']);
+    this.navigation.setActive(1, 'addTask')
   }
 }

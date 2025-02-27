@@ -3,6 +3,7 @@ import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
 import { FormsModule } from '@angular/forms';
 import { SearchService } from '../../../services/search.service';
 import { Router } from '@angular/router';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
   selector: 'app-board-header',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class BoardHeaderComponent {
   searchInput: string = '';
 
-  constructor(private searchService: SearchService, private router: Router){
+  constructor(private searchService: SearchService, private router: Router, private navigation: NavigationService){
 
   }
 
@@ -24,5 +25,6 @@ export class BoardHeaderComponent {
 
   navigateToAddTask(){
     this.router.navigate(['main/addTask']);
+    this.navigation.setActive(1, 'addTask')
   }
 }
