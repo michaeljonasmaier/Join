@@ -1,33 +1,41 @@
 <div class="landing-container">
+  <img class="slide-top logo" src="assets/landing-page/Capa 2.png" alt="">
     <header>
       <div > 
-       <img class="logo" src="./../../assets/landing-page/Capa 2.png" alt="">
+       <!-- <img class="slide-top logo" src="./../../assets/landing-page/Capa 2.png" alt=""> -->
       </div>
-      <div class="signup">
+      <div class="fade-in signup">
         <span>Not a Join user?</span>
-        <button class="signup-btn">Sign up</button>
+        <button class="btn-class">Sign up</button>
       </div>
     </header>
     
-    <main class="login-box">
+    <main class="fade-in login-box">
       <h1>Log in</h1>
       <form>
         <div class="input-group">
           <input type="email" placeholder="Email">
+          <img src="assets/landing-page/mail.png" alt="">
         </div>
         <div class="input-group">
           <input type="password" placeholder="Password">
+          <img src="assets/landing-page/lock.png" alt="">
         </div>
         <div class="button-group">
-          <button class="login-btn" type="submit" [routerLink]="['/main']">Log in</button>
+          <button class="login-btn btn-class" type="submit" [routerLink]="['/main']">Log in</button>
           <button class="guest-btn" type="button">Guest Log in</button>
         </div>
       </form>
     </main>
+
+    <div class="fade-in signup-mobile">
+      <span>Not a Join user?</span>
+      <button class="btn-class">Sign up</button>
+    </div>
     
-    <footer>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Legal notice</a>
+    <footer class="fade-in">
+      <a class="link" href="#">Privacy Policy</a>
+      <a class="link" href="#">Legal notice</a>
     </footer>
   </div>
   
