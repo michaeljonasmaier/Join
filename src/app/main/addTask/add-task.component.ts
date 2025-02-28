@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { Task } from '../../interfaces/task';
 import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { FirebaseTasksService } from '../../services/firebase-tasks.service';
@@ -30,8 +30,6 @@ export class AddTaskComponent {
 
   constructor(private fb: FormBuilder) {
 =======*/
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   taskForm: FormGroup;
   users: Contact[] = [];
   categories = ['Technical Task', 'User Story'];

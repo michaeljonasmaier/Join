@@ -82,8 +82,9 @@ export class BoardContentComponent {
     return currentList;
   }
 
-  navigateToAddTask(){
+  navigateToAddTask(status: 'toDo' | 'inProgress' | 'awaitFeedback' | undefined){
     this.router.navigate(['main/addTask']);
+    this.tasksService.specificStatus = status;
     this.navigation.setActive(1, 'addTask')
   }
 }

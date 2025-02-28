@@ -5,7 +5,7 @@ import { JoinBtnComponent } from '../shared/join-btn/join-btn.component';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [RouterLink, JoinBtnComponent],
+  imports: [RouterLink],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })

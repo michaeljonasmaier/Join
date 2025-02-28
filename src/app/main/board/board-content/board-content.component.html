@@ -3,7 +3,7 @@
         (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>To do</span>
-            <img class="plus-button" src="assets/board/plus-button.png" alt="" (click)="navigateToAddTask()">
+            <img class="plus-button" src="assets/board/plus-button.png" alt="" (click)="navigateToAddTask('toDo')">
         </div>
         <div class="task-list-content">
             @if (filterList(data.toDo).length>0) {
@@ -21,7 +21,7 @@
         (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>In progress</span>
-            <img class="plus-button" src="assets/board/plus-button.png" alt="" (click)="navigateToAddTask()">
+            <img class="plus-button" src="assets/board/plus-button.png" alt="" (click)="navigateToAddTask('inProgress')">
         </div>
         <div class="task-list-content">
             @if(data.inProgress.length>0){
@@ -38,7 +38,7 @@
         (cdkDropListDropped)="drop($event)">
         <div class="task-list-header">
             <span>Await feedback</span>
-            <img class="plus-button" src="assets/board/plus-button.png" alt="" (click)="navigateToAddTask()">
+            <img class="plus-button" src="assets/board/plus-button.png" alt="" (click)="navigateToAddTask('awaitFeedback')">
         </div>
         <div class="task-list-content">
             @if (data.awaitFeedback.length>0) {

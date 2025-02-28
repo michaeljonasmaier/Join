@@ -13,23 +13,8 @@ export class FirebaseTasksService {
   inProgress: Task[] = [];
   awaitFeedback: Task[] = [];
   done: Task[] = [];
-  exampleAssigned: Contact[] = [{
-    name: "Michael",
-    surname: "Maier",
-    mail: "maier@mail.com",
-    phone: "89879923648",
-    initials: "MA",
-    id: "08734jkhf78",
-    color: "#5B8E7D",
-  }, {
-    name: "Michael",
-    surname: "Maier",
-    mail: "maier@mail.com",
-    phone: "89879923648",
-    initials: "MM",
-    id: "08734jkhf78",
-    color: "#D72638",
-  }]
+  specificStatus: 'toDo' | 'inProgress' | 'awaitFeedback' | undefined;
+  
   firestore: Firestore = inject(Firestore);
   unsubTasks;
 
@@ -83,7 +68,7 @@ export class FirebaseTasksService {
       category: obj.category || "technical task",
       prio: obj.prio || "medium",
       subtasks: obj.subtasks || [],
-      assigned: obj.assigned || this.exampleAssigned,
+      assigned: obj.assigned || [],
       id: objId,
     }
   }
@@ -103,6 +88,10 @@ export class FirebaseTasksService {
   }
 
   async addTask(newTask: Task) {
+    if(this.specificStatus){
+      newTask.status = this.specificStatus;
+      this.specificStatus = undefined;
+    }
     await addDoc(this.getTasksRef(), newTask);
   }
 
