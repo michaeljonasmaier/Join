@@ -161,6 +161,7 @@ export class EditTaskComponent {
 
   addSubtask() {
     this.editedTask.subtasks?.push({ subtask: this.subtaskInputValue, taskDone: false });
+    this.subtaskEdits.push(this.subtaskInputValue);
     this.subtaskInputValue = "";
   }
 
