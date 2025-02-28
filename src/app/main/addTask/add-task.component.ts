@@ -40,6 +40,7 @@ export class AddTaskComponent {
   myInitials: string[] = [];
   myColors: string[] = [];
   subtasksObj: {subtask: string, taskDone: boolean} [];
+  today: string = new Date().toISOString().split('T')[0];
 
   constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService) {
     this.subtasksObj = [];

@@ -50,7 +50,7 @@
       <div class="form-column">
         <div class="form-group">
           <label for="dueDate">Due date<span>*</span></label>
-          <input id="dueDate" formControlName="dueDate" type="date" />
+          <input id="dueDate" formControlName="dueDate" type="date" [min]="today"/>
         </div>
 
         <div class="form-group">
@@ -101,7 +101,7 @@
 
     <div class="form-actions buttons-div">
       <button class="end-buttons clear-btn" type="button" (click)="onClear()">Clear <img src="../../../assets/add-contact/Vector.png" alt=""></button>
-      <button class="end-buttons submit-btn " type="submit" [disabled]="taskForm.invalid">Create Task <img src="../../../assets/add-contact/check.png" alt=""></button>
+      <button class="end-buttons submit-btn" type="submit" [disabled]="taskForm.invalid">Create Task <img src="../../../assets/add-contact/check.png" alt=""></button>
     </div>
   </form>
 </div>
