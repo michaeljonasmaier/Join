@@ -215,6 +215,10 @@ h2{
   .buttons-div{
     margin: 20px;
   }
+  .submit-btn:disabled{
+    cursor: none;
+    background-color: grey !important;
+  }
 }
 @media(max-width: 1120px){
   .split{
