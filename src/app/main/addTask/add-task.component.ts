@@ -99,7 +99,6 @@ export class AddTaskComponent {
 
   getColor(color: string | undefined){
     if(color === undefined){
-      console.log("No color")
     }else{
       this.myColors.push(color)
     }
@@ -125,7 +124,6 @@ export class AddTaskComponent {
       await this.taskService.addTask(newTask);
       this.onClear();
 
-      console.log('Task Submitted:', newTask);
     }
   }
 
@@ -144,7 +142,6 @@ export class AddTaskComponent {
   changePriority(priority: string){
     this.resetAllPriority();
     let newPriority = priority.toLowerCase();
-    console.log(newPriority)
     document.getElementById(newPriority)?.classList.add(newPriority)
   }
 
@@ -157,7 +154,6 @@ export class AddTaskComponent {
     document.getElementById(priority)?.classList.remove(priority);
   }
   changeSubtaskIcons(){
-    console.log("changed")
     document.getElementById('plus-button')?.classList.add('d-none');
     document.getElementById('subtask-buttons')?.classList.remove('d-none');
   }

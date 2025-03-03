@@ -17,7 +17,7 @@ h2{
   
 
   h2 {
-    font-size: 28px;
+    font-size: 61px;
     font-weight: bold;
     margin-bottom: 20px;
   }
@@ -28,8 +28,8 @@ h2{
     gap: 20px;
 
     .line {
-      width: 2px;
-      background: #0c0c0c;
+      width: 1px;
+      background: #D1D1D1;
       flex-shrink: 0;
     }
     .form-column{
@@ -64,6 +64,8 @@ h2{
       border-radius: 6px;
       font-size: 14px;
       background: #ffffff;
+      font-family: 'Inter';
+      resize: none;
     }
   }
 
@@ -232,8 +234,14 @@ h2{
   :host{
     overflow-y: scroll;
   }
+
   .task-form{
     margin-top: 190px;
+
+    h2{
+      font-size: 47px;
+      margin-top: 0;
+    }
 
     .split{
       flex-direction: column;

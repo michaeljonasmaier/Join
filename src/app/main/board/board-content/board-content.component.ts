@@ -47,7 +47,6 @@ export class BoardContentComponent {
       const currentTask = event.container.data[event.currentIndex];
       this.data.updateTask(currentTask, event.container.id);
     }
-    console.log(this.data);
   }
 
   openTaskDetail(task: Task) {
@@ -64,7 +63,6 @@ export class BoardContentComponent {
   }
 
   openTaskEdit(task: Task) {
-    console.log("Open edit task")
     this.editTask = task;
 
   }

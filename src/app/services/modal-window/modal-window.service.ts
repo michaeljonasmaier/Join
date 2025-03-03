@@ -29,9 +29,9 @@ export class ModalWindowService {
     if (!window) return;
     let currentWidth = this.getScreenWidth();
     if(currentWidth > 600){
-    window.style.transform = this.isHidden ? 'translateX(150%)' : 'translateX(0)';
+    window.style.transform = this.isHidden ? 'translateX(300%)' : 'translateX(0)';
     }else{
-      window.style.transform = this.isHidden ? 'translateY(150%)' : 'translateY(0)';
+      window.style.transform = this.isHidden ? 'translateY(300%)' : 'translateY(0)';
     }
   }
 

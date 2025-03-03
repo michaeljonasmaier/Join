@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class NavigationService {
-  activeIndex: number | null = 3;
+  activeIndex: number | null = 2;
 
   constructor(private router: Router) { 
 
