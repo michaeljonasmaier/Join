@@ -99,10 +99,7 @@ export class AddTaskComponent {
 
   getColor(color: string | undefined){
     if(color === undefined){
-<<<<<<< HEAD
-=======
       this.myColors.push("#D72638")
->>>>>>> c9fc9ad9492aeb889c6069d0c2d12a47bce0fd25
     }else{
       this.myColors.push(color)
     }
@@ -126,10 +123,7 @@ export class AddTaskComponent {
       };
       await this.taskService.addTask(newTask);
       this.onClear();
-<<<<<<< HEAD
 
-=======
->>>>>>> c9fc9ad9492aeb889c6069d0c2d12a47bce0fd25
     }
   }
 

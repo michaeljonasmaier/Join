@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FirebaseTasksService } from '../../../services/firebase-tasks.service';
 import { Task } from '../../../interfaces/task';
 import { TaskItemComponent } from './task-item/task-item.component';
@@ -15,11 +15,12 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
 import { SearchService } from '../../../services/search.service';
 import { Router } from '@angular/router';
 import { NavigationService } from '../../../services/navigation.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-board-content',
   standalone: true,
-  imports: [TaskItemComponent, CdkDropList, CdkDrag, CdkDropListGroup, TaskDetailItemComponent, EditTaskComponent],
+  imports: [TaskItemComponent, CdkDropList, CdkDrag, CdkDropListGroup, TaskDetailItemComponent, EditTaskComponent, CommonModule],
   templateUrl: './board-content.component.html',
   styleUrl: './board-content.component.scss'
 })
@@ -27,6 +28,12 @@ export class BoardContentComponent {
   tasks: Task[] = [];
   selectedTask?: Task;
   editTask?: Task;
+  highlightAreas: { [key: string]: boolean } = {
+    toDo: false,
+    inProgress: false,
+    awaitFeedback: false,
+    done: false
+  };
 
   data = inject(FirebaseTasksService);
   constructor(private tasksService: FirebaseTasksService, private searchService: SearchService, private router: Router, private navigation: NavigationService) {
@@ -47,6 +54,11 @@ export class BoardContentComponent {
       const currentTask = event.container.data[event.currentIndex];
       this.data.updateTask(currentTask, event.container.id);
     }
+  }
+
+  highlight(area: string, isActive: boolean) {
+    this.highlightAreas[area] = isActive;
+    console.log( this.highlightAreas[area])
   }
 
   openTaskDetail(task: Task) {

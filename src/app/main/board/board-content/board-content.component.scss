@@ -20,19 +20,28 @@ section {
     border-radius: 10px;
 }
 
-.task-list {
+.task-list-div{
+    @include dFlex(column, flex-start, flex-start);
     width: 20%;
     height: 100%;
-    @include dFlex(column, flex-start, center);
-    gap: 25px;
+    gap: 15px;
+}
 
-    .task-list-header {
-        @include dFlex(row, space-between, center);
-        width: 100%;
-        font-weight: 700;
-        font-size: 20px;
-        color: #42526E;
-    }
+.task-list-header {
+    @include dFlex(row, space-between, center);
+    width: 100%;
+    font-weight: 700;
+    font-size: 20px;
+    color: #42526E;
+}
+
+.task-list {
+    @include dFlex(column, flex-start, center);
+    width: 100%;
+    height: 100%;
+    gap: 25px;   
+    padding-top: 10px;
+    border-radius: 24px;
 }
 
 .task-list-content{
@@ -59,12 +68,15 @@ section {
     &:hover{
         cursor: pointer;
         content: url('../../../../assets/board/plus-button-hover.png');
-    }
-    
+    }   
 }
 
+.drop-area.highlight {
+    background-color: rgba(154, 154, 154, 0.2);
+  }
+
 @media(max-width: 1200px){
-    .task-list{
+    .task-list-div{
         width: 23%;
     }
 }
@@ -80,12 +92,12 @@ section {
         gap: 20px;
     }
 
-    .task-list{
-        width: 95%;
+    .task-list-div{
+        width: 95%;  
+    }
 
-        .task-list-header{
-            width: 95%;
-        }
+    .task-list-header{
+        width: 95%;
     }
 
     .task-list-content{

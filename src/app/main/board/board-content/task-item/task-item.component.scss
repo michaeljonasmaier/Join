@@ -87,7 +87,7 @@ span {
         width: 20px;
     }
 
-    .assigned-item {
+    .assigned-item, .assigned-item-plus {
         @include dFlex();
         border: 1px white solid;
         width: 32px;
@@ -95,6 +95,12 @@ span {
         border-radius: 50%;
         font-size: 12px;
         color: white;
+    }
+
+    .assigned-item-plus {
+        width: 35px;
+        height: 35px;
+        background-color: grey;
     }
 }
 

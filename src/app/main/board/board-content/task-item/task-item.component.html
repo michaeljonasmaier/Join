@@ -17,11 +17,18 @@
         <div class="assigned">
             @if(task.assigned){
                 @if(task.assigned.length > 0){
-                    @for (assignedItem of task.assigned; track $index) {
-                        <div class="assigned-item-div">
-                            <div class="assigned-item" [style.backgroundColor]="task.assigned[$index].color">{{task.assigned[$index].initials}}
-                            </div>
-                        </div>           
+                    @for (assignedItem of task.assigned.slice(0,5); track $index) {
+                        @if($index>3){
+                            <div class="assigned-item-div">
+                                <div class="assigned-item-plus">+{{task.assigned.length - $index}}
+                                </div>
+                            </div>  
+                        } @else {
+                            <div class="assigned-item-div">
+                                <div class="assigned-item" [style.backgroundColor]="task.assigned[$index].color">{{task.assigned[$index].initials}}
+                                </div>
+                            </div>  
+                        }         
                     }
                 }
             }

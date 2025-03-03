@@ -125,6 +125,8 @@ textarea{
     @include dFlex(row, flex-start, center);
     padding-top: 10px;
     gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .assignedItem{
