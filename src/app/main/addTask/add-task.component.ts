@@ -98,9 +98,8 @@ export class AddTaskComponent {
   }
 
   getColor(color: string | undefined){
-    if(color === undefined){
-      console.log("No color")
-    }else{
+    if(color === undefined){}
+    else{
       this.myColors.push(color)
     }
   }
@@ -117,15 +116,12 @@ export class AddTaskComponent {
         category: formValue.category,
         description: formValue.description,
         prio: formValue.priority,
-        subtasks: this.setSubtaskObjects(),//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
-        assigned: formValue.assigned,//this.users.filter(user => formValue.assigned.includes(user.id)),
+        subtasks: this.setSubtaskObjects(),
+        assigned: formValue.assigned,
         id: this.generateUniqueId()
       };
-      //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
       await this.taskService.addTask(newTask);
       this.onClear();
-
-      console.log('Task Submitted:', newTask);
     }
   }
 
@@ -144,7 +140,6 @@ export class AddTaskComponent {
   changePriority(priority: string){
     this.resetAllPriority();
     let newPriority = priority.toLowerCase();
-    console.log(newPriority)
     document.getElementById(newPriority)?.classList.add(newPriority)
   }
 
@@ -157,7 +152,6 @@ export class AddTaskComponent {
     document.getElementById(priority)?.classList.remove(priority);
   }
   changeSubtaskIcons(){
-    console.log("changed")
     document.getElementById('plus-button')?.classList.add('d-none');
     document.getElementById('subtask-buttons')?.classList.remove('d-none');
   }
