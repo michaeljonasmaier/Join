@@ -98,8 +98,9 @@ export class AddTaskComponent {
   }
 
   getColor(color: string | undefined){
-    if(color === undefined){}
-    else{
+    if(color === undefined){
+      this.myColors.push("#D72638")
+    }else{
       this.myColors.push(color)
     }
   }

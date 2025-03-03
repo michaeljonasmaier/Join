@@ -50,7 +50,7 @@ export class EditContactComponent implements OnInit{
       if (changes['currentContact']?.currentValue) {
         this.updateContactModel(changes['currentContact'].currentValue);
       } else {
-        console.log('currentContact is null or undefined в ngOnChanges');
+        //console.log('currentContact is null or undefined в ngOnChanges');
       }
     }
 
