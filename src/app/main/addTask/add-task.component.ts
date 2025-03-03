@@ -99,6 +99,10 @@ export class AddTaskComponent {
 
   getColor(color: string | undefined){
     if(color === undefined){
+<<<<<<< HEAD
+=======
+      this.myColors.push("#D72638")
+>>>>>>> c9fc9ad9492aeb889c6069d0c2d12a47bce0fd25
     }else{
       this.myColors.push(color)
     }
@@ -116,14 +120,16 @@ export class AddTaskComponent {
         category: formValue.category,
         description: formValue.description,
         prio: formValue.priority,
-        subtasks: this.setSubtaskObjects(),//formValue.subtasks?.split(',').map((s: string) => s.trim()) || [],
-        assigned: formValue.assigned,//this.users.filter(user => formValue.assigned.includes(user.id)),
+        subtasks: this.setSubtaskObjects(),
+        assigned: formValue.assigned,
         id: this.generateUniqueId()
       };
-      //es ist unten deaktiviert, um Kontakte zu reparieren und den Taffel nicht zu verschmutzen
       await this.taskService.addTask(newTask);
       this.onClear();
+<<<<<<< HEAD
 
+=======
+>>>>>>> c9fc9ad9492aeb889c6069d0c2d12a47bce0fd25
     }
   }
 
