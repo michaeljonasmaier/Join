@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, HostListener} from '@angular/core';
 import { Task } from '../../interfaces/task';
 import { FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { FirebaseTasksService } from '../../services/firebase-tasks.service';
@@ -40,6 +40,7 @@ export class AddTaskComponent {
   myColors: string[] = [];
   subtasksObj: {subtask: string, taskDone: boolean} [];
   today: string = new Date().toISOString().split('T')[0];
+  subtaskIconShown = false;
 
   constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService, public modalWindowService: ModalWindowService) {
     this.subtasksObj = [];
@@ -86,6 +87,20 @@ export class AddTaskComponent {
     if (!myInput) return;
     myInput.value = ""
   }
+
+  toggleSubtaskIcons(event: Event) {
+    this.subtaskIconShown = true;
+    event.stopPropagation();
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeSubtaskIcons(event: Event) {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.subtask-input')) {
+      this.subtaskIconShown = false;
+    }
+  }
+
 
   getInitials(initials: string){
     const currentInitials = initials;
@@ -155,10 +170,13 @@ export class AddTaskComponent {
   resetSinglePriority(priority: string){
     document.getElementById(priority)?.classList.remove(priority);
   }
+
   changeSubtaskIcons(){
     document.getElementById('plus-button')?.classList.add('d-none');
     document.getElementById('subtask-buttons')?.classList.remove('d-none');
+    document.getElementById('subtasks')?.focus();
   }
+
   sendNotification(){
     console.log(document.getElementById("notification"));
     setTimeout(() => this.modalWindowService.sendNotification("notification"), 0);

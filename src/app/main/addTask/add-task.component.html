@@ -76,7 +76,7 @@
         </div>
         <div class="form-group">
           <label for="subtasks">Subtasks</label>
-          <div class="subtask-input">
+          <div class="subtask-input" (click)="toggleSubtaskIcons($event)">
             <input
               id="subtasks"
               formControlName="subtasks"
@@ -84,12 +84,16 @@
               placeholder="Add new subtask"
               (click)="changeSubtaskIcons()"
             />
-            <img id="plus-button" class="subtask-button" src="../../../assets/board/plus.png" alt="" (click)="changeSubtaskIcons()">
-              <div class="subtask-buttons d-none" id="subtask-buttons">
+            @if ((!subtaskIconShown)) {
+              <img id="plus-button" class="subtask-button" src="../../../assets/board/plus.png" alt="" (click)="changeSubtaskIcons()">
+            } @else{
+              <div class="subtask-buttons" [class.d-none]="!subtaskIconShown" id="subtask-buttons">
                 <img class="subtask-button" src="../../../assets/board/close.png" alt="" (click)="cleanSubtask()">
                 |
                 <img class="subtask-button" src="../../../assets/board/check-black.png" alt="" (click)="saveSubtask()">
               </div>
+            }
+                          
           </div>
           @if (subtasks) {
             @for (subtask of subtasks; track $index) {
