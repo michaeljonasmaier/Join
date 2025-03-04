@@ -6,6 +6,7 @@ import { Contact } from '../../interfaces/contact';
 import { FirebaseContactsService } from '../../services/firebase-contacts.service';
 import {MatSelectModule, } from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ModalWindowService } from '../../services/modal-window/modal-window.service';
 
 @Component({
   selector: 'app-add-task',
@@ -40,7 +41,7 @@ export class AddTaskComponent {
   subtasksObj: {subtask: string, taskDone: boolean} [];
   today: string = new Date().toISOString().split('T')[0];
 
-  constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService) {
+  constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService, public modalWindowService: ModalWindowService) {
     this.subtasksObj = [];
 
     this.taskForm = this.fb.group({
@@ -121,6 +122,7 @@ export class AddTaskComponent {
         assigned: formValue.assigned,
         id: this.generateUniqueId()
       };
+      this.sendNotification();
       await this.taskService.addTask(newTask);
       this.onClear();
 
@@ -156,5 +158,9 @@ export class AddTaskComponent {
   changeSubtaskIcons(){
     document.getElementById('plus-button')?.classList.add('d-none');
     document.getElementById('subtask-buttons')?.classList.remove('d-none');
+  }
+  sendNotification(){
+    console.log(document.getElementById("notification"));
+    setTimeout(() => this.modalWindowService.sendNotification("notification"), 0);
   }
 }
