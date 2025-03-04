@@ -1,0 +1,63 @@
+@import "../../../styles.scss";
+:host {
+  padding: 100px;
+  width: 100%;
+}
+.dashboard-container {
+  color: black;
+}
+
+.header h1 {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.metrics-grid-container {
+  display: flex;
+}
+.dis-flex {
+  display: flex;
+}
+
+.metrics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.metric-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card.large {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.urgent {
+  color: red;
+  font-weight: bold;
+}
+
+.deadline .date {
+  font-size: 14px;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.greeting .highlight {
+  color: #007bff;
+  font-weight: bold;
+}
