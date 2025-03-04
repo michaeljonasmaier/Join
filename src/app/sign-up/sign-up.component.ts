@@ -10,17 +10,16 @@ import { Router } from '@angular/router';
   styleUrl: './sign-up.component.scss'
 })
 export class SignUpComponent {
+  user = { name: '', email: '', password: '', confirmPassword: '', acceptedPolicy: false };
   constructor(private router: Router) {
 
   }
 
   navigateBack(){
-    this.router.navigate(['main/']);
+    this.router.navigate(['']);
   }
 
   onSubmit(ngForm: NgForm) {
-    if(ngForm.valid){
-
-    }
+    console.log(ngForm);
   }
 }

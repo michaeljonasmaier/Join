@@ -99,6 +99,11 @@ span {
     }
 }
 
+.sign-up-btn:disabled{
+    background-color: grey;
+    pointer-events: none
+}
+
 footer {
     @include dFlex();
     padding-bottom: 30px;
