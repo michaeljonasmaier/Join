@@ -13,7 +13,7 @@ export class ModalWindowService {
   }
 
   closeInfo(id: string, bg: string){
-    this.isHidden = true;    
+    this.isHidden = true;  
     this.moveWindow(id);
     this.changeBg(bg);
   }
@@ -29,9 +29,9 @@ export class ModalWindowService {
     if (!window) return;
     let currentWidth = this.getScreenWidth();
     if(currentWidth > 600){
-    window.style.transform = this.isHidden ? 'translateX(300%)' : 'translateX(0)';
+    window.style.transform = this.isHidden ? 'translateX(800%)' : 'translateX(0)';
     }else{
-      window.style.transform = this.isHidden ? 'translateY(300%)' : 'translateY(0)';
+      window.style.transform = this.isHidden ? 'translateY(800%)' : 'translateY(0)';
     }
   }
 
