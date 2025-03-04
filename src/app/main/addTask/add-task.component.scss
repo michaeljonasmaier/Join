@@ -155,6 +155,7 @@ h2{
     gap: 10px;
 
     .priority-button{
+      cursor: pointer;
       flex: 1;
       height: 40px;
       border-radius: 10px;
@@ -213,6 +214,7 @@ h2{
     display: flex;
     gap: 15px;
     color: white;
+    flex-wrap: wrap;
   }
   .buttons-div{
     margin: 20px;
