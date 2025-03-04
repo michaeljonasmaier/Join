@@ -8,6 +8,7 @@ import { BoardComponent } from './main/board/board.component';
 import { HelpComponent } from './main/help/help.component';
 import { PrivacyPolicyComponent } from './main/privacy-policy/privacy-policy.component';
 import { LegalnoticeComponent } from './main/legalnotice/legalnotice.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
@@ -24,5 +25,5 @@ export const routes: Routes = [
             { path: 'legalnotice', component: LegalnoticeComponent },]
 
     },
-
+    { path: 'signUp', component: SignUpComponent },
 ];

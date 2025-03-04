@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { JoinBtnComponent } from '../shared/join-btn/join-btn.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { JoinBtnComponent } from '../shared/join-btn/join-btn.component';
   styleUrl: './landing-page.component.scss'
 })
 export class LandingPageComponent {
-  constructor() {}
+  constructor(private router: Router) {}
 
   onLogin(): void {
     console.log('Login clicked');
@@ -18,5 +18,9 @@ export class LandingPageComponent {
 
   onGuestLogin(): void {
     console.log('Guest Login clicked');
+  }
+
+  navigateToSignUp(){
+    this.router.navigate(['signUp']);
   }
 }

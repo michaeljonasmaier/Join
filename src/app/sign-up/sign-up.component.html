@@ -1,0 +1,47 @@
+<section>
+    <img class="logo" src="assets/landing-page/Capa 2.png" alt="">
+
+    <header></header>
+    <div class="sign-up-div">
+        <h1>Sign up</h1>
+        <div class="line"></div>
+        <form (ngSubmit)="onSubmit(signUpForm)" #signUpForm="ngForm">
+            <div class="input-group">
+                <input type="name" placeholder="Name" required>
+                <img src="assets/add-contact/person.png" alt="">
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Email" required>
+                <img src="assets/landing-page/mail.png" alt="">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+                <img src="assets/landing-page/lock.png" alt="">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Confirm Password" required>
+                <img src="assets/landing-page/lock.png" alt="">
+            </div>
+            <div class="input-group">
+                <input type="checkbox" name="ppcheckbox" required>
+                <label for="ppcheckbox">I accept the <span>Privacy Policy</span></label>
+            </div>
+
+            @if (!signUpForm.valid) {
+                <div class="button-group">
+                    <button class="sign-up-btn" type="submit" disabled>Sign up</button>
+                </div>
+            } @else {
+                <div class="button-group">
+                    <button class="sign-up-btn" type="submit" (click)="navigateBack()">Sign up</button>
+                </div>
+            }
+            
+        </form>
+    </div>
+    <footer>
+        <span>Privacy Policy</span>
+        <span>Legal notice</span>
+    </footer>
+
+</section>
