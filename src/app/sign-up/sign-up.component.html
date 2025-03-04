@@ -1,9 +1,13 @@
 <section>
-    <img class="logo" src="assets/landing-page/Capa 2.png" alt="">
+    <img class="logo" src="assets/landing-page/Capa 2.png" (click)="navigateBack()" alt="">
 
     <header></header>
     <div class="sign-up-div">
-        <h1>Sign up</h1>
+        <div class="sign-up-header">
+            <img src="assets/contacts/backtolist.png" (click)="navigateBack()" alt="">
+            <h1>Sign up</h1>
+            <div></div>
+        </div>
         <div class="line"></div>
         <form (ngSubmit)="onSubmit(signUpForm)" #signUpForm="ngForm">
             <div class="input-group">
