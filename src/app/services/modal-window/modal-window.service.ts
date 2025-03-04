@@ -58,4 +58,16 @@ export class ModalWindowService {
     if (!window) return;
     window.style.transform = this.isButtonHidden ? 'translateX(150%)' : 'translateX(0)';
   }
+
+  sendNotification(id: string){
+    let notification = document.getElementById(id);
+    if (notification == null) return;
+    notification.style.transform = 'translateY(0)';
+    
+    setTimeout(() => {
+      if (!notification) return;
+      notification.style.transform = 'translateY(1000%)';
+    }, 1500);
+    
+  }
 }

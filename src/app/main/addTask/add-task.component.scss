@@ -155,6 +155,7 @@ h2{
     gap: 10px;
 
     .priority-button{
+      cursor: pointer;
       flex: 1;
       height: 40px;
       border-radius: 10px;
@@ -213,6 +214,7 @@ h2{
     display: flex;
     gap: 15px;
     color: white;
+    flex-wrap: wrap;
   }
   .buttons-div{
     margin: 20px;
@@ -223,6 +225,23 @@ h2{
   }
   .single-subtask{
     margin: 1px;
+  }
+  .notification{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    gap: 10px;
+    background-color: $main_grey;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(1000%);
+    z-index: 1000;
   }
 }
 @media(max-width: 1120px){

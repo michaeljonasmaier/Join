@@ -1,4 +1,5 @@
 <div class="task-form">
+  <div id="notification" class="notification">Task added to board <img src="../../../assets/board/grid.png" alt=""></div>
   <h2>Add Task</h2>
 
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
@@ -98,10 +99,12 @@
         </div>
       </div>
     </div>
+    
 
     <div class="form-actions buttons-div">
       <button class="end-buttons clear-btn" type="button" (click)="onClear()">Clear <img src="../../../assets/add-contact/Vector.png" alt=""></button>
       <button class="end-buttons submit-btn" type="submit" [disabled]="taskForm.invalid">Create Task <img src="../../../assets/add-contact/check.png" alt=""></button>
     </div>
   </form>
+  
 </div>
