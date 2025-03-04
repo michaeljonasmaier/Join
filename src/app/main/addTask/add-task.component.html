@@ -93,7 +93,23 @@
           </div>
           @if (subtasks) {
             @for (subtask of subtasks; track $index) {
-              <p class="single-subtask">• {{subtask}}</p>
+              <div class="subtask-container" (click)="editSubtask(subtask)" id="subtask-container-{{subtask}}">
+                <p class="single-subtask">• {{subtask}}</p>
+                <div>
+                  <img src="../../../assets/contacts/edit.png" alt="" (click)="editSubtask(subtask)">
+                |
+                <img src="../../../assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtask)">
+                </div>
+              </div>
+              <div class="single-subtask-container d-none" id="single-subtask-container-{{subtask}}">
+                <input id="{{subtask}}-value" type="text" [value]="subtask">
+                <div>
+                  <img src="../../../assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtask)">
+                  |
+                  <img src="../../../assets/board/check-black.png" alt="" (click)="submitEditSubtask(subtask)">
+                </div>
+              </div>
+              
             }
           }
         </div>

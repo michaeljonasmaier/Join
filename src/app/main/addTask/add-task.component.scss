@@ -243,6 +243,52 @@ h2{
     transform: translateY(1000%);
     z-index: 1000;
   }
+  .subtask-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    div{
+      display: none;
+      align-items: center;
+      gap: 7px;
+    }
+    img{
+      width: 15px;
+    }
+  }
+  .subtask-container:hover{
+    cursor: pointer;
+    background-color: $hover-grey;
+    div{
+      display: flex;
+    }
+  }
+  .single-subtask-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    input{
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+    div{
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      img{
+        cursor: pointer;
+        width: 15px;
+      }
+    }
+  }
 }
 @media(max-width: 1120px){
   .split{

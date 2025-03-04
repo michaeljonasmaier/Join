@@ -163,4 +163,34 @@ export class AddTaskComponent {
     console.log(document.getElementById("notification"));
     setTimeout(() => this.modalWindowService.sendNotification("notification"), 0);
   }
+
+  editSubtask(subtask: string){
+    document.getElementById('subtask-container-' + subtask)?.classList.add('d-none');
+    document.getElementById('single-subtask-container-' + subtask)?.classList.remove('d-none');
+  }
+
+  closeSubtaskEditor(subtask:string){
+    document.getElementById('subtask-container-' + subtask)?.classList.remove('d-none');
+    document.getElementById('single-subtask-container-' + subtask)?.classList.add('d-none');
+  }
+
+  deleteSubtask(subtask: string){
+    let mySubtask = this.findSubtask(subtask);
+    this.subtasks.splice(mySubtask, 1);
+    this.closeSubtaskEditor(subtask);
+  }
+
+  submitEditSubtask(subtask: string){
+    let mySubtaskIndex = this.findSubtask(subtask);
+    let currentInput = document.getElementById(subtask + "-value") as HTMLInputElement;
+    let newSubtaskValue = currentInput.value;
+    this.subtasks[mySubtaskIndex] = newSubtaskValue;
+    this.closeSubtaskEditor(subtask);
+  }
+
+  findSubtask(subtask: string){
+    const currentSubtask = subtask;
+    let subtaskIndex = this.subtasks.indexOf(currentSubtask);
+    return subtaskIndex;
+  }
 }
