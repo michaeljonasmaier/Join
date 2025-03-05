@@ -12,17 +12,22 @@
     
     <main class="fade-in login-box">
       <h1>Log in</h1>
-      <form>
+      <form (ngSubmit)="onSubmit()">
         <div class="input-group">
-          <input type="email" placeholder="Email">
+          <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
           <img src="assets/landing-page/mail.png" alt="">
         </div>
         <div class="input-group">
-          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password">
           <img src="assets/landing-page/lock.png" alt="">
         </div>
+        @if(logInFailed){
+          <span class="err-msg">Log in failed.</span>
+      } @else {
+          <span class="err-msg"></span>
+      }
         <div class="button-group">
-          <button class="login-btn btn-class" type="submit" [routerLink]="['/main']">Log in</button>
+          <button class="login-btn btn-class" type="submit">Log in</button>
           <button class="guest-btn" type="button" [routerLink]="['/main']">Guest Log in</button>
         </div>
       </form>

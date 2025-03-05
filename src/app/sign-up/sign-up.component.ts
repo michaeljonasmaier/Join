@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
   user = { name: '', email: '', password: '', confirmPassword: '', acceptedPolicy: false };
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService: AuthService) {
 
   }
 
@@ -21,14 +22,9 @@ export class SignUpComponent {
 
   onSubmit(ngForm: any) {
     console.log(this.user);
+    this.authService.signUp(this.user.email, this.user.password);
+    this.authService.showUser();
     this.navigateBack();
   }
 
-  checkConfirmPassword(){
-    if(this.user.password == this.user.confirmPassword){
-      return true
-    } else {
-      return false;
-    }
-  }
 }
