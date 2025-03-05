@@ -79,8 +79,14 @@ export class AddTaskComponent {
     let myInput = document.getElementById('subtasks') as HTMLInputElement;
     if (!myInput) return;
     let myValue = myInput.value;
-    this.subtasks.push(myValue);
-    this.cleanSubtask()
+    if(myValue == ""){
+      myInput.placeholder = "Value required";
+      document.getElementById('value-required')?.classList.remove('d-none')
+    } else{
+      this.subtasks.push(myValue);
+      this.cleanSubtask()
+    }
+    
   }
   cleanSubtask(){
     let myInput = document.getElementById('subtasks') as HTMLInputElement;
