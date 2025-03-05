@@ -21,12 +21,10 @@ export class LandingPageComponent {
       if (success) {
         this.router.navigate(['main/']);
         this.logInFailed = false;
-        console.log(this.authService.currentUser)
       } else {
         this.logInFailed = true
       }
     });
-  
   }
 
   onGuestLogin(): void {

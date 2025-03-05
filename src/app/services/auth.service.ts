@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile , User } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile , signOut,  User } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { UserInterface } from '../interfaces/user';
 
@@ -53,6 +53,16 @@ export class AuthService {
         return false;
       });
   }
+
+  signOut(){
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      this.currentUser = null;
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
+ 
   
   updateUserProfile(displayName: string): Promise<boolean> {
     console.log(displayName)
