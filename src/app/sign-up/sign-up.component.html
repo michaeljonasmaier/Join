@@ -24,14 +24,19 @@
             </div>
             <div class="input-group">
                 <input type="password" placeholder="Confirm Password" [(ngModel)]="user.confirmPassword" name="confirmpassword" required>
-                <img src="assets/landing-page/lock.png" alt="">
+                <img src="assets/landing-page/lock.png" alt=""> 
             </div>
+            @if(user.password && user.confirmPassword && user.password !== user.confirmPassword){
+                <span class="err-msg">Passwords do not match.</span>
+            } @else {
+                <span class="err-msg"></span>
+            }
             <div class="input-group">
                 <input type="checkbox" name="ppcheckbox" [(ngModel)]="user.acceptedPolicy" required>
                 <label for="ppcheckbox">I accept the <span>Privacy Policy</span></label>
             </div>
             <div class="button-group">
-                <button class="sign-up-btn" type="submit" [disabled]="!signUpForm.valid" (click)="navigateBack()">Sign
+                <button class="sign-up-btn" type="submit" [disabled]="!signUpForm.valid">Sign
                     up</button>
             </div>
 

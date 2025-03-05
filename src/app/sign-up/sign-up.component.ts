@@ -19,7 +19,16 @@ export class SignUpComponent {
     this.router.navigate(['']);
   }
 
-  onSubmit(ngForm: NgForm) {
-    console.log(ngForm);
+  onSubmit(ngForm: any) {
+    console.log(this.user);
+    this.navigateBack();
+  }
+
+  checkConfirmPassword(){
+    if(this.user.password == this.user.confirmPassword){
+      return true
+    } else {
+      return false;
+    }
   }
 }
