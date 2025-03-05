@@ -15,9 +15,11 @@
 }
 .metrics-grid-container {
   display: flex;
+  gap: 60px;
 }
 .dis-flex {
   display: flex;
+  gap: 20px;
 }
 
 .metrics-grid {
@@ -34,7 +36,15 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
+.metric-card:hover {
+    transform: scale(1.05);
+    background-color:#2A3647;
+    color: white
+    ;
+  }
 
 .metric-card.large {
   display: flex;
