@@ -93,8 +93,10 @@
                 <img class="subtask-button" src="../../../assets/board/check-black.png" alt="" (click)="saveSubtask()">
               </div>
             }
+            
                           
           </div>
+          <p id="value-required" class="d-none" style="color: red; margin: 1px;">You need to enter a subtask</p>
           @if (subtasks) {
             @for (subtask of subtasks; track $index) {
               <div class="subtask-container" (click)="editSubtask(subtask)" id="subtask-container-{{subtask}}">
