@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { UserInterface } from '../../interfaces/user';
 
 
 @Component({
@@ -10,7 +12,13 @@ import { Router } from '@angular/router';
   styleUrl: './summary.component.scss'
 })
 export class SummaryComponent {
-  constructor(private router: Router) {}
+  currentUser: UserInterface = {name: "", "email": ""} ;
+  constructor(private router: Router, private authService: AuthService) {
+    if(this.authService.currentUser){
+      this.currentUser = this.authService.currentUser;
+    }
+    
+  }
 
   onCardClick(metric: string): void {
     console.log('Clicked on:', metric);
