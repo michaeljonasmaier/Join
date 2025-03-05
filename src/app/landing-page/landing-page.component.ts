@@ -19,8 +19,9 @@ export class LandingPageComponent {
   onSubmit(): void {
     this.authService.signIn(this.user.email, this.user.password).then((success) => {
       if (success) {
-        console.log("Weiterleiten zum Dashboard...");
         this.router.navigate(['main/']);
+        this.logInFailed = false;
+        console.log(this.authService.currentUser)
       } else {
         this.logInFailed = true
       }
@@ -29,7 +30,7 @@ export class LandingPageComponent {
   }
 
   onGuestLogin(): void {
-    console.log('Guest Login clicked');
+    this.router.navigate(['main/']);
   }
 
   navigateToSignUp(){

@@ -21,9 +21,7 @@ export class SignUpComponent {
   }
 
   onSubmit(ngForm: any) {
-    console.log(this.user);
-    this.authService.signUp(this.user.email, this.user.password);
-    this.authService.showUser();
+    this.authService.signUp(this.user.name, this.user.email, this.user.password);
     this.navigateBack();
   }
 

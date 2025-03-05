@@ -28,7 +28,7 @@
       }
         <div class="button-group">
           <button class="login-btn btn-class" type="submit">Log in</button>
-          <button class="guest-btn" type="button" [routerLink]="['/main']">Guest Log in</button>
+          <button class="guest-btn" type="button" (click)="onGuestLogin()">Guest Log in</button>
         </div>
       </form>
     </main>

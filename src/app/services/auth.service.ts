@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, Auth, User } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile , User } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import { UserInterface } from '../interfaces/user';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-je28q_3U0hgeAY7Eq9b1KlC6CHGX9BE",
@@ -12,23 +13,23 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const user = auth.currentUser;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   logInSuccessfull: boolean = false;
+  currentUser: UserInterface | null = {name: "Gast Gustermann", email: "gast@gustermann.de"};
   constructor() {
-
   }
 
   // Methode für die Registrierung
-  signUp(email: string, password: string): Promise<any> {
+  signUp(name: string, email: string, password: string): Promise<any> {
+    const auth = getAuth();
+    const user = auth.currentUser;
     return createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log("User registered:", userCredential.user);
+        this.updateUserProfile(name)
         return userCredential.user;
       })
       .catch((error) => {
@@ -37,17 +38,14 @@ export class AuthService {
       });
   }
 
-  showUser() {
-    console.log(user);
-  }
-
   signIn(email: string, password: string): Promise<boolean> {
+    const auth = getAuth();
+    const user = auth.currentUser;
     return signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
+        this.createUserObject(user);
         return true;
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -55,4 +53,29 @@ export class AuthService {
         return false;
       });
   }
+  
+  updateUserProfile(displayName: string): Promise<boolean> {
+    console.log(displayName)
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (!user) {
+      return Promise.resolve(false);
+    }
+    return updateProfile(user, { displayName: displayName })
+      .then(() => {
+        return true;
+      })
+      .catch((error) => {
+        return false;
+      });
+  }
+
+  createUserObject(userObj: any){
+    this.currentUser = {
+      name: userObj.displayName,
+      email: userObj.email,
+    }
+  }
+
+  
 }
