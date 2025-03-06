@@ -22,7 +22,7 @@ export class SummaryComponent {
 
   onCardClick(metric: string): void {
     console.log('Clicked on:', metric);
-    this.router.navigate(['/tasks', metric.toLowerCase().replace(/ /g, '-')]); 
+    this.router.navigate(['main/board']); 
   }
 
 }
