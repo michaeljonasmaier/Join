@@ -6,22 +6,27 @@
     <div class="metrics-grid">
       <div class="dis-flex">
         <div class="metric-card" (click)="onCardClick('To-do')">
-          <div class="icon">✏️</div>
-          <div class="count">1</div>
-          <div class="label">To-do</div>
+          <img src="../../../assets/summary/pencil.png" alt="">
+          <div class="info-div">
+            <div class="count">1</div>
+            <div class="label">To-do</div>
+          </div>
         </div>
         <div class="metric-card" (click)="onCardClick('Done')">
-          <div class="icon">✔️</div>
-          <div class="count">1</div>
-          <div class="label">Done</div>
+          <img src="../../../assets/summary/check.png" alt="">
+          <div class="info-div">
+            <div class="count">1</div>
+            <div class="label">Done</div>
+          </div>
         </div>
       </div>
       <div class="metric-card large" (click)="onCardClick('Urgent')">
-        <div class="urgent">
-          <div class="icon">🔺</div>
-          <div class="count">1</div>
-          <div class="label">Urgent</div>
-        </div>
+          <img src="../../../assets/summary/urgent.png" alt="">
+          <div class="info-div">
+            <div class="count">1</div>
+            <div class="label">Urgent</div>
+          </div>
+        <div class="line"></div>
         <div class="deadline">
           <div class="date"><strong>October 16, 2022</strong></div>
           <div class="subtext">Upcoming Deadline</div>

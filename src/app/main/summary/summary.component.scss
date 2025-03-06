@@ -38,23 +38,21 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .metric-card:hover {
     transform: scale(1.05);
-    background-color:#2A3647;
-    color: white
-    ;
+    background-color: $main_grey;
+    color: white;
   }
 
 .metric-card.large {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.urgent {
-  color: red;
-  font-weight: bold;
 }
 
 .deadline .date {
@@ -72,5 +70,15 @@
   font-weight: bold;
 }
 .count{
-    width: 150px;
+    font-size: 40px;
+    font-weight: bold;
+}
+.info-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.line{
+  border: solid 1px $main_grey;
+  height: 90%;
 }
