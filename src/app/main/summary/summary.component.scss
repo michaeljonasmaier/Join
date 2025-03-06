@@ -1,32 +1,50 @@
 @import "../../../styles.scss";
 :host {
-  padding: 100px;
+  padding: 40px 40px 0px 40px;
   width: 100%;
 }
 .dashboard-container {
+  height: 100vh;
   color: black;
 }
+h2{
+  font-size: 36px;
+  font-weight: 400;
+}
 
-.header h1 {
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.header{
+  h1 {
+    margin-top: 0;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  div{
+    color: $light_blue;
+    font-weight: 400;
+  }
+  span{
+    font-size: 24px !important;
+    font-weight: 400;
+  }
 }
 .metrics-grid-container {
   display: flex;
   gap: 60px;
+  height: 60%;
 }
 .dis-flex {
   display: flex;
   gap: 20px;
+  height: 130px;
 }
 
 .metrics-grid {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   margin-top: 20px;
 }
 
@@ -42,16 +60,31 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  //height: 110px;
 }
 .metric-card:hover {
     transform: scale(1.05);
     background-color: $main_grey;
     color: white;
   }
+.to-do-card:hover{
+  img{
+    content: url(../../../assets/summary/pencil-hover.png);
+  }
+}
+.done-card:hover{
+  img{
+    content: url(../../../assets/summary/check-hover.png);
+  }
+}
+.icon{
+  height: 70px;
+  aspect-ratio: 1/1;
+}
 
 .metric-card.large {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -66,7 +99,8 @@
 }
 
 .greeting .highlight {
-  color: #007bff;
+  font-size: 40px;
+  color: $light_blue;
   font-weight: bold;
 }
 .count{
