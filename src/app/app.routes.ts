@@ -9,11 +9,12 @@ import { HelpComponent } from './main/help/help.component';
 import { PrivacyPolicyComponent } from './main/privacy-policy/privacy-policy.component';
 import { LegalnoticeComponent } from './main/legalnotice/legalnotice.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
     {
-        path: 'main', component: MainComponent,
+        path: 'main', component: MainComponent, canActivate: [authGuard], 
         children: [
             { path: '', redirectTo: 'board', pathMatch: 'full' },
             { path: 'summary', component: SummaryComponent },

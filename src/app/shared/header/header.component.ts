@@ -3,17 +3,21 @@ import { NavigationService } from '../../services/navigation.service';
 import { AuthService } from '../../services/auth.service';
 import { UserInterface } from '../../interfaces/user';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   currentUser: UserInterface = { name: "", "email": "" };
   currentUserInitials: string = "";
+  menuOpened = false;
+  firstLoad = true;
+
   constructor(private navigation: NavigationService, private authService: AuthService, private router: Router) {
     if (this.authService.currentUser) {
       this.currentUser = this.authService.currentUser;
@@ -22,7 +26,13 @@ export class HeaderComponent {
   }
 
   navigateToHelp() {
+    this.toggleMenu();
     this.navigation.setActive(-1, "help");
+  }
+
+  navigateToX(path: string){
+    this.toggleMenu();
+    this.navigation.setActive(-1, path);
   }
 
   getInitials(name: string) {
@@ -34,6 +44,13 @@ export class HeaderComponent {
 
   signOut(){
     this.authService.signOut();
+    this.authService.isLoggedIn = false;
     this.router.navigate(['']);
+    this.toggleMenu();
+  }
+
+  toggleMenu(){
+    this.menuOpened = !this.menuOpened;
+    this.firstLoad = false;
   }
 }

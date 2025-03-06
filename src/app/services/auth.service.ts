@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile , signOut,  User } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, onAuthStateChanged, User } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { UserInterface } from '../interfaces/user';
 
@@ -18,8 +18,9 @@ const app = initializeApp(firebaseConfig);
   providedIn: 'root'
 })
 export class AuthService {
+  isLoggedIn = false;
   logInSuccessfull: boolean = false;
-  currentUser: UserInterface | null = {name: "Gast Gustermann", email: "gast@gustermann.de"};
+  currentUser: UserInterface | null = { name: "", email: "" };
   constructor() {
   }
 
@@ -45,6 +46,7 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         this.createUserObject(user);
+        this.getCurrentUser();
         return true;
       })
       .catch((error) => {
@@ -54,38 +56,52 @@ export class AuthService {
       });
   }
 
-  signOut(){
+  signOut() {
     const auth = getAuth();
     signOut(auth).then(() => {
+      this.getCurrentUser();
       this.currentUser = null;
     }).catch((error) => {
       // An error happened.
     });
   }
- 
-  
-  updateUserProfile(displayName: string): Promise<boolean> {
-    console.log(displayName)
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (!user) {
-      return Promise.resolve(false);
-    }
-    return updateProfile(user, { displayName: displayName })
-      .then(() => {
-        return true;
-      })
-      .catch((error) => {
-        return false;
-      });
-  }
 
-  createUserObject(userObj: any){
-    this.currentUser = {
-      name: userObj.displayName,
-      email: userObj.email,
-    }
+  
+  getCurrentUser(){
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        // ...
+      } else {
+      }
+    });
   }
+  
+
+updateUserProfile(displayName: string): Promise < boolean > {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if(!user) {
+    return Promise.resolve(false);
+  }
+    return updateProfile(user, { displayName: displayName })
+    .then(() => {
+      return true;
+    })
+    .catch((error) => {
+      return false;
+    });
+}
+
+createUserObject(userObj: any){
+  this.currentUser = {
+    name: userObj.displayName,
+    email: userObj.email,
+  }
+}
 
   
 }
