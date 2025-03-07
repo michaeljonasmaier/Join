@@ -27,7 +27,7 @@ export class HeaderComponent {
   }
 
   navigateToHelp() {
-    this.toggleMenu();
+    this.navigation.lastRoute = this.navigation.currentRoute;
     this.navigation.setActive(-1, "help");
   }
 

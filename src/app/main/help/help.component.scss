@@ -7,6 +7,19 @@ section{
     overflow-y: scroll;
 }
 
+.header{
+    @include dFlex(row, space-between, center)
+}
+
+.back-btn{
+    padding: 8px;
+    border-radius: 50%;
+    &:hover{
+        background-color: rgb(230, 230, 230);
+        cursor: pointer;
+    }
+}
+
 h1{
     font-size: 61px;
     margin-bottom: 20px;

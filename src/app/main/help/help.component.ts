@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-help',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './help.component.scss'
 })
 export class HelpComponent {
+  constructor(private navigation: NavigationService){
 
+  }
+
+  backToLastRoute(){
+    this.navigation.setActive(this.navigation.lastRoute.index, this.navigation.lastRoute.route);
+  }
 }
