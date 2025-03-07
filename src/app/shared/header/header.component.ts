@@ -4,11 +4,12 @@ import { AuthService } from '../../services/auth.service';
 import { UserInterface } from '../../interfaces/user';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MenuComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -30,11 +31,6 @@ export class HeaderComponent {
     this.navigation.setActive(-1, "help");
   }
 
-  navigateToX(path: string){
-    this.toggleMenu();
-    this.navigation.setActive(-1, path);
-  }
-
   getInitials(name: string) {
     let splitName = name.split(" ");
     let nameInitial = splitName[0].slice(0, 1);
@@ -42,14 +38,7 @@ export class HeaderComponent {
     return nameInitial + surnameInitial;
   }
 
-  signOut(){
-    this.authService.signOut();
-    this.authService.isLoggedIn = false;
-    this.router.navigate(['']);
-    this.toggleMenu();
-  }
-
-  toggleMenu(){
+  toggleMenu() {
     this.menuOpened = !this.menuOpened;
     this.firstLoad = false;
   }
