@@ -116,3 +116,35 @@ h2{
   border: solid 1px $main_grey;
   height: 90%;
 }
+
+@media(max-width: 750px){
+  .metrics-grid{
+    gap: 10px;
+  }
+  .dis-flex{
+    gap: 10px;
+  }
+  .icon{
+    height: 50px;
+  }
+  .metric-card{
+    padding: 7px;
+  }
+}
+@media(max-width: 600px){
+  .greeting{
+    display: none;
+  }
+  .metrics-grid-container{
+    justify-content: center;
+  }
+  .metrics-grid{
+    width: 100%;
+  }
+  .metric-card{
+    padding: 30px;
+  }
+  h1{
+    margin-bottom: 0;
+  }
+}
