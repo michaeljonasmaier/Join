@@ -38,12 +38,15 @@ export class SummaryComponent {
     return urgentTasks;
   }
 
-  getUpcomingDate(): string{ 
+  getUpcomingDate(): string | null{ 
     let dueDates: string [] = [];
     this.boardData.tasks.forEach(task => {
       dueDates.push(task.date)
     });
     let futureDates = dueDates.map(date => new Date(date));
+    if (futureDates.length === 0) {
+      return null;
+    } 
     let nextDate = futureDates.reduce((a, b) => (a < b ? a : b));
     return this.styleDate(nextDate);
   }

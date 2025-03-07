@@ -16,7 +16,7 @@ export const routes: Routes = [
     {
         path: 'main', component: MainComponent, canActivate: [authGuard], 
         children: [
-            { path: '', redirectTo: 'board', pathMatch: 'full' },
+            { path: '', redirectTo: 'summary', pathMatch: 'full' },
             { path: 'summary', component: SummaryComponent },
             { path: 'addTask', component: AddTaskComponent },
             { path: 'board', component: BoardComponent },
