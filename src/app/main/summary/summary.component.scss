@@ -131,7 +131,7 @@ h2{
     padding: 7px;
   }
 }
-@media(max-width: 600px){
+@media(max-width: 690px){
   .greeting{
     display: none;
   }
@@ -141,10 +141,41 @@ h2{
   .metrics-grid{
     width: 100%;
   }
+}
+@media(max-width: 600px){
+  :host{
+    padding: 20px 20px 0px 20px;
+  }
   .metric-card{
     padding: 30px;
   }
+  .header{
+    gap: 0 !important;
+  }
   h1{
+    display: flex;
+    align-items: start !important;
+    flex-direction: column;
     margin-bottom: 0;
+    gap: 0 !important;
+    div{
+      display: none;
+    }
+    article{
+      border: solid 1px $light_blue;
+      width: 150px;
+      margin-top: 10px;
+    }
+  }
+}
+@media(max-width: 450px){
+  .metric-card{
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+@media(max-width: 370px){
+  .metric-card{
+    padding: 10px;
   }
 }
