@@ -66,6 +66,44 @@
     }
 }
 
+
+
+
+@keyframes slideInFromFar {
+    from {
+        transform: translateX(1000%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToFar {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(1000%);
+    }
+}
+
+@media(min-width: 2500px){
+    .menu{
+        right: auto;
+        left: 2200px;
+    }
+
+    .slide-out {
+        animation: slideOutToFar 0.25s forwards;
+    }
+    
+    .slide-in {
+        animation: slideInFromFar 0.25s ease-out;
+    }
+}
+
 @media(max-width: 1025px){
     .menu{
         right: 20px;
