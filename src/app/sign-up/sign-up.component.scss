@@ -127,6 +127,24 @@ span {
     pointer-events: none
 }
 
+.success{
+    border-radius: 20px;
+    background-color: #2A3647;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 110vh;
+    transition: top 0.5s ease-in-out;
+    left: calc(50% - 155px);
+    padding: 24px;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.1); 
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.1); 
+}
+
+.slide-in {
+    top: calc(50% - 36px) !important;
+}
+
 footer {
     @include dFlex();
     padding-bottom: 30px;
