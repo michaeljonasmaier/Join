@@ -19,7 +19,7 @@ export class SummaryComponent {
     if(this.authService.currentUser){
       this.currentUser = this.authService.currentUser;
     }
-    
+    this.getUpcomingDate();
   }
 
   onCardClick(metric: string): void {
@@ -36,6 +36,23 @@ export class SummaryComponent {
     });
 
     return urgentTasks;
+  }
+
+  getUpcomingDate(): string{ 
+    let dueDates: string [] = [];
+    this.boardData.tasks.forEach(task => {
+      dueDates.push(task.date)
+    });
+    let futureDates = dueDates.map(date => new Date(date));
+    let nextDate = futureDates.reduce((a, b) => (a < b ? a : b));
+    return this.styleDate(nextDate);
+  }
+
+  styleDate(date: Date): string{
+    let month = date.toLocaleString('en-us', { month: 'long' });
+    let day = date.getDate();
+    let year = date.getFullYear();
+    return month + " " + day + ", " + year;
   }
 
 }
