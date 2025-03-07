@@ -2,15 +2,19 @@
     <div class="header-content">
         <img class="logo" src="assets/header/logo.png" alt="">
         <p class="name">Kanban Project Management Tool</p>
-        <div>
-            <div class="help" (click)="navigateToHelp()">
-                <img src="assets/header/help.png" alt="">
+        
+        @if(isLoggedIn){
+            <div>
+                <div class="help" (click)="navigateToHelp()">
+                    <img src="assets/header/help.png" alt="">
+                </div>
+                
+                <div class="initials">
+                    <span (click)="toggleMenu()">{{currentUserInitials}}</span>
+                </div>
             </div>
-            
-            <div class="initials">
-                <span (click)="toggleMenu()">{{currentUserInitials}}</span>
-            </div>
-        </div>
+        }
+        
     </div>
 
  

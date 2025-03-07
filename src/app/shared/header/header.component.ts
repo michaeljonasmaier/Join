@@ -18,12 +18,17 @@ export class HeaderComponent {
   currentUserInitials: string = "";
   menuOpened = false;
   firstLoad = true;
+  isLoggedIn = false;
 
   constructor(private navigation: NavigationService, private authService: AuthService, private router: Router) {
     if (this.authService.currentUser) {
       this.currentUser = this.authService.currentUser;
-      this.currentUserInitials = this.getInitials(this.currentUser.name);
+      if(this.authService.isLoggedIn){
+        this.isLoggedIn = true;
+        this.currentUserInitials = this.getInitials(this.currentUser.name);
+      }
     }
+
   }
 
   navigateToHelp() {

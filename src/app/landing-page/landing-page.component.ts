@@ -44,4 +44,12 @@ export class LandingPageComponent {
   navigateToSignUp(){
     this.router.navigate(['signUp']);
   }
+
+  navigateToPolicy(){
+    this.router.navigate(['main/privacypolicy']);
+  }
+
+  navigateToLegalNotice(){
+    this.router.navigate(['main/legalnotice']);
+  }
 }

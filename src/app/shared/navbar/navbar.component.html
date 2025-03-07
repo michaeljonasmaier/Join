@@ -1,28 +1,43 @@
 <nav>
     <div class="navbar-content">
         <img class="logo" src="assets/navbar/logo.png" alt="Logo">
+        @if(isLoggedIn){
         <div class="navbar-links">
-            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 0 }" (click)="setActive(0, 'summary')">
+            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 0 }"
+                (click)="setActive(0, 'summary')">
                 <img src="assets/navbar/summary.png" alt="">
                 <p>Summary</p>
             </div>
-            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 1 }" (click)="setActive(1, 'addTask')">
+            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 1 }"
+                (click)="setActive(1, 'addTask')">
                 <img src="assets/navbar/addtask.png" alt="">
                 <p>Add Task</p>
             </div>
-            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 2 }" (click)="setActive(2, 'board')">
+            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 2 }"
+                (click)="setActive(2, 'board')">
                 <img src="assets/navbar/board.png" alt="">
                 <p>Board</p>
             </div>
-            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 3 }" (click)="setActive(3, 'contacts')">
+            <div class="links-div" [ngClass]="{ 'active': navigationService.activeIndex === 3 }"
+                (click)="setActive(3, 'contacts')">
                 <img src="assets/navbar/contacts.png" alt="">
                 <p>Contacts</p>
             </div>
-            
+
         </div>
+        } @else {
+            <div class="navbar-links" routerLink="/">
+                <div class="links-div">
+                    <img src="assets/navbar/login.png" alt="">
+                    <p>Log in</p>
+                </div>
+            </div>
+        }
         <div class="navbar-imprint">
-            <span href="" [ngClass]="{ 'active': navigationService.activeIndex === 4 }" (click)="setActive(4, 'privacypolicy')">Privacy Policy</span>
-            <span href="" [ngClass]="{ 'active': navigationService.activeIndex === 5 }" (click)="setActive(5, 'legalnotice')">Legal notice</span>
+            <span href="" [ngClass]="{ 'active': navigationService.activeIndex === 4 }"
+                (click)="setActive(4, 'privacypolicy')">Privacy Policy</span>
+            <span href="" [ngClass]="{ 'active': navigationService.activeIndex === 5 }"
+                (click)="setActive(5, 'legalnotice')">Legal notice</span>
         </div>
     </div>
 </nav>
