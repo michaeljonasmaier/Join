@@ -11,14 +11,14 @@
         <div class="metric-card to-do-card" (click)="onCardClick('To-do')">
           <img class="icon" src="../../../assets/summary/pencil.png" alt="">
           <div class="info-div">
-            <div class="count">1</div>
+            <div class="count">{{boardData.toDo.length}}</div>
             <div class="label">To-do</div>
           </div>
         </div>
         <div class="metric-card done-card" (click)="onCardClick('Done')">
           <img class="icon" src="../../../assets/summary/check.png" alt="">
           <div class="info-div">
-            <div class="count">1</div>
+            <div class="count">{{boardData.done.length}}</div>
             <div class="label">Done</div>
           </div>
         </div>
@@ -26,7 +26,7 @@
       <div class="metric-card large" (click)="onCardClick('Urgent')">
           <img class="icon" src="../../../assets/summary/urgent.png" alt="">
           <div class="info-div">
-            <div class="count">1</div>
+            <div class="count">{{getNumberOfUrgentTasks()}}</div>
             <div class="label">Urgent</div>
           </div>
         <div class="line"></div>
@@ -38,19 +38,19 @@
       <div class="dis-flex">
         <div class="metric-card" (click)="onCardClick('Tasks in Board')">
           <div class="info-div">
-            <div class="count">5</div>
+            <div class="count">{{boardData.tasks.length}}</div>
             <div class="label">Tasks in Board</div>
           </div>
         </div>
         <div class="metric-card" (click)="onCardClick('Tasks In Progress')">
           <div class="info-div">
-            <div class="count">2</div>
+            <div class="count">{{boardData.inProgress.length}}</div>
             <div class="label">Tasks In Progress</div>
           </div>
         </div>
         <div class="metric-card" (click)="onCardClick('Awaiting Feedback')">
           <div class="info-div">
-            <div class="count">2</div>
+            <div class="count">{{boardData.awaitFeedback.length}}</div>
             <div class="label">Awaiting Feedback</div>
           </div>
         </div>
