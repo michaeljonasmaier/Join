@@ -9,7 +9,7 @@
             <div></div>
         </div>
         <div class="line"></div>
-        <form (ngSubmit)="onSubmit(signUpForm)" #signUpForm="ngForm">
+        <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
             <div class="input-group">
                 <input type="name" placeholder="Name" [(ngModel)]="user.name" name="name" required>
                 <img src="assets/add-contact/person.png" alt="">

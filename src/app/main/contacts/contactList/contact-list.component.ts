@@ -58,7 +58,7 @@ export class ContactListComponent {
    * @param {string} name - name we need the first letter of
    * @returns {string} - the first letter of the name
    */
-  getFirstLetter(name: string): String {
+  getFirstLetter(name: string){
     return name.slice(0, 1);
   }
 
