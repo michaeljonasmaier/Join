@@ -13,6 +13,9 @@ export class HelpComponent {
 
   }
 
+  /**
+   * defines the last route in navigation service
+   */
   backToLastRoute(){
     this.navigation.setActive(this.navigation.lastRoute.index, this.navigation.lastRoute.route);
   }

@@ -22,6 +22,9 @@ export class TaskDetailItemComponent {
 
   }
 
+  /**
+   * subscribes the current task status
+   */
   ngOnInit() {
     this.taskService.currentTask$.subscribe(updatedTask => {
       if (updatedTask) {
@@ -30,11 +33,17 @@ export class TaskDetailItemComponent {
     });
   }
 
+  /**
+   * calls delete task in task Service and close detail window
+   */
   deleteTask() {
     this.taskService.deleteTask(this.task.id);
     this.closeDetail();
   }
 
+  /**
+   * closes the detail window with little timeout for animation to finish
+   */
   closeDetail() {
     this.active = false;
     setTimeout(() => {
@@ -42,8 +51,10 @@ export class TaskDetailItemComponent {
     }, 300);
   }
     
-
-
+  /**
+   * unchecks a subtask
+   * @param {number} index - index of subtask that gets unchecked
+   */
   uncheckSubtask(index: number) {
     if (this.task.subtasks) {
       this.task.subtasks[index].taskDone = false;
@@ -51,6 +62,10 @@ export class TaskDetailItemComponent {
     }
   }
 
+  /**
+   * checks a subtask
+   * @param {number} index - index of subtask that gets checked 
+   */
   checkSubtask(index: number) {
     if (this.task.subtasks) {
       this.task.subtasks[index].taskDone = true;
@@ -58,12 +73,20 @@ export class TaskDetailItemComponent {
     }
   }
 
+  /**
+   * styles a date to dd.mm.yyyy
+   * @param {string} date - the string of the date that needs to be styled
+   * @returns {string} - styled date
+   */
   styleDate(date: string) {
     let [year, month, day] = date.split("-");
     let formattedDate = `${day}.${month}.${year}`;
     return formattedDate;
   }
 
+  /**
+   * opens the edit window with called task
+   */
   openTaskEdit() {
     this.taskEditClicked.emit(this.task);
   }

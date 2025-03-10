@@ -18,10 +18,17 @@ export class TaskItemComponent {
 
   }
 
+  /**
+   * opens detail window
+   */
   openTaskDetailItem() {
     this.taskClicked.emit(this.task);
   }
 
+  /**
+   * counts the done subtasks of the task
+   * @returns {number} - number of done subtasks
+   */
   getDoneSubtasks(){
     let num = 0;
     if(this.task.subtasks){

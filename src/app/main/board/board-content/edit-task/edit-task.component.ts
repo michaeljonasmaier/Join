@@ -47,10 +47,12 @@ export class EditTaskComponent {
 
   }
 
+  /**
+   * sets default values of task (prio, due date, subtasks)
+   */
   ngOnInit() {
     this.selectedPrio = this.task.prio;
     this.dueDateFormGroup.patchValue({ dueDate: '2010-01-01' });
-    this.getDataFormat();
 
     if (this.task) {
       this.updateTaskModel(this.task);
@@ -58,6 +60,9 @@ export class EditTaskComponent {
     }
   }
 
+  /**
+   * pushes all edited subtasks to the subtasksedits array
+   */
   getAllSubtasks(){
     if(this.editedTask.subtasks){
       this.editedTask.subtasks.forEach(element => {
@@ -66,18 +71,29 @@ export class EditTaskComponent {
     }
   }
 
+  /**
+   * sets subtask focused
+   * @param {number} index - index of subtask that is focused
+   */
   onFocus(index: number){
     this.isFocused[index] = true;
   }
 
+  /**
+   * changes edited Task on blur and sets it false
+   * @param {number} index - index of subtask
+   */
   onBlur(index: number) {
     this.isFocused[index] = false;
     if(this.editedTask.subtasks){
-      this.editedTask.subtasks[index] = {subtask: this.subtaskEdits[index], taskDone: false};
-      
+      this.editedTask.subtasks[index] = {subtask: this.subtaskEdits[index], taskDone: false};    
     }
   }
 
+  /**
+   * updates the Task with its eventually changed values
+   * @param {Task} task - current task
+   */
   updateTaskModel(task: Task) {
     this.editedTask = {
       title: task.title,
@@ -92,10 +108,17 @@ export class EditTaskComponent {
     };
   }
 
+  /**
+   * changes the contactsListOpened status
+   */
   toggleContactList() {
     this.contactListOpened = !this.contactListOpened;
   }
 
+  /**
+   * filters the contact list to the all contacts its searched for (name and surname)
+   * @returns {Contact []} - the filtered Contact List
+   */
   filterList() {
     this.filteredContactList = this.contactService.contacts;
     if (this.contactInputValue != '') {
@@ -110,26 +133,41 @@ export class EditTaskComponent {
     }
   }
 
+  /**
+   * calls the filtered List
+   * @returns the filtered list
+   */
   getContacts() {
     return this.filterList();
   }
 
-  getDataFormat() {
-  }
-
+  /**
+   * changes the subtask button 
+   */
   changeSubtaskIcons() {
     document.getElementById('plus-button')?.classList.add('d-none');
     document.getElementById('subtask-buttons')?.classList.remove('d-none');
   }
 
+  /**
+   * sets the prio of the current task
+   * @param {'Urgent' | 'Medium' | 'Low'} prio - the prio
+   */
   selectPrio(prio: 'Urgent' | 'Medium' | 'Low') {
     this.editedTask.prio = prio;
   }
 
+  /**
+   * closes the edit window
+   */
   closeEdit() {
     this.close.emit();
   }
 
+  /**
+   * set a contact as assigned if it isnt already and if then deassign it
+   * @param {Contact} contact - the contact that get assigned of deassigned to task
+   */
   assignContact(contact: Contact) {
     let index = this.task.assigned?.findIndex(assignedContact => assignedContact.id === contact.id);
     if (index !== undefined && index !== -1) {
@@ -140,7 +178,12 @@ export class EditTaskComponent {
     this.taskService.updateTask(this.task, this.task.status);
   }
 
-  isContactAssigned(contact: Contact) {
+  /**
+   * checks if a contact is assigned to the current task
+   * @param {Contact} contact - the contact that gets checked
+   * @returns {boolean} - true if contact is already assigned
+   */
+  isContactAssigned(contact: Contact): boolean {
     let index = this.task.assigned?.findIndex(assignedContact => assignedContact.id === contact.id);
     if (index !== undefined && index !== -1) {
       return true;
@@ -149,22 +192,35 @@ export class EditTaskComponent {
     }
   }
 
+  /**
+   * calls update functions and closes the edit window
+   */
   acceptChanges() {
     this.taskService.updateCurrentTask(this.editedTask);
     this.taskService.updateTask(this.editedTask, this.task.status);
     this.closeEdit();
   }
 
+  /**
+   * clears input
+   */
   clearSubtaskInput() {
     this.subtaskInputValue = "";
   }
 
+  /**
+   * adds a subtask to the task and clears the input
+   */
   addSubtask() {
     this.editedTask.subtasks?.push({ subtask: this.subtaskInputValue, taskDone: false });
     this.subtaskEdits.push(this.subtaskInputValue);
     this.subtaskInputValue = "";
   }
 
+  /**
+   * deletes a specific subtask
+   * @param subtaskItem - the subtask that gets deleted from task
+   */
   deleteSubtask(subtaskItem: { subtask: string, taskDone: boolean }) {
     let index =  this.editedTask.subtasks?.findIndex(item => item.subtask === subtaskItem.subtask);
     if (index !== undefined && index !== -1) {

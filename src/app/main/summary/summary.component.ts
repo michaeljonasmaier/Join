@@ -22,11 +22,17 @@ export class SummaryComponent {
     this.getUpcomingDate();
   }
 
-  onCardClick(metric: string): void {
-    console.log('Clicked on:', metric);
+  /**
+   * navigates to board  
+   */
+  onCardClick(): void {
     this.router.navigate(['main/board']); 
   }
 
+  /**
+   * counts urgent task in board
+   * @returns {number} - number of urgent tasks in board
+   */
   getNumberOfUrgentTasks(): number{
     let urgentTasks = 0;
     this.boardData.tasks.forEach(task => {
@@ -38,6 +44,10 @@ export class SummaryComponent {
     return urgentTasks;
   }
 
+  /**
+   * looks for next upcoming due date in all tasks and return it
+   * @returns {string} - the next upcoming date
+   */
   getUpcomingDate(): string | null{ 
     let dueDates: string [] = [];
     this.boardData.tasks.forEach(task => {
@@ -51,6 +61,11 @@ export class SummaryComponent {
     return this.styleDate(nextDate);
   }
 
+  /**
+   * sytles date to month, day, year 
+   * @param {Date} date - date that gets styled
+   * @returns {string} - the styled date in string format
+   */
   styleDate(date: Date): string{
     let month = date.toLocaleString('en-us', { month: 'long' });
     let day = date.getDate();
