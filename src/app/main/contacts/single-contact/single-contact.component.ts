@@ -23,17 +23,28 @@ export class SingleContactComponent {
   isHidden = true;
 
   constructor(public modalWindowService: ModalWindowService){}
+  /**
+   * opens Add-contact-window
+   */
   openInfo(){
     this.modalWindowService.openInfo('add-contact', 'absolute-background-add');
   }
+  /**
+   * closes Add-contact-window
+   */
   closeInfo(){
     this.modalWindowService.closeInfo('add-contact', 'absolute-background-add');
   }
-
+  /**
+   * cleans Inputs for new Add-contact
+   */
   cleanInputs(){
     this.contact = { name: '', mail: '', phone: '' };
   }
-
+  /**
+   * get contact-info and creates new object
+   * says contact-list, that new contact is created
+   */
   createContact(){
     const [name, surname] = this.contact.name.split(' '); 
 
