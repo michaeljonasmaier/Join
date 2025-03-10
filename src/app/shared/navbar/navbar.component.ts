@@ -22,6 +22,11 @@ export class NavbarComponent {
     }
   }
 
+  /**
+   * sets navigation item active
+   * @param {number} index - index of the navigation item
+   * @param {string} route - route of the navigation item
+   */
   setActive(index: number, route: string) {
     this.navigation.setActive(index, route);
   }

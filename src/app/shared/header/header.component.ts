@@ -28,21 +28,31 @@ export class HeaderComponent {
         this.currentUserInitials = this.getInitials(this.currentUser.name);
       }
     }
-
   }
 
+  /**
+   * navigates to help component
+   */
   navigateToHelp() {
     this.navigation.lastRoute = this.navigation.currentRoute;
     this.navigation.setActive(-1, "help");
   }
 
-  getInitials(name: string) {
+  /**
+   * gets the initials of the current user
+   * @param {string} name - name of current user
+   * @returns {string} - the initials
+   */
+  getInitials(name: string): string {
     let splitName = name.split(" ");
     let nameInitial = splitName[0].slice(0, 1);
     let surnameInitial = splitName[1].slice(0, 1);
     return nameInitial + surnameInitial;
   }
 
+  /**
+   * sets menuOpened status to true or false
+   */
   toggleMenu() {
     this.menuOpened = !this.menuOpened;
     this.firstLoad = false;

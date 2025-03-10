@@ -18,11 +18,17 @@ export class SignUpComponent {
 
   }
 
+  /**
+   * navigates to landing page
+   */
   navigateBack() {
     this.router.navigate(['']);
   }
 
-  async onSubmit(ngForm: any) {
+  /**
+   * submits the sign up, calls sign up in auth service, calls confirmation and waits to navigate back
+   */
+  async onSubmit() {
     this.authService.signUp(this.user.name, this.user.email, this.user.password);
     this.success = true;
     await this.delay(2000);
@@ -30,6 +36,11 @@ export class SignUpComponent {
 
   }
 
+  /**
+   * delay for a specific time
+   * @param {number} ms - time to wait
+   * @returns {Promise} - a time out to wait for
+   */
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }

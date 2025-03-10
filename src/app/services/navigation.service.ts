@@ -12,6 +12,11 @@ export class NavigationService {
 
   }
 
+  /**
+   * navigates to a specific route and sets it active for navbar
+   * @param {number} index - index of route
+   * @param {string} route - path of route
+   */
   setActive(index: number, route: string) {
     this.activeIndex = index;
     this.currentRoute = {index: index, route: route}

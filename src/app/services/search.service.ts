@@ -11,6 +11,10 @@ export class SearchService {
   private searchTerm = new BehaviorSubject<string>('');
   searchTerm$ = this.searchTerm.asObservable(); 
 
+  /**
+   * sets a term we search for
+   * @param term - the searchTerm
+   */
   setSearchTerm(term: string) {
     this.searchTerm.next(term); 
   }
