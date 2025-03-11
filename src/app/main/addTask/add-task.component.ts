@@ -7,7 +7,6 @@ import { FirebaseContactsService } from '../../services/firebase-contacts.servic
 import {MatSelectModule, } from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ModalWindowService } from '../../services/modal-window/modal-window.service';
-
 @Component({
   selector: 'app-add-task',
   standalone: true,
@@ -15,6 +14,7 @@ import { ModalWindowService } from '../../services/modal-window/modal-window.ser
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
+
 export class AddTaskComponent {
   /*
 <<<<<<< HEAD
@@ -31,6 +31,7 @@ export class AddTaskComponent {
 
   constructor(private fb: FormBuilder) {
 =======*/
+
   taskForm: FormGroup;
   users: Contact[] = [];
   categories = ['Technical Task', 'User Story'];
@@ -50,9 +51,9 @@ export class AddTaskComponent {
    * @param contactService The contact service used to get the list of users.
    * @param modalWindowService The modal window service used to show the modal window.
    */
+
   constructor(private fb: FormBuilder, private taskService: FirebaseTasksService, private contactService: FirebaseContactsService, public modalWindowService: ModalWindowService) {
     this.subtasksObj = [];
-
     this.taskForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
@@ -79,6 +80,7 @@ export class AddTaskComponent {
    * Also updates the form value and calls the changePriority function.
    * @param priority The new priority of the task.
    */
+
   setPriority(priority: 'Urgent' | 'Medium' | 'Low') {
     this.priority = priority;
     this.taskForm.patchValue({ priority });
@@ -89,13 +91,13 @@ export class AddTaskComponent {
    * Resets the form and clears all the data in the component.
    * Used when the user clicks the 'Clear' button.
    */
+
   onClear() {
     this.taskForm.reset();
     this.priority = 'Medium';
     this.subtasks = [];
     this.myColors = [];
     this.myInitials = [];
-    
   }
 
 /**
@@ -115,8 +117,8 @@ export class AddTaskComponent {
       this.subtasks.push(myValue);
       this.cleanSubtask()
     }
-    
   }
+
 /**
  * Clears the value of the subtask input field.
  * If the input field is not found, the function exits early.
@@ -134,16 +136,19 @@ export class AddTaskComponent {
    * If the event target is the subtask input field, the icons are shown.
    * @param event The event that triggered the toggle.
    */
+
   toggleSubtaskIcons(event: Event) {
     this.subtaskIconShown = true;
     event.stopPropagation();
   }
 
   @HostListener('document:click', ['$event'])
+
   /**
    * Hides the subtask icons if the event target is not the subtask input field.
    * @param event The event that triggered the hiding.
    */
+
   closeSubtaskIcons(event: Event) {
     const target = event.target as HTMLElement;
     if (!target.closest('.subtask-input')) {
@@ -176,6 +181,7 @@ export class AddTaskComponent {
    * If the color is undefined, the default color "#D72638" is added instead.
    * @param color The color to be added to the myColors array.
    */
+
   getColor(color: string | undefined){
     if(color === undefined){
       this.myColors.push("#D72638")
@@ -195,7 +201,6 @@ export class AddTaskComponent {
   async onSubmit() {
     if (this.taskForm.valid) {
       const formValue = this.taskForm.value;
-      
       const newTask: Task = {
         title: formValue.title,
         date: formValue.dueDate,
@@ -210,7 +215,6 @@ export class AddTaskComponent {
       this.sendNotification();
       await this.taskService.addTask(newTask);
       this.onClear();
-
     }
   }
 
@@ -236,6 +240,7 @@ export class AddTaskComponent {
    * number and then taking a substring from the 2nd character onwards.
    * @returns A unique ID as a string.
    */
+
   private generateUniqueId(): string {
     return Math.random().toString(36).substr(2, 9);
   }
@@ -261,6 +266,7 @@ export class AddTaskComponent {
  * from the relevant HTML elements. This is used to clear the
  * previously selected priority when the user selects a new one.
  */
+
   resetAllPriority(){
     this.resetSinglePriority('urgent');
     this.resetSinglePriority('medium');
@@ -286,6 +292,7 @@ export class AddTaskComponent {
    * Sends a notification to the user by sliding down a notification bar with a message.
    * The notification is sent after a delay of 0 milliseconds.
    */
+
   sendNotification(){
     console.log(document.getElementById("notification"));
     setTimeout(() => this.modalWindowService.sendNotification("notification"), 0);
@@ -307,6 +314,7 @@ export class AddTaskComponent {
    * the subtask display container and hiding the input container for editing.
    * @param subtask The identifier of the subtask to be edited.
    */
+
   closeSubtaskEditor(subtask:string){
     document.getElementById('subtask-container-' + subtask)?.classList.remove('d-none');
     document.getElementById('single-subtask-container-' + subtask)?.classList.add('d-none');
@@ -333,6 +341,7 @@ export class AddTaskComponent {
    * container.
    * @param subtask - The identifier of the subtask to be submitted.
    */
+
   submitEditSubtask(subtask: string){
     let mySubtaskIndex = this.findSubtask(subtask);
     let currentInput = document.getElementById(subtask + "-value") as HTMLInputElement;
@@ -340,7 +349,6 @@ export class AddTaskComponent {
     this.subtasks[mySubtaskIndex] = newSubtaskValue;
     this.closeSubtaskEditor(subtask);
   }
-
 
 /**
  * Finds the index of a given subtask in the subtasks array.
@@ -355,6 +363,7 @@ export class AddTaskComponent {
    * @param subtask The subtask to be found.
    * @returns The index of the subtask in the subtasks array.
    */
+
   findSubtask(subtask: string){
     const currentSubtask = subtask;
     let subtaskIndex = this.subtasks.indexOf(currentSubtask);

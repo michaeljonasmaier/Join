@@ -17,7 +17,6 @@ h2{
   //margin: auto;
   color: #0c0c0c;
   
-
   h2 {
     font-size: 61px;
     font-weight: bold;
@@ -42,11 +41,9 @@ h2{
 
   .form-group {
     margin-bottom: 20px;
-    
     width: 100%;
     display: flex;
     flex-direction: column;
-    
 
     span{
       color: red;
@@ -83,7 +80,6 @@ h2{
       cursor: pointer;
       font-weight: 600;
     }
-
     
   }
     .urgent {
@@ -109,8 +105,9 @@ h2{
       img{
         content: url(../../../assets/board/low-hover.png);
       }
-    }
-  .form-actions {
+    
+
+    .form-actions {
     display: flex;
     justify-content: end;
     gap: 15px;
@@ -152,6 +149,7 @@ h2{
       gap: 10px;
     }
   }  
+
   .priority-buttons{
     display: flex;
     gap: 10px;
@@ -171,6 +169,7 @@ h2{
       }
     }
   }
+
   .subtask-input{
     display: flex;
     align-items: center;
@@ -192,11 +191,13 @@ h2{
       display: flex;
       align-items: center;
     }
+
     .subtask-button{
       padding: 7px;
       height: 14px;
       aspect-ratio: 1/1;
     }
+
     .subtask-button:hover{
       cursor: pointer;
       background-color: $hover-grey;
@@ -212,22 +213,27 @@ h2{
     justify-content: center;
     border-radius: 50px;
   }
+
   .initials-container{
     display: flex;
     gap: 15px;
     color: white;
     flex-wrap: wrap;
   }
+
   .buttons-div{
     margin: 20px;
   }
+
   .submit-btn:disabled{
     cursor: none;
     background-color: grey !important;
   }
+
   .single-subtask{
     margin: 1px;
   }
+
   .notification{
     display: flex;
     align-items: center;
@@ -245,6 +251,7 @@ h2{
     transform: translateY(1000%);
     z-index: 1000;
   }
+
   .subtask-container{
     display: flex;
     align-items: center;
@@ -261,6 +268,7 @@ h2{
       width: 15px;
     }
   }
+
   .subtask-container:hover{
     cursor: pointer;
     background-color: $hover-grey;
@@ -268,6 +276,7 @@ h2{
       display: flex;
     }
   }
+
   .single-subtask-container{
     display: flex;
     align-items: center;
@@ -292,13 +301,12 @@ h2{
     }
   }
 }
+
 @media(max-width: 1120px){
   .split{
     gap: 0px !important;
   }
 }
-
-@media(max-width: 910px){}
 
 @media(max-width: 600px){
   :host{
@@ -321,15 +329,17 @@ h2{
         margin-top: 0px;
       }
     }
-    
   }
+
   .priority-buttons{
       gap: 15px;
       .priority-button{
         font-size: 12px;
+
         img{
           width: 14px;
         }
       }
     }
+  }
 }
