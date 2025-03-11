@@ -10,19 +10,18 @@
     </div>
     <img class="back-img" (click)="closeCard()" src="assets/contacts/backtolist.png" alt="">
   </div>
- 
-  
   
 @if(selectedContact!=null){
   <div class="contact-header">
-    <div class="avatar" [style.backgroundColor]="selectedContact.color">{{ selectedContact?.initials }}</div>
+    <div class="avatar" [style.backgroundColor]="selectedContact.color">{{ selectedContact.initials }}</div>
     <div class="contact-name">
-      <h3>{{ selectedContact?.name }} {{ selectedContact?.surname }}</h3>
+      <h3>{{ selectedContact.name }} {{ selectedContact.surname }}</h3>
       <div class="actions">
         <div class="edit" (click)="openEdit()">
             <img src="assets/contacts/edit.png" alt="">
             <span>Edit</span>
         </div>
+
         <div class="delete" (click)="deleteContact()">
           <img src="assets/contacts/delete.png" alt="">
           <span>Delete</span>
@@ -34,9 +33,9 @@
   <div class="contact-info">
     <h4>Contact Information</h4>
     <p><strong>Email</strong></p>
-    <p class="email">{{ selectedContact?.mail }}</p>
+    <p class="email">{{ selectedContact.mail }}</p>
     <p><strong>Phone</strong></p>
-    <p>{{ selectedContact?.phone }}</p>
+    <p>{{ selectedContact.phone }}</p>
   </div>
 
   <img class="options" src="assets/contacts/options_mobile.png" alt="" (click)="openButton(); bubblingProtection($event)">
@@ -45,6 +44,7 @@
       <img src="assets/contacts/edit.png" alt="">
       <span>Edit</span>
   </div>
+
     <div class="delete" (click)="deleteContact(); closeCard()">
       <img src="assets/contacts/delete.png" alt="">
       <span>Delete</span>

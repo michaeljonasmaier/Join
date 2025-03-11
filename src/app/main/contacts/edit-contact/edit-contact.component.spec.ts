@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EditContactComponent } from './edit-contact.component';
 
 describe('EditContactComponent', () => {
@@ -10,8 +9,8 @@ describe('EditContactComponent', () => {
     await TestBed.configureTestingModule({
       imports: [EditContactComponent]
     })
+
     .compileComponents();
-    
     fixture = TestBed.createComponent(EditContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -12,23 +12,22 @@ import { JoinBtnComponent } from '../../../shared/join-btn/join-btn.component';
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.scss'
 })
+
 export class ContactListComponent {
   @ViewChild(SingleContactComponent) singleContactComponent!: SingleContactComponent;
-
   contactList: Contact[] = [];
   previousLetter: string = '';
   isActive = false;
   activeIndex: number | null = null;
   @Output() showCard = new EventEmitter<boolean>();
-
   constructor(private contactsService: FirebaseContactsService) {
-
   }
 
   /**
    * Sets item in Contact List active
    * @param {number} index - index of element in contact list
    */
+
   setActive(index: number) {
     this.activeIndex = index;
   }
@@ -37,6 +36,7 @@ export class ContactListComponent {
    * gets contact list from ContactsService
    * @returns {Contact[]} - all contacts of contact list
    */
+
   getList(): Contact[] {
     return this.contactsService.contacts;
   }
@@ -45,6 +45,7 @@ export class ContactListComponent {
    * Sorts Contact List (a-z)
    * @returns {Contact[]} - returns sorted contact list (a-z)
    */
+
   getSortedList(): Contact[] {
     this.contactList = this.getList()
     let sortedContactList = this.contactList.sort((a, b) => {
@@ -58,6 +59,7 @@ export class ContactListComponent {
    * @param {string} name - name we need the first letter of
    * @returns {string} - the first letter of the name
    */
+
   getFirstLetter(name: string){
     return name.slice(0, 1);
   }
@@ -67,6 +69,7 @@ export class ContactListComponent {
    * @param {sting} currentLetter - the letter in the alphabet we are currently at
    * @returns {boolean} - true if the letter has changed to the previous letter
    */
+
   hasLetterChanged(currentLetter: string): boolean {
     let hasChanged = currentLetter !== this.previousLetter;
     this.previousLetter = currentLetter;
@@ -77,6 +80,7 @@ export class ContactListComponent {
    * sets the selected contact in the contacts Service
    * @param {Contact} contact - the selected contact
    */
+
   selectContact(contact: Contact) {
     this.contactsService.selectContact(contact);
   }
@@ -85,6 +89,7 @@ export class ContactListComponent {
    * adds a contact to the contact list and selects it 
    * @param {any} contact - contact that needs to be added
    */
+
   addNewContact(contact: any) {
     this.contactList.push(contact);
     this.contactsService.addContact(contact);
@@ -97,6 +102,7 @@ export class ContactListComponent {
    * sets the new added contact active to show it next to the list
    * @param {Contact} newContact - the contact that needs to get active
    */
+
   setNewContactActive(newContact: Contact) {
     this.getSortedList().forEach((contactItem, index) => {
       if (contactItem.phone === newContact.phone) {
@@ -108,6 +114,7 @@ export class ContactListComponent {
   /**
    * opens the card to show next to the list
    */
+
   onShowCard(): void {
     this.showCard.emit(true);
   }
@@ -115,10 +122,10 @@ export class ContactListComponent {
   /**
    * Opens the info of a single contact Component
    */
+
   openAddContact() {
     if (this.singleContactComponent) {
       this.singleContactComponent.openInfo();
     }
   }
-
 }

@@ -45,21 +45,17 @@ section {
     width: 352px;
     gap: 35px;
     border-radius: 10px;
-
     >div {
         @include dFlex(column, center, flex-start);
         gap: 5px;
-
         >.name {
             font-size: 20px;
         }
-
         >.mail {
             font-size: 16px;
             color: #007CEE;
         }
     }
-
     >.initials {
         @include dFlex(column, center, center);
         border: 1px solid white;
@@ -68,7 +64,6 @@ section {
         border-radius: 50%;
         color: white;
     }
-
     &:hover {
         background-color: #f1f1f1;
         cursor: pointer;
@@ -89,7 +84,6 @@ section {
     @include dFlex();
     padding-bottom: 30px;
     padding-top: 30px;
-
 }
 
 .letter-div {
@@ -101,6 +95,7 @@ section {
     padding-left: 10px;
     width: calc(100% - 75px);
 }
+
 .mobile-add-contact{
     display: none;
 }
@@ -110,7 +105,6 @@ section {
         padding: 24px;
         padding-right: 0;
     }
-
     .contact-item{
         width: 300px;
         gap: 10px;
@@ -122,19 +116,16 @@ section {
         width: 100%;
         height: 100%;
     }
-
     section{
         width: 100%;
         overflow-x: hidden;
         padding: 0;
         height: 100%;
     }
-
     .contact-item{
         width: 352px;
         gap: 35px;
     }
-
     .contact-item.active{
         background-color: transparent;
         color: black;

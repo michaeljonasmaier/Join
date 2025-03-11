@@ -14,14 +14,13 @@ import { NavigationService } from '../../../services/navigation.service';
 })
 export class BoardHeaderComponent {
   searchInput: string = '';
-
   constructor(private searchService: SearchService, private router: Router, private navigation: NavigationService){
-
   }
 
   /**
    * sets the search Input in the Search Service
    */
+
   search(){
     this.searchService.setSearchTerm(this.searchInput);
   }
@@ -29,6 +28,7 @@ export class BoardHeaderComponent {
   /**
    * navigates to the add Task Component
    */
+  
   navigateToAddTask(){
     this.router.navigate(['main/addTask']);
     this.navigation.setActive(1, 'addTask')

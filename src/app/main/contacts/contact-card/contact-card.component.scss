@@ -17,7 +17,6 @@
 .contact-title-div {
   @include dFlex(row, flex-start, center);
   gap: 20px;
-
   >.line {
     height: 59px;
     width: 3px;
@@ -30,7 +29,6 @@
   padding-top: 20px;
   width: 85px;
   border-bottom: 3px solid #29abe2;
-
 }
 
 .back-img {
@@ -48,7 +46,6 @@
   line-height: 73.2px;
   letter-spacing: 0%;
   color: black;
-
 }
 
 .subtitle {
@@ -106,16 +103,17 @@
   letter-spacing: 0%;
   color: gray;
   gap: 25px;
-  
   .delete {
     display: flex;
     gap: 10px;
   }
 }
+
 .edit{
     display: flex;
     gap: 10px !important;
   }
+
 .actions span {
   width: 159;
   height: 24;
@@ -126,7 +124,6 @@
 .contact-info {
   margin-top: 16px;
   color: black;
-
   >h4 {
     font-family: Inter;
     font-weight: 400;
@@ -134,7 +131,6 @@
     line-height: 24px;
     letter-spacing: 0%;
   }
-
   >p {
     font-size: 16px;
     line-height: 19.2px;
@@ -152,7 +148,6 @@
   cursor: pointer;
   color: #29abe2;
   gap: 10px;
-
   >img {
     content: url('./../../../../assets/contacts/edit_hover.png');
     width: 19px;
@@ -163,7 +158,6 @@
 .delete:hover {
   cursor: pointer;
   color: #29abe2;
-
   >img {
     content: url('./../../../../assets/contacts/delete_hover.png');
     width: 16px;
@@ -197,7 +191,6 @@
   padding: 15px;
   @include dFlex(column, flex-start, flex-start);
   gap: 15px;
-
   .delete {
     display: flex;
     gap: 14px;
@@ -325,5 +318,4 @@
     width: 90px;
     height: 90px;
   }
- 
 }

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BoardHeaderComponent } from './board-header.component';
 
 describe('BoardHeaderComponent', () => {
@@ -11,7 +10,6 @@ describe('BoardHeaderComponent', () => {
       imports: [BoardHeaderComponent]
     })
     .compileComponents();
-    
     fixture = TestBed.createComponent(BoardHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

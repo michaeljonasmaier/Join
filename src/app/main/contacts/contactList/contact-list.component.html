@@ -3,7 +3,6 @@
     <app-join-btn title="Add new contact" imgPath="assets/contacts/person_add.png" style="width: 100%;" (click)="openAddContact()"></app-join-btn>
     <div class="contact-item-list">
         @for (contactItem of getSortedList(); track $index) {
-
         @if(hasLetterChanged(getFirstLetter(contactItem.name))){
         <div class="letter-div">
             <span>{{ getFirstLetter(contactItem.name) }}</span>
@@ -21,10 +20,6 @@
             </div>
         </div>
         }
-
-
     </div>
     <img class="mobile-add-contact" src="../../../../assets/contacts/addcontact_mobile.png" alt="" (click)="openAddContact()">
-
-
 </section>
