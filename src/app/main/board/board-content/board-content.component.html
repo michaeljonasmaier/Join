@@ -11,7 +11,7 @@
             <div class="task-list-content">
                 @if (filterList(data.toDo).length>0) {
                 @for (task of filterList(data.toDo); track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                <app-task-item [task]="task" cdkDrag [cdkDragStartDelay]="{ touch: 500, mouse: 0}" (taskClicked)="openTaskDetail($event)"></app-task-item>
                 }
 
                 } @else {
@@ -36,7 +36,7 @@
             <div class="task-list-content">
                 @if(data.inProgress.length>0){
                 @for (task of filterList(data.inProgress); track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                <app-task-item [task]="task" cdkDrag [cdkDragStartDelay]="{ touch: 500, mouse: 0}" (taskClicked)="openTaskDetail($event)"></app-task-item>
                 }
                 } @else {
                 <div class="no-items">No tasks in progress</div>
@@ -60,7 +60,7 @@
             <div class="task-list-content">
                 @if (data.awaitFeedback.length>0) {
                 @for (task of filterList(data.awaitFeedback); track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                <app-task-item [task]="task" cdkDrag [cdkDragStartDelay]="{ touch: 500, mouse: 0}" (taskClicked)="openTaskDetail($event)"></app-task-item>
                 }
                 }@else {
                 <div class="no-items">No tasks awaiting feedback</div>
@@ -80,7 +80,7 @@
             <div class="task-list-content">
                 @if(data.done.length>0){
                 @for (task of filterList(data.done); track $index) {
-                <app-task-item [task]="task" cdkDrag (taskClicked)="openTaskDetail($event)"></app-task-item>
+                <app-task-item [task]="task" cdkDrag [cdkDragStartDelay]="{ touch: 500, mouse: 0}" (taskClicked)="openTaskDetail($event)"></app-task-item>
                 }
                 }@else {
                 <div class="no-items">No tasks done</div>
