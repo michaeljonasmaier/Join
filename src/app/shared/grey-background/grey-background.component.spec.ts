@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GreyBackgroundComponent } from './grey-background.component';
 
 describe('GreyBackgroundComponent', () => {
@@ -10,8 +9,8 @@ describe('GreyBackgroundComponent', () => {
     await TestBed.configureTestingModule({
       imports: [GreyBackgroundComponent]
     })
-    .compileComponents();
     
+    .compileComponents();
     fixture = TestBed.createComponent(GreyBackgroundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

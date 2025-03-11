@@ -6,6 +6,7 @@
        <article></article>
     </h1>
   </div>
+
   <div class="metrics-grid-container">
     <div class="metrics-grid">
       <div class="dis-flex">
@@ -16,6 +17,7 @@
             <div class="label">To-do</div>
           </div>
         </div>
+
         <div class="metric-card done-card" (click)="onCardClick()">
           <img class="icon" src="../../../assets/summary/check.png" alt="">
           <div class="info-div">
@@ -24,18 +26,21 @@
           </div>
         </div>
       </div>
+
       <div class="metric-card large" (click)="onCardClick()">
           <img class="icon" src="../../../assets/summary/urgent.png" alt="">
           <div class="info-div">
             <div class="count">{{getNumberOfUrgentTasks()}}</div>
             <div class="label">Urgent</div>
           </div>
+
         <div class="line"></div>
         <div class="deadline">
           <div class="date"><strong>{{getUpcomingDate()}}</strong></div>
           <div class="subtext">Upcoming Deadline</div>
         </div>
       </div>
+
       <div class="dis-flex">
         <div class="metric-card" (click)="onCardClick()">
           <div class="info-div">
@@ -43,12 +48,14 @@
             <div class="label">Tasks in Board</div>
           </div>
         </div>
+
         <div class="metric-card" (click)="onCardClick()">
           <div class="info-div">
             <div class="count">{{boardData.inProgress.length}}</div>
             <div class="label">Tasks In Progress</div>
           </div>
         </div>
+
         <div class="metric-card" (click)="onCardClick()">
           <div class="info-div">
             <div class="count">{{boardData.awaitFeedback.length}}</div>
@@ -57,6 +64,7 @@
         </div>
       </div>
     </div>
+    
     <div class="greeting">
       <h2>Good morning,
         <br>

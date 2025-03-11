@@ -1,12 +1,15 @@
 @import "../../../styles.scss";
+
 :host {
   padding: 40px 40px 0px 40px;
   width: 100%;
 }
+
 .dashboard-container {
   height: 100vh;
   color: black;
 }
+
 h2{
   font-size: 36px;
   font-weight: 400;
@@ -29,11 +32,13 @@ h2{
     font-weight: 400;
   }
 }
+
 .metrics-grid-container {
   display: flex;
   gap: 60px;
   height: 60%;
 }
+
 .dis-flex {
   display: flex;
   gap: 20px;
@@ -62,21 +67,25 @@ h2{
   justify-content: space-around;
   //height: 110px;
 }
+
 .metric-card:hover {
     transform: scale(1.05);
     background-color: $main_grey;
     color: white;
   }
+
 .to-do-card:hover{
   img{
     content: url(../../../assets/summary/pencil-hover.png);
   }
 }
+
 .done-card:hover{
   img{
     content: url(../../../assets/summary/check-hover.png);
   }
 }
+
 .icon{
   height: 70px;
   aspect-ratio: 1/1;
@@ -103,15 +112,18 @@ h2{
   color: $light_blue;
   font-weight: bold;
 }
+
 .count{
     font-size: 40px;
     font-weight: bold;
 }
+
 .info-div{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .line{
   border: solid 1px $main_grey;
   height: 90%;
@@ -131,6 +143,7 @@ h2{
     padding: 7px;
   }
 }
+
 @media(max-width: 690px){
   .greeting{
     display: none;
@@ -142,6 +155,7 @@ h2{
     width: 100%;
   }
 }
+
 @media(max-width: 600px){
   :host{
     padding: 20px 20px 0px 20px;
@@ -168,12 +182,14 @@ h2{
     }
   }
 }
+
 @media(max-width: 450px){
   .metric-card{
     padding: 20px;
     font-size: 14px;
   }
 }
+
 @media(max-width: 370px){
   .metric-card{
     padding: 10px;

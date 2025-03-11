@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './grey-background.component.html',
   styleUrl: './grey-background.component.scss'
 })
-export class GreyBackgroundComponent {
 
+export class GreyBackgroundComponent {
 }

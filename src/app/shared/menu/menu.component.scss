@@ -50,7 +50,6 @@
     from {
         transform: translateX(200%);
     }
-
     to {
         transform: translateX(0);
     }
@@ -60,20 +59,15 @@
     from {
         transform: translateX(0);
     }
-
     to {
         transform: translateX(300%);
     }
 }
 
-
-
-
 @keyframes slideInFromFar {
     from {
         transform: translateX(1000%);
     }
-
     to {
         transform: translateX(0);
     }
@@ -83,7 +77,6 @@
     from {
         transform: translateX(0);
     }
-
     to {
         transform: translateX(1000%);
     }
@@ -94,11 +87,9 @@
         right: auto;
         left: 2200px;
     }
-
     .slide-out {
         animation: slideOutToFar 0.25s forwards;
     }
-    
     .slide-in {
         animation: slideInFromFar 0.25s ease-out;
     }

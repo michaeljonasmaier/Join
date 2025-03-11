@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './join-btn.component.html',
   styleUrl: './join-btn.component.scss'
 })
+
 export class JoinBtnComponent {
   @Input() title: string = 'Default';
   @Input() imgPath: string = '';

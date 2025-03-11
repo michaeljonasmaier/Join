@@ -4,7 +4,6 @@
     from {
         transform: translateX(200%);
     }
-
     to {
         transform: translateX(0);
     }
@@ -14,7 +13,6 @@
     from {
         transform: translateX(0);
     }
-
     to {
         transform: translateX(300%);
     }
@@ -137,25 +135,19 @@ span{
         width: 100%;
         z-index: 40;
     }
-
     .header-content{
         padding: 20px 20px 20px 20px;
     }
-
     .name, .help{
         display: none;
     }
-
     .logo{
         display: block;
     }
-
     .slide-in {
         right: 20px !important;
       }
-
     .help-span{
         display: block;
     }
-
 }

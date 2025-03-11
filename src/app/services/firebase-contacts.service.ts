@@ -10,12 +10,10 @@ export class FirebaseContactsService {
 
   contacts: Contact [] = [];
   bgColors = ["#D72638", "#F46036", "#F3A712", "#5B8E7D", "#3A86FF", "#8338EC", "#FF006E", "#2EC4B6", "#EF476F", "#06D6A0"];
-
   firestore: Firestore = inject(Firestore);
   unsubContacts;
   contactSource = new BehaviorSubject<Contact | null>(null);
   selectedContact$ = this.contactSource.asObservable();
-
   constructor() { 
     this.unsubContacts = this.subContactsList();
   }
@@ -24,9 +22,9 @@ export class FirebaseContactsService {
    * subscribe contacts list from firebase
    * @returns the contact list from the database
    */
+
   subContactsList(){
     let q = query(this.getContactsRef());
-    
     return onSnapshot(q, (list) => {
       this.contacts = []
       list.forEach(element => {
@@ -39,6 +37,7 @@ export class FirebaseContactsService {
   /**
    * sets a random color to the contact
    */
+
   setRandomColor(){
     this.contacts.forEach((contact, index) => {
       contact.color = this.bgColors[index % this.bgColors.length]
@@ -49,6 +48,7 @@ export class FirebaseContactsService {
    * sets a new contact active
    * @param {any} newContact - the contact that gets active
    */
+
   updateContact(newContact: any) {
     this.contactSource.next(newContact); 
   }
@@ -57,6 +57,7 @@ export class FirebaseContactsService {
    * get the contacts collection reference
    * @returns the collection of the database
    */
+
   getContactsRef(){
     return collection(this.firestore, 'contacts');
   }
@@ -65,6 +66,7 @@ export class FirebaseContactsService {
    * add a new contact to database
    * @param {Contact} newContact - the new contact that gets added
    */
+
   async addContact(newContact: Contact){
     await addDoc(this.getContactsRef(), newContact);
   }
@@ -73,6 +75,7 @@ export class FirebaseContactsService {
    * edit a contact and save the new version in the database
    * @param {Contact} editedContact - the edited contact that gets updated
    */
+
   async editContact(editedContact: Contact){
     await updateDoc(doc(this.firestore, 'contacts', editedContact.id), {
       name: editedContact.name,
@@ -88,6 +91,7 @@ export class FirebaseContactsService {
    * delete a specific contact in the database
    * @param {string} contactID - contact ID
    */
+
   async deleteContact(contactID: string){
     await deleteDoc(doc(this.firestore, 'contacts', contactID))
   }
@@ -98,6 +102,7 @@ export class FirebaseContactsService {
    * @param {string} objId - its ID
    * @returns {Contact} - the new Contact Object
    */
+
   setContactObject(obj: any, objId: string): Contact{
     return {
       name: obj.name || " ",
@@ -113,6 +118,7 @@ export class FirebaseContactsService {
    * set the selected Contact 
    * @param {Contact} contact - the selected Contact
    */
+
   selectContact(contact: Contact){
     this.contactSource.next(contact);
   }
@@ -122,6 +128,7 @@ export class FirebaseContactsService {
    * @param {any} obj - the object
    * @returns {string} the initials
    */
+
   getContactInitials(obj: any): string{
     let nameInitial = obj.name.slice(0, 1);
     let surnameInitial = obj.surname.slice(0, 1);
@@ -131,6 +138,7 @@ export class FirebaseContactsService {
   /**
    * unsubscribe on destroy
    */
+  
   ngOnDestroy(){
     if(this.unsubContacts){
       this.unsubContacts();

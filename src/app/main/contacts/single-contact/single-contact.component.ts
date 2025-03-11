@@ -12,51 +12,57 @@ import { CommonModule } from '@angular/common';
   templateUrl: './single-contact.component.html',
   styleUrl: './single-contact.component.scss'
 })
+
 export class SingleContactComponent {
   @Output() contactCreated = new EventEmitter<any>(); 
-  
   contact = {
     name: "",
     mail: "",
     phone: ""
   }
   isHidden = true;
-
   constructor(public modalWindowService: ModalWindowService){}
+
   /**
    * opens Add-contact-window
    */
+
   openInfo(){
     this.modalWindowService.openInfo('add-contact', 'absolute-background-add');
   }
+
   /**
    * closes Add-contact-window
    */
+
   closeInfo(){
     this.modalWindowService.closeInfo('add-contact', 'absolute-background-add');
   }
+
   /**
    * cleans Inputs for new Add-contact
    */
+
   cleanInputs(){
     this.contact = { name: '', mail: '', phone: '' };
   }
+
   /**
    * get contact-info and creates new object
    * says contact-list, that new contact is created
    */
+
   createContact(){
     const [name, surname] = this.contact.name.split(' '); 
-
     const newContact = {
       name: name || '',  
       surname: surname || '',
       mail: this.contact.mail,
       phone: this.contact.phone
     };
+
     this.contactCreated.emit(newContact);
     this.cleanInputs();
     this.closeInfo();
   }
-  
 }

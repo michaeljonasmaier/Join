@@ -4,10 +4,9 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SearchService {
-
-  constructor() { }
-
+  constructor() {}
   private searchTerm = new BehaviorSubject<string>('');
   searchTerm$ = this.searchTerm.asObservable(); 
 
@@ -15,6 +14,7 @@ export class SearchService {
    * sets a term we search for
    * @param term - the searchTerm
    */
+
   setSearchTerm(term: string) {
     this.searchTerm.next(term); 
   }

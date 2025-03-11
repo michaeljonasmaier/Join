@@ -19,6 +19,7 @@ import { PrivacyPolicyComponent } from './main/privacy-policy/privacy-policy.com
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
   title = 'join';
 }

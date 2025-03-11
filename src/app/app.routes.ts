@@ -13,8 +13,7 @@ import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
-    {
-        path: 'main', component: MainComponent, 
+    { path: 'main', component: MainComponent, 
         children: [
             { path: '', redirectTo: 'summary', pathMatch: 'full' },
             { path: 'summary', component: SummaryComponent, canActivate: [authGuard] },
@@ -24,7 +23,6 @@ export const routes: Routes = [
             { path: 'help', component: HelpComponent, canActivate: [authGuard] },
             { path: 'privacypolicy', component: PrivacyPolicyComponent },
             { path: 'legalnotice', component: LegalnoticeComponent },]
-
     },
     { path: 'signUp', component: SignUpComponent },
 ];

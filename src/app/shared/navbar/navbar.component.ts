@@ -11,11 +11,10 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
+
 export class NavbarComponent {
   navigationService  = inject(NavigationService);
   isLoggedIn = false;
-  
-
   constructor(private navigation: NavigationService, private authService: AuthService){
     if(this.authService.isLoggedIn){
       this.isLoggedIn = true;
@@ -27,6 +26,7 @@ export class NavbarComponent {
    * @param {number} index - index of the navigation item
    * @param {string} route - route of the navigation item
    */
+  
   setActive(index: number, route: string) {
     this.navigation.setActive(index, route);
   }

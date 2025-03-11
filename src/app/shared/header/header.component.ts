@@ -13,6 +13,7 @@ import { MenuComponent } from '../menu/menu.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
+
 export class HeaderComponent {
   currentUser: UserInterface = { name: "", "email": "" };
   currentUserInitials: string = "";
@@ -33,6 +34,7 @@ export class HeaderComponent {
   /**
    * navigates to help component
    */
+
   navigateToHelp() {
     this.navigation.lastRoute = this.navigation.currentRoute;
     this.navigation.setActive(-1, "help");
@@ -43,6 +45,7 @@ export class HeaderComponent {
    * @param {string} name - name of current user
    * @returns {string} - the initials
    */
+
   getInitials(name: string): string {
     let splitName = name.split(" ");
     let nameInitial = splitName[0].slice(0, 1);
@@ -53,6 +56,7 @@ export class HeaderComponent {
   /**
    * sets menuOpened status to true or false
    */
+
   toggleMenu() {
     this.menuOpened = !this.menuOpened;
     this.firstLoad = false;

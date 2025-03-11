@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SingleContactComponent } from './single-contact.component';
 
 describe('SingleContactComponent', () => {
@@ -10,8 +9,8 @@ describe('SingleContactComponent', () => {
     await TestBed.configureTestingModule({
       imports: [SingleContactComponent]
     })
-    .compileComponents();
     
+    .compileComponents();
     fixture = TestBed.createComponent(SingleContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

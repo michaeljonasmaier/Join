@@ -11,16 +11,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })
+
 export class SignUpComponent {
   user = { name: '', email: '', password: '', confirmPassword: '', acceptedPolicy: false };
   success = false;
   constructor(private router: Router, private authService: AuthService) {
-
   }
 
   /**
    * navigates to landing page
    */
+
   navigateBack() {
     this.router.navigate(['']);
   }
@@ -28,12 +29,12 @@ export class SignUpComponent {
   /**
    * submits the sign up, calls sign up in auth service, calls confirmation and waits to navigate back
    */
+
   async onSubmit() {
     this.authService.signUp(this.user.name, this.user.email, this.user.password);
     this.success = true;
     await this.delay(2000);
     this.navigateBack();
-
   }
 
   /**
@@ -41,8 +42,8 @@ export class SignUpComponent {
    * @param {number} ms - time to wait
    * @returns {Promise} - a time out to wait for
    */
+
   delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
-
 }

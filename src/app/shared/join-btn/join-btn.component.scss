@@ -1,6 +1,5 @@
 @import '../../../styles.scss';
 
-
 button {
     background-color: #2A3647;
     color: white;
@@ -16,10 +15,8 @@ button {
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
-
     width: 90%;
     margin-right: 5%;
-
     &:hover {
         cursor: pointer;
         background-color: #29ABE2;

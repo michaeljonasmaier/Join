@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { FirebaseContactsService } from './firebase-contacts.service';
 
 describe('FirebaseContactsService', () => {

@@ -9,7 +9,6 @@ export class NavigationService {
   currentRoute: {index: number, route: string} = {index: 0, route: ""};
   lastRoute:{index: number, route: string} = {index: 0, route: ""};
   constructor(private router: Router) { 
-
   }
 
   /**
@@ -17,6 +16,7 @@ export class NavigationService {
    * @param {number} index - index of route
    * @param {string} route - path of route
    */
+  
   setActive(index: number, route: string) {
     this.activeIndex = index;
     this.currentRoute = {index: index, route: route}

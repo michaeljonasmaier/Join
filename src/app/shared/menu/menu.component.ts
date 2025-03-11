@@ -11,19 +11,19 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
+
 export class MenuComponent {
   menuOpened = true;
   firstLoad = true;
   active: boolean = true;
   @Output() close = new EventEmitter<void>();
-
   constructor(private navigation: NavigationService, private authService: AuthService, private router: Router){
-
   }
 
   /**
    * closes the menu and navigates to help
    */
+
   navigateToHelp() {
     this.closeMenu();
     this.navigation.setActive(-1, "help");
@@ -33,6 +33,7 @@ export class MenuComponent {
    * closes the menu and navigates to a specific path
    * @param {string} path - the path we want to navigate to
    */
+
   navigateToX(path: string){
     this.closeMenu();
     this.navigation.setActive(-1, path);
@@ -41,6 +42,7 @@ export class MenuComponent {
   /**
    * sign out in auth service and navigate to landing page
    */
+
   signOut(){
     this.authService.signOut();
     this.authService.isLoggedIn = false;
@@ -51,6 +53,7 @@ export class MenuComponent {
   /**
    * closes the menu with little timeout for animation to finish
    */
+  
   closeMenu(){
     this.active = false;
     this.menuOpened = false;

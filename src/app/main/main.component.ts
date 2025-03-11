@@ -11,6 +11,6 @@ import { ContactsComponent } from './contacts/contacts.component';
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent {
 
+export class MainComponent {
 }

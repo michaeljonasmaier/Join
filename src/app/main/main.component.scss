@@ -27,7 +27,6 @@ section{
         height: 80% !important;
         @include dFlex(column-reverse, flex-start, space-between);
     }
-
     section{
         @include dFlex(column-reverse, flex-start, flex-start);
     }

@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirebaseTasksService {
   tasks: Task[] = [];
   toDo: Task[] = [];
@@ -14,13 +15,11 @@ export class FirebaseTasksService {
   awaitFeedback: Task[] = [];
   done: Task[] = [];
   specificStatus: 'toDo' | 'inProgress' | 'awaitFeedback' | undefined;
-  
   firestore: Firestore = inject(Firestore);
   unsubTasks;
 
   private taskSubject = new BehaviorSubject<Task | null>(null);
   currentTask$ = this.taskSubject.asObservable(); 
-
   constructor() {
     this.unsubTasks = this.subTasksList();
   }
@@ -29,6 +28,7 @@ export class FirebaseTasksService {
    * subscribe the task list from Firebase
    * @returns the task list
    */
+
   subTasksList() {
     let q = query(this.getTasksRef());
 
@@ -44,6 +44,7 @@ export class FirebaseTasksService {
   /**
    * sort the tasks into 4 status arrays
    */
+
   sortTasks() {
     this.toDo = [];
     this.inProgress = [];
@@ -66,6 +67,7 @@ export class FirebaseTasksService {
    * get the task collection reference
    * @returns task collection from Firebase
    */
+
   getTasksRef() {
     return collection(this.firestore, 'tasks');
   }
@@ -76,6 +78,7 @@ export class FirebaseTasksService {
    * @param {string} objId - its ID
    * @returns {Task} - the new Task Object
    */
+
   setTaskObject(obj: any, objId: string): Task {
     return {
       title: obj.title || " ",
@@ -95,6 +98,7 @@ export class FirebaseTasksService {
    * @param {Task} editedTask - the task the needs to be updated
    * @param {string} newStatus - its eventually changed status
    */
+
   async updateTask(editedTask: Task, newStatus: string) {
     await updateDoc(doc(this.firestore, 'tasks', editedTask.id), {
       title: editedTask.title,
@@ -113,6 +117,7 @@ export class FirebaseTasksService {
    * add a task to the database
    * @param {Task} newTask - new task to be added
    */
+
   async addTask(newTask: Task) {
     if(this.specificStatus){
       newTask.status = this.specificStatus;
@@ -125,6 +130,7 @@ export class FirebaseTasksService {
    * delete a specific task 
    * @param taskID - the task ID
    */
+
   async deleteTask(taskID: string){
     await deleteDoc(doc(this.firestore, 'tasks', taskID))
   }
@@ -133,6 +139,7 @@ export class FirebaseTasksService {
    * set current Task
    * @param {Task} task - the task that is active now
    */
+
   updateCurrentTask(task: Task){
     this.taskSubject.next(task);
   }
@@ -140,6 +147,7 @@ export class FirebaseTasksService {
   /**
    * unsubscribe on destroy
    */
+  
   ngOnDestroy() {
     if (this.unsubTasks) {
       this.unsubTasks();
