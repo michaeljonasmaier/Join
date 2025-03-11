@@ -105,7 +105,6 @@ textarea{
     padding: 16px 10px 16px 10px;
     -webkit-box-shadow: 0px 0px 4px 0px rgba($color: #000000, $alpha: 0.1);
     box-shadow: 0px 0px 4px 0px rgba($color: #000000, $alpha: 0.1);
-
     &:hover {
         -webkit-box-shadow: 0px 4px 4px 0px rgba($color: #000000, $alpha: 0.25);
         box-shadow: 0px 4px 4px 0px rgba($color: #000000, $alpha: 0.25);
@@ -192,7 +191,6 @@ textarea{
     position: absolute;
     right: 10px;
     top: 52px;
-
     &:hover{
         cursor: pointer;
     }
@@ -204,7 +202,6 @@ textarea{
     gap: 10px;
     right: 10px;
     top: 51px;
-
     &:hover{
         cursor: pointer;
     }
@@ -221,7 +218,6 @@ textarea{
     width: 95%;
     padding: 10px;
     border-radius: 10px; 
-    
     textarea{
         resize: none;
         font-size: 16px;
@@ -256,7 +252,6 @@ textarea{
     gap: 10px;
     padding-left: 20px;
     z-index: 10;
-
     &:hover{
         cursor: pointer;
     }
@@ -274,7 +269,6 @@ textarea{
     }
 }
 
-
 @media(max-width: 900px) {
     section {
         left: 10%;
@@ -290,7 +284,6 @@ textarea{
     textarea {
         font-size: 16px;
     }
-
     .priority-button{
         font-size: 16px;
         padding: 8px 5px 8px 5px;
@@ -301,7 +294,6 @@ textarea{
     .priority-button{
         min-width: 95px;
     }
-
     .edit-task-div{
         width: calc(100% - 10px)
     }
@@ -313,16 +305,13 @@ textarea{
         width: 75%;
         padding: 32px 24px 32px 24px;
     }
-
     .content{
         padding: 0;
     }
-
     .priority-button{
         font-size: 12px;
         min-width: 70px;
     }
-
     .subtaskItem{
         textarea{
             width: 78%;
@@ -343,13 +332,11 @@ textarea{
         @include dFlex(column, center, center);
         min-width: 60px;
     }
-
     .input-div{
         input{
             width: 90%;
         }
     }
-
     .edit-delete{
         @include dFlex(row, center, center);
         position: absolute;

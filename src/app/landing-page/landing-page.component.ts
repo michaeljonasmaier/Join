@@ -3,7 +3,6 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { JoinBtnComponent } from '../shared/join-btn/join-btn.component';
 import { AuthService } from '../services/auth.service';
 import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-landing-page',
   standalone: true,
@@ -11,6 +10,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
+
 export class LandingPageComponent {
   user = { email: '', password: '' };
   logInFailed: boolean = false;
@@ -20,6 +20,7 @@ export class LandingPageComponent {
   /**
    * sign in in auth service, navigate to main if success or show log in failed message
    */
+
   onSubmit(): void {
     this.authService.signIn(this.user.email, this.user.password).then((success) => {
       if (success) {
@@ -35,6 +36,7 @@ export class LandingPageComponent {
   /**
    * sign in as guest with guest login mail and password
    */
+
   onGuestLogin(): void {
     this.authService.signIn("gg@test.de", "password").then((success) => {
       if (success) {
@@ -50,6 +52,7 @@ export class LandingPageComponent {
   /**
    * navigate to sign up component
    */
+
   navigateToSignUp(){
     this.router.navigate(['signUp']);
   }
@@ -57,6 +60,7 @@ export class LandingPageComponent {
   /**
    * navigate to privacy policy in logged out status
    */
+
   navigateToPolicy(){
     this.router.navigate(['main/privacypolicy']);
   }
@@ -64,6 +68,7 @@ export class LandingPageComponent {
   /**
    * navigate to legal notice in logged out status
    */
+  
   navigateToLegalNotice(){
     this.router.navigate(['main/legalnotice']);
   }

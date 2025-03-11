@@ -85,31 +85,25 @@ section {
     :host{
         width: 100%;
     }
-
     section{
         @include dFlex(column, flex-start, flex-start);
         margin-top: 20px;
         gap: 20px;
     }
-
     .task-list-div{
         width: 95%;  
     }
-
     .task-list-header{
         width: 95%;
     }
-
     .task-list-content{
         @include dFlex(row, flex-start, flex-start);
         overflow-x: scroll;
         padding-bottom: 20px;
     }
-
     ::-webkit-scrollbar {
         height: 8px;
     }
-
     .no-items{
         width: 35%;
     }

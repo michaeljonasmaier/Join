@@ -10,17 +10,16 @@ import { FirebaseTasksService } from '../../../../services/firebase-tasks.servic
   styleUrl: './task-item.component.scss'
 })
 export class TaskItemComponent {
-
   @Input() task!: Task
   @Output() taskClicked = new EventEmitter<Task>();
 
   constructor(private taskService: FirebaseTasksService){
-
   }
 
   /**
    * opens detail window
    */
+
   openTaskDetailItem() {
     this.taskClicked.emit(this.task);
   }
@@ -29,6 +28,7 @@ export class TaskItemComponent {
    * counts the done subtasks of the task
    * @returns {number} - number of done subtasks
    */
+
   getDoneSubtasks(){
     let num = 0;
     if(this.task.subtasks){
@@ -38,6 +38,7 @@ export class TaskItemComponent {
         }
       });
     }
+    
     return num;
   }
 }

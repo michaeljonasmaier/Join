@@ -24,6 +24,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './board-content.component.html',
   styleUrl: './board-content.component.scss'
 })
+
 export class BoardContentComponent {
   tasks: Task[] = [];
   selectedTask?: Task;
@@ -37,7 +38,6 @@ export class BoardContentComponent {
 
   data = inject(FirebaseTasksService);
   constructor(private tasksService: FirebaseTasksService, private searchService: SearchService, private router: Router, private navigation: NavigationService) {
-
   }
 
   drop(event: CdkDragDrop<Task[]>) {
@@ -76,7 +76,6 @@ export class BoardContentComponent {
 
   openTaskEdit(task: Task) {
     this.editTask = task;
-
   }
 
   filterList(list: Task[]) {

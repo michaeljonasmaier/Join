@@ -27,8 +27,6 @@
                     <input id="dueDate" [(ngModel)]="editedTask.date" formControlName="dueDate" type="date" />
                 </form>
             </div>
-
-
         </div>
 
         <div class="edit-task-div">
@@ -40,11 +38,13 @@
                     [ngClass]="{'active': editedTask.prio == 'Urgent'}">Urgent
                     <img src="../../../assets/board/urgent.png" alt="">
                 </div>
+
                 <div class="priority-button" type="button" id="medium" (click)="selectPrio('Medium')"
                     [style.backgroundColor]="editedTask.prio === 'Medium' ? '#FFA800' : 'white'"
                     [ngClass]="{'active': editedTask.prio == 'Medium'}">Medium
                     <img src="../../../assets/board/medium.png" alt="">
                 </div>
+
                 <div class="priority-button" type="button" id="low" (click)="selectPrio('Low')"
                     [style.backgroundColor]="editedTask.prio === 'Low' ? '#7AE229' : 'white'"
                     [ngClass]="{'active': editedTask.prio == 'Low'}">Low
@@ -60,6 +60,7 @@
                     <input #myInput="ngModel" [(ngModel)]="contactInputValue" type="text" (click)="toggleContactList()"
                         (keydown)="filterList()" placeholder="Select contacts to assign">
                 </div>
+
                 <img class="contact-list-button" src="/assets/board/arrow_drop_down.png" alt=""
                     (click)="toggleContactList()">
                 @if(contactListOpened){
@@ -73,13 +74,12 @@
                         } @else {
                         <img src="assets/board/unchecked.png" alt="">
                         }
-
                     </div>
                     }
                 </div>
                 }
-
             </div>
+
             <!--  <mat-form-field appearance="outline">
                 <mat-label for="assigned">Assigned to</mat-label>
                 <mat-select id="assigned" multiple>
@@ -90,6 +90,7 @@
                }   
                 </mat-select>
             </mat-form-field> -->
+
             <div class="assigned-to-div">
                 @for (assignedItem of task.assigned; track $index) {
                 <div class="assignedItem" [style.backgroundColor]="assignedItem.color">{{assignedItem.initials}}</div>
@@ -120,32 +121,13 @@
                                 } @else {
                                     <img src="assets/contacts/edit.png" alt=""> |
                                 }
-                                
                                 <img src="assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtaskItem)">
                             </div>
                         </div>
-                        
                     }
                 }
             </div>
 
-            <!-- <label for="subtasks">Subtasks</label>
-            <div class="subtask-input">
-                <input id="subtasks" type="text" placeholder="Add new subtask" (click)="changeSubtaskIcons()" />
-                <img id="plus-button" class="subtask-button" src="../../../assets/board/plus.png" alt=""
-                    (click)="changeSubtaskIcons()">
-                <div class="subtask-buttons d-none" id="subtask-buttons">
-                    <img class="subtask-button" src="../../../assets/board/close.png" alt="">
-                    |
-                    <img class="subtask-button" src="../../../assets/board/check-black.png" alt="">
-                </div>
-            </div> -->
-        </div>
-    </div>
-
     <div class="join-button-div">
         <app-join-btn title="Ok" imgPath="assets/add-contact/check.png" (click)="acceptChanges()"></app-join-btn>
-
     </div>
-
-</section>

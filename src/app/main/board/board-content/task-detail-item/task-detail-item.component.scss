@@ -4,7 +4,6 @@
     from {
         transform: translateX(200%);
     }
-
     to {
         transform: translateX(0);
     }
@@ -14,7 +13,6 @@
     from {
         transform: translateX(0);
     }
-
     to {
         transform: translateX(300%);
     }
@@ -32,7 +30,6 @@ section {
     z-index: 50;
     max-height: 700px;
     @include dFlex(column, flex-start, flex-start);
-
 }
 
 .slide-out {
@@ -75,7 +72,6 @@ section {
     height: 30px;
     width: 30px;
     border-radius: 50%;
-
     &:hover {
         cursor: pointer;
         background-color: rgb(224, 224, 224);
@@ -102,7 +98,6 @@ span {
 .prio,
 .date {
     @include dFlex();
-
     span {
         width: 150px;
         padding-right: 20px;
@@ -158,7 +153,6 @@ span {
 .delete {
     @include dFlex();
     gap: 10px;
-
     &:hover {
         cursor: pointer;
     }
@@ -166,7 +160,6 @@ span {
 
 .edit:hover {
     color: #29abe2;
-
     >img {
         content: url('../../../../../assets/contacts/edit_hover.png');
     }
@@ -174,7 +167,6 @@ span {
 
 .delete:hover {
     color: #29abe2;
-
     >img {
         content: url('../../../../../assets/contacts/delete_hover.png');
     }
@@ -192,7 +184,6 @@ span {
     }
 }
 
-
 @media(max-width: 900px) {
     section {
         left: 10%;
@@ -206,19 +197,15 @@ span {
         width: 75%;
         padding: 32px 24px 32px 24px;
     }
-
     h2 {
         font-size: 36px
     }
-
     span {
         font-size: 16px;
     }
-
     .category{
         font-size: 16px;
     }
-
     .prio,
     .date {
         @include dFlex(row, flex-start, flex-start);

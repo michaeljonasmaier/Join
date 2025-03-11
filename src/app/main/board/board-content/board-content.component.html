@@ -4,6 +4,7 @@
             <span>To do</span>
             <img class="plus-button" src="assets/board/plus-button.png" alt="" (click)="navigateToAddTask('toDo')">
         </div>
+
         <div id="toDo" class="task-list drop-area" cdkDropList [cdkDropListData]="data.toDo"
             (cdkDropListDropped)="drop($event); highlight('toDo', false)" (cdkDropListEntered)="highlight('toDo', true)"
             (cdkDropListExited)="highlight('toDo', false)" [ngClass]="{ 'highlight': highlightAreas['toDo'] }">
@@ -13,12 +14,10 @@
                 @for (task of filterList(data.toDo); track $index) {
                 <app-task-item [task]="task" cdkDrag [cdkDragStartDelay]="{ touch: 500, mouse: 0}" (taskClicked)="openTaskDetail($event)"></app-task-item>
                 }
-
                 } @else {
                 <div class="no-items">No tasks to do</div>
                 }
             </div>
-
         </div>
     </div>
 
@@ -28,11 +27,11 @@
             <img class="plus-button" src="assets/board/plus-button.png" alt=""
                 (click)="navigateToAddTask('inProgress')">
         </div>
+
         <div id="inProgress" class="task-list drop-area" cdkDropList [cdkDropListData]="data.inProgress"
             (cdkDropListDropped)="drop($event); highlight('inProgress', false)"
             (cdkDropListEntered)="highlight('inProgress', true)" (cdkDropListExited)="highlight('inProgress', false)"
             [ngClass]="{ 'highlight': highlightAreas['inProgress'] }">
-
             <div class="task-list-content">
                 @if(data.inProgress.length>0){
                 @for (task of filterList(data.inProgress); track $index) {
@@ -51,12 +50,12 @@
             <img class="plus-button" src="assets/board/plus-button.png" alt=""
                 (click)="navigateToAddTask('awaitFeedback')">
         </div>
+
         <div id="awaitFeedback" class="task-list drop-area" cdkDropList [cdkDropListData]="data.awaitFeedback"
             (cdkDropListDropped)="drop($event); highlight('awaitFeedback', false)"
             (cdkDropListEntered)="highlight('awaitFeedback', true)"
             (cdkDropListExited)="highlight('awaitFeedback', false)"
             [ngClass]="{ 'highlight': highlightAreas['awaitFeedback'] }">
-
             <div class="task-list-content">
                 @if (data.awaitFeedback.length>0) {
                 @for (task of filterList(data.awaitFeedback); track $index) {
@@ -73,10 +72,10 @@
         <div class="task-list-header">
             <span>Done</span>
         </div>
+
         <div id="done" class="task-list drop-area" cdkDropList [cdkDropListData]="data.done"
             (cdkDropListDropped)="drop($event); highlight('done', false)" (cdkDropListEntered)="highlight('done', true)"
             (cdkDropListExited)="highlight('done', false)" [ngClass]="{ 'highlight': highlightAreas['done'] }">
-
             <div class="task-list-content">
                 @if(data.done.length>0){
                 @for (task of filterList(data.done); track $index) {
@@ -88,15 +87,13 @@
             </div>
         </div>
     </div>
-
 </section>
-
 
 @if(selectedTask){
 <app-task-detail-item [task]="selectedTask" (close)="closeTaskDetail()"
     (taskEditClicked)="openTaskEdit($event)"></app-task-detail-item>
-
 }
+
 @if(editTask){
 <app-edit-task [task]="editTask" (close)="closeTaskEdit()"></app-edit-task>
 }
