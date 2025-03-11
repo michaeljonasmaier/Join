@@ -93,8 +93,7 @@
                 <img class="subtask-button" src="../../../assets/board/check-black.png" alt="" (click)="saveSubtask()">
               </div>
             }
-            
-                          
+                        
           </div>
           <p id="value-required" class="d-none" style="color: red; margin: 1px;">You need to enter a subtask</p>
           @if (subtasks) {
@@ -115,18 +114,15 @@
                   <img src="../../../assets/board/check-black.png" alt="" (click)="submitEditSubtask(subtask)">
                 </div>
               </div>
-              
             }
           }
         </div>
       </div>
     </div>
     
-
     <div class="form-actions buttons-div">
       <button class="end-buttons clear-btn" type="button" (click)="onClear()">Clear <img src="../../../assets/add-contact/Vector.png" alt=""></button>
       <button class="end-buttons submit-btn" type="submit" [disabled]="taskForm.invalid">Create Task <img src="../../../assets/add-contact/check.png" alt=""></button>
     </div>
   </form>
-  
 </div>
