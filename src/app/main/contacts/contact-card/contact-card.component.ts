@@ -24,12 +24,18 @@ export class ContactCardComponent {
 
   }
 
+  /**
+   * subscribes the selected Contact from ContactsService
+   */
   ngOnInit() {
     this.contactsService.selectedContact$.subscribe(contact => {
       this.selectedContact = contact;
     });
   }
 
+  /**
+   * calls the delete contact function in the ContactsService
+   */
   deleteContact() {
     if (this.selectedContact) {
       this.contactsService.deleteContact(this.selectedContact.id);
@@ -37,22 +43,38 @@ export class ContactCardComponent {
     }
   }
 
+  /**
+   * Closes the Window
+   */
   closeCard(): void {
     this.close.emit();
   }
 
+  /**
+   * Opens the options in mobile version
+   */
   openButton(){
     this.modalWindowService.openButton('actions_mobile', 'invise-bg');
   }
 
+  /**
+   * closes the options in mobile version
+   */
   closeButton(){
     this.modalWindowService.closeButton('actions_mobile', 'invise-bg');
   }
 
+  /**
+   * Stops propagation
+   * @param event - the event happening (clicking/touching)
+   */
   bubblingProtection(event: any) {
     event.stopPropagation();
   }
 
+  /**
+   * Opens the info window 
+   */
   openEdit(){
     if (this.editComponent) {
       this.editComponent.openInfo();
