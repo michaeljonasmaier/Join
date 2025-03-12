@@ -17,7 +17,7 @@
             </div>
             
             <div class="input-group">
-                <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required>
+                <input type="email" #email="ngModel" placeholder="Email" [(ngModel)]="user.email" name="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required>
                 <img src="assets/landing-page/mail.png" alt="">
             </div>
 
@@ -33,6 +33,8 @@
 
             @if(user.password && user.confirmPassword && user.password !== user.confirmPassword){
                 <span class="err-msg">Passwords do not match.</span>
+            } @else if (!email.valid && email.touched && !email.disabled) {
+                <span class="err-msg">Please enter a valid Email.</span>
             } @else {
                 <span class="err-msg"></span>
             }

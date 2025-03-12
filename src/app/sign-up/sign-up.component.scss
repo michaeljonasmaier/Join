@@ -150,6 +150,13 @@ footer {
     }
 }
 
+@media(min-width: 2100px){
+    .logo {
+      top: 100px;
+      left: calc(50% - 930px);
+    }
+  }
+
 @media (max-width: 768px) {
     .logo {
         top: 40px;
