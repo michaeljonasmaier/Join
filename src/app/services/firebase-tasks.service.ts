@@ -31,7 +31,6 @@ export class FirebaseTasksService {
 
   subTasksList() {
     let q = query(this.getTasksRef());
-
     return onSnapshot(q, (list) => {
       this.tasks = []
       list.forEach(element => {

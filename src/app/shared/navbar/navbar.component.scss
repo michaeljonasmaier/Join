@@ -1,15 +1,15 @@
 @import '../../../styles.scss';
 
 nav {
-    height: calc(100vh - 128px);
+    height: 100vh;
     position: sticky;
     width: 240px;
+    background-color: $main_grey;
 }
 
 .navbar-content {
-    background-color: $main_grey;
     @include dFlex(column, space-between, center);
-    height: 100%;
+    height: calc(100% - 128px);
     padding-top: 64px;
     padding-bottom: 64px;
 }
@@ -56,6 +56,12 @@ span {
     &:hover{
         color: #29ABE2;
         font-weight: 700;
+    }
+}
+
+@media(min-height: 1200px){
+    .navbar-content{
+        height: 1200px;
     }
 }
 
