@@ -123,7 +123,7 @@ export class ModalWindowService {
     notification.style.transform = 'translateY(0)';
     setTimeout(() => {
       if (!notification) return;
-      notification.style.transform = 'translateY(1000%)';
+      notification.style.transform = 'translateY(10000%)';
     }, 1500);
   }
 }
