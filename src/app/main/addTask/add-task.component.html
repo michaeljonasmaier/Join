@@ -1,5 +1,5 @@
 <div class="task-form">
-  <div id="notification" class="notification">Task added to board <img src="../../../assets/board/grid.png" alt=""></div>
+  <div id="notification" class="notification">Task added to board <img src="assets/board/grid.png" alt=""></div>
   <h2>Add Task</h2>
 
   <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
@@ -57,9 +57,9 @@
         <div class="form-group">
           <label>Prio</label>
           <div class="priority-buttons">
-          <button class="priority-button" type="button" id="urgent" (click)="setPriority('Urgent')">Urgent <img src="../../../assets/board/urgent.png" alt=""></button>
-          <button class="medium priority-button" type="button" id="medium" (click)="setPriority('Medium')">Medium <img src="../../../assets/board/medium.png" alt=""></button>
-          <button class="priority-button" type="button" id="low" (click)="setPriority('Low')">Low <img src="../../../assets/board/low.png" alt=""></button>
+          <button class="priority-button" type="button" id="urgent" (click)="setPriority('Urgent')">Urgent <img src="assets/board/urgent.png" alt=""></button>
+          <button class="medium priority-button" type="button" id="medium" (click)="setPriority('Medium')">Medium <img src="assets/board/medium.png" alt=""></button>
+          <button class="priority-button" type="button" id="low" (click)="setPriority('Low')">Low <img src="assets/board/low.png" alt=""></button>
           </div>
         </div>
 
@@ -85,12 +85,12 @@
               (click)="changeSubtaskIcons()"
             />
             @if ((!subtaskIconShown)) {
-              <img id="plus-button" class="subtask-button" src="../../../assets/board/plus.png" alt="" (click)="changeSubtaskIcons()">
+              <img id="plus-button" class="subtask-button" src="assets/board/plus.png" alt="" (click)="changeSubtaskIcons()">
             } @else{
               <div class="subtask-buttons" [class.d-none]="!subtaskIconShown" id="subtask-buttons">
-                <img class="subtask-button" src="../../../assets/board/close.png" alt="" (click)="cleanSubtask()">
+                <img class="subtask-button" src="assets/board/close.png" alt="" (click)="cleanSubtask()">
                 |
-                <img class="subtask-button" src="../../../assets/board/check-black.png" alt="" (click)="saveSubtask()">
+                <img class="subtask-button" src="assets/board/check-black.png" alt="" (click)="saveSubtask()">
               </div>
             }
                         
@@ -101,17 +101,17 @@
               <div class="subtask-container" (click)="editSubtask(subtask)" id="subtask-container-{{subtask}}">
                 <p class="single-subtask">• {{subtask}}</p>
                 <div>
-                  <img src="../../../assets/contacts/edit.png" alt="" (click)="editSubtask(subtask)">
+                  <img src="assets/contacts/edit.png" alt="" (click)="editSubtask(subtask)">
                 |
-                <img src="../../../assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtask)">
+                <img src="assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtask)">
                 </div>
               </div>
               <div class="single-subtask-container d-none" id="single-subtask-container-{{subtask}}">
                 <input id="{{subtask}}-value" type="text" [value]="subtask">
                 <div>
-                  <img src="../../../assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtask)">
+                  <img src="assets/contacts/delete.png" alt="" (click)="deleteSubtask(subtask)">
                   |
-                  <img src="../../../assets/board/check-black.png" alt="" (click)="submitEditSubtask(subtask)">
+                  <img src="assets/board/check-black.png" alt="" (click)="submitEditSubtask(subtask)">
                 </div>
               </div>
             }
@@ -121,8 +121,8 @@
     </div>
     
     <div class="form-actions buttons-div">
-      <button class="end-buttons clear-btn" type="button" (click)="onClear()">Clear <img src="../../../assets/add-contact/Vector.png" alt=""></button>
-      <button class="end-buttons submit-btn" type="submit" [disabled]="taskForm.invalid">Create Task <img src="../../../assets/add-contact/check.png" alt=""></button>
+      <button class="end-buttons clear-btn" type="button" (click)="onClear()">Clear <img src="assets/add-contact/Vector.png" alt=""></button>
+      <button class="end-buttons submit-btn" type="submit" [disabled]="taskForm.invalid">Create Task <img src="assets/add-contact/check.png" alt=""></button>
     </div>
   </form>
 </div>

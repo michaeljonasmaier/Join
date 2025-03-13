@@ -15,10 +15,14 @@ import { AuthService } from '../../services/auth.service';
 export class NavbarComponent {
   navigationService  = inject(NavigationService);
   isLoggedIn = false;
+ 
   constructor(private navigation: NavigationService, private authService: AuthService){
-    if(this.authService.isLoggedIn){
-      this.isLoggedIn = true;
-    }
+    this.authService.currentUser$.subscribe(user => {
+      if(user){
+        this.isLoggedIn = true;
+      }
+    });
+    
   }
 
   /**

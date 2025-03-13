@@ -11,7 +11,7 @@
     <div class="metrics-grid">
       <div class="dis-flex">
         <div class="metric-card to-do-card" (click)="onCardClick()">
-          <img class="icon" src="../../../assets/summary/pencil.png" alt="">
+          <img class="icon" src="assets/summary/pencil.png" alt="">
           <div class="info-div">
             <div class="count">{{boardData.toDo.length}}</div>
             <div class="label">To-do</div>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="metric-card done-card" (click)="onCardClick()">
-          <img class="icon" src="../../../assets/summary/check.png" alt="">
+          <img class="icon" src="assets/summary/check.png" alt="">
           <div class="info-div">
             <div class="count">{{boardData.done.length}}</div>
             <div class="label">Done</div>
@@ -28,7 +28,7 @@
       </div>
 
       <div class="metric-card large" (click)="onCardClick()">
-          <img class="icon" src="../../../assets/summary/urgent.png" alt="">
+          <img class="icon" src="assets/summary/urgent.png" alt="">
           <div class="info-div">
             <div class="count">{{getNumberOfUrgentTasks()}}</div>
             <div class="label">Urgent</div>
@@ -68,7 +68,8 @@
     <div class="greeting">
       <h2>Good morning,
         <br>
-        <span class="highlight">{{currentUser.name}}</span>
+          <span class="highlight">{{currentUser.displayName}}</span>
+        
       </h2>
     </div>
   </div>

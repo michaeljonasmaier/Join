@@ -3,13 +3,7 @@
     {
       "target": "join",
       "source": ".",
-      "frameworksBackend": {},
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/"
-        }
-      ]
+      "frameworksBackend": {}
     }
   ]
 }

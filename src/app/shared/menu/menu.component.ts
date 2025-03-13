@@ -45,7 +45,6 @@ export class MenuComponent {
 
   signOut(){
     this.authService.signOut();
-    this.authService.isLoggedIn = false;
     this.router.navigate(['']);
     this.closeMenu();
   }

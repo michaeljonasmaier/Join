@@ -15,20 +15,20 @@ import { MenuComponent } from '../menu/menu.component';
 })
 
 export class HeaderComponent {
-  currentUser: UserInterface = { name: "", "email": "" };
+  currentUser: any;
   currentUserInitials: string = "";
   menuOpened = false;
   firstLoad = true;
   isLoggedIn = false;
 
   constructor(private navigation: NavigationService, private authService: AuthService, private router: Router) {
-    if (this.authService.currentUser) {
-      this.currentUser = this.authService.currentUser;
-      if(this.authService.isLoggedIn){
+    this.authService.currentUser$.subscribe(user => {
+      if(user){
+        this.currentUser = user;
         this.isLoggedIn = true;
-        this.currentUserInitials = this.getInitials(this.currentUser.name);
       }
-    }
+    });
+    this.currentUserInitials = this.getInitials(this.currentUser.displayName);
   }
 
   /**

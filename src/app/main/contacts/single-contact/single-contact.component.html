@@ -2,7 +2,7 @@
 <app-grey-background class="d-none" id="absolute-background-add" (click)="closeInfo()"></app-grey-background>
 <div class="add-contact" id="add-contact">
     <div class="folder-info">
-        <img src="../../../../assets/add-contact/Capa 2.png" alt="">
+        <img src="assets/add-contact/Capa 2.png" alt="">
         <h2>Add contact</h2>
         <h3>Tasks are better with a team!</h3>
         <div class="add-contact-line"></div>
@@ -10,15 +10,15 @@
     </div>
 
     <div class="add-info">
-        <img class="close" (click)="closeInfo()" src="../../../../assets/add-contact/iconoir_cancel.png" alt="">
+        <img class="close" (click)="closeInfo()" src="assets/add-contact/iconoir_cancel.png" alt="">
         <div class="add-info-main">
-            <img class="profile-image" src="../../../../assets/add-contact/Group 13.png" alt="">
+            <img class="profile-image" src="assets/add-contact/Group 13.png" alt="">
             <form #contactForm="ngForm">
                 <div class="inputs">
                     <div class="single-input">
                         <input name="name" #nameRef="ngModel" [(ngModel)]="contact.name" type="text" placeholder="Name"
                             required>
-                        <img src="../../../../assets/add-contact/person.png" alt="">
+                        <img src="assets/add-contact/person.png" alt="">
                     </div>
                     
                     @if(!nameRef.valid && nameRef.touched && !nameRef.disabled){
@@ -27,7 +27,7 @@
                     <div class="single-input">
                         <input name="mail" #mailRef="ngModel" [(ngModel)]="contact.mail" type="email"
                             placeholder="Email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required>
-                        <img src="../../../../assets/add-contact/mail.png" alt="">
+                        <img src="assets/add-contact/mail.png" alt="">
                     </div>
 
                     @if(!mailRef.valid && mailRef.touched && !mailRef.disabled){
@@ -36,7 +36,7 @@
                     <div class="single-input">
                         <input name="phone" #phoneRef="ngModel" [(ngModel)]="contact.phone" type="tel"
                             placeholder="Phone" pattern="^(\+\d{1,4}\s?)?(\d[\d\s]{6,14}\d)$" required>
-                        <img src="../../../../assets/add-contact/call.png" alt="">
+                        <img src="assets/add-contact/call.png" alt="">
                     </div>
 
                     @if(!phoneRef.valid && phoneRef.touched && !phoneRef.disabled){
@@ -44,14 +44,14 @@
                     }
                     <div class="add-contact-buttons">
                         <div class="cancel add-contact-button" (click)="cleanInputs()">Cancel <img
-                                src="../../../../assets/add-contact/iconoir_cancel.png" alt=""></div>
+                                src="assets/add-contact/iconoir_cancel.png" alt=""></div>
 
                         @if(contactForm.valid){
                         <button type="submit" class="create add-contact-button" (click)="createContact()">Create contact
-                            <img src="../../../../assets/add-contact/check.png" alt=""></button>
+                            <img src="assets/add-contact/check.png" alt=""></button>
                         } @else {
                         <button type="submit" class="create add-contact-button" disabled>Create contact <img
-                                src="../../../../assets/add-contact/check.png" alt=""></button>
+                                src="assets/add-contact/check.png" alt=""></button>
                         }
                     </div>
                 </div>

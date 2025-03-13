@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, onAuthStateChanged, User } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, onAuthStateChanged, User, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { UserInterface } from '../interfaces/user';
+import { Auth } from '@angular/fire/auth';
+import { BehaviorSubject } from 'rxjs';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-je28q_3U0hgeAY7Eq9b1KlC6CHGX9BE",
@@ -18,10 +20,15 @@ const app = initializeApp(firebaseConfig);
 })
 
 export class AuthService {
-  isLoggedIn = false;
   logInSuccessfull: boolean = false;
-  currentUser: UserInterface | null = { name: "", email: "" };
-  constructor() {
+  
+  private currentUserSubject = new BehaviorSubject<User | null>(null);
+  currentUser$ = this.currentUserSubject.asObservable();
+
+  constructor(private auth: Auth) {
+    onAuthStateChanged(this.auth, (user) => {
+      this.currentUserSubject.next(user); 
+    });
   }
 
   /**
@@ -78,7 +85,6 @@ export class AuthService {
     const auth = getAuth();
     signOut(auth).then(() => {
       this.getCurrentUser();
-      this.currentUser = null;
     }).catch((error) => {
       // An error happened.
     });
@@ -98,6 +104,19 @@ export class AuthService {
         // ...
       } else {
       }
+    });
+  }
+
+  /**
+   * checks, if currently a user is logged in
+   * @returns true if user is logged in
+   */
+  
+  isAuthenticated(): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.auth.onAuthStateChanged((user) => {
+        resolve(!!user);
+      });
     });
   }
   
@@ -128,9 +147,9 @@ updateUserProfile(displayName: string): Promise < boolean > {
  */
 
 createUserObject(userObj: any){
-  this.currentUser = {
+  /* this.currentUser = {
     name: userObj.displayName,
     email: userObj.email,
-  }
+  } */
 }  
 }

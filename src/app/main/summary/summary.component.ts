@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { UserInterface } from '../../interfaces/user';
 import { FirebaseTasksService } from '../../services/firebase-tasks.service';
+import { user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-summary',
@@ -13,12 +14,15 @@ import { FirebaseTasksService } from '../../services/firebase-tasks.service';
 })
 
 export class SummaryComponent {
-  currentUser: UserInterface = {name: "", "email": ""} ;
   boardData = inject(FirebaseTasksService);
+  currentUser: any;
+
   constructor(private router: Router, private authService: AuthService) {
-    if(this.authService.currentUser){
-      this.currentUser = this.authService.currentUser;
-    }
+    this.authService.currentUser$.subscribe(user => {
+      if(user){
+        this.currentUser = user;
+      }
+    })
     this.getUpcomingDate();
   }
 
